@@ -5,6 +5,7 @@ import ArticleHero from '../components/ArticleHero.astro';
 import PostCard from '../components/PostCard.astro';
 import RoutePanel from '../components/RoutePanel.astro';
 import { getPosts, toCard } from '../lib/content';
+import { stripRouteTable } from '../lib/strip-route-table.mjs';
 
 // Reproduce every legacy WordPress URL 1:1. Each entry carries its exact
 // original permalink in `data.path`; we turn that into the catch-all slug so
@@ -48,6 +49,10 @@ const isWalk =
   kind === 'post' &&
   (d.categories?.includes('Bowland Walks') || d.categories?.includes('Other area walks'));
 const route = isWalk ? d.route ?? [] : [];
+// When the panel is shown, strip the now-redundant inline route table from the
+// body. Falls back to <Content /> if the raw HTML isn't available.
+const rawHtml = entry.rendered?.html || '';
+const strippedBody = route.length > 0 && rawHtml ? stripRouteTable(rawHtml) : null;
 ---
 
 <BaseLayout
@@ -68,9 +73,11 @@ const route = isWalk ? d.route ?? [] : [];
   <article class="container">
     {route.length > 0 ? (
       <div class="walk-layout">
-        <div class="prose walk-prose">
-          <Content />
-        </div>
+        {strippedBody != null ? (
+          <div class="prose walk-prose" set:html={strippedBody}></div>
+        ) : (
+          <div class="prose walk-prose"><Content /></div>
+        )}
         <RoutePanel route={route} />
       </div>
     ) : (
