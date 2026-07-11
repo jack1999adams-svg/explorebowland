@@ -1,37 +1,76 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
+import Tile from '../components/Tile.astro';
 import { getPosts, toCard } from '../lib/content';
+
+const IMG = 'https://www.explorebowland.co.uk/wp-content/uploads';
 
 const posts = await getPosts();
 const [featured, ...rest] = posts;
-const recent = rest.slice(0, 8);
-// Use the newest walk's photo as the hero backdrop (swaps to R2 automatically
-// once IMAGE_CDN_BASE is set at import time). Falls back to solid navy.
-const heroBg = featured?.data.hero;
+const recent = rest.slice(0, 6);
+
+const bowlandCount = posts.filter((p) => p.data.categories.includes('Bowland Walks')).length;
+const otherCount = posts.filter((p) => p.data.categories.includes('Other area walks')).length;
+
+// Where-to-walk tiles
+const walkTiles = [
+  {
+    href: '/forest-of-bowland-walks/',
+    title: 'Bowland Walks',
+    count: bowlandCount,
+    desc: 'Fells, rivers and moorland at the heart of the AONB.',
+    image: `${IMG}/2021/08/Bleasdale-walk-7-scaled.jpg`,
+  },
+  {
+    href: '/forest-of-bowland/other-walks/',
+    title: 'Other Area Walks',
+    count: otherCount,
+    desc: 'The Dales, Lakes and hills within easy reach of Bowland.',
+    image: `${IMG}/2019/04/Bolton-Abbey-walk-4.jpg`,
+  },
+];
+
+// Explore-the-area tiles
+const exploreTiles = [
+  { href: '/things-to-do/towns-and-villages/', title: 'Towns & Villages', image: `${IMG}/2019/05/Abbeystead-aerial-2976x2232.jpg` },
+  { href: '/things-to-do/', title: 'Things to Do', image: `${IMG}/2021/05/Bowland-Wild-Boar-Park-scaled.jpg` },
+  { href: '/forest-of-bowland-photos/', title: 'Photo Galleries', image: `${IMG}/2020/04/Forest-of-Bowland-Stargazing.jpg` },
+  { href: '/eat-drink-sleep/', title: 'Eat · Drink · Sleep', image: `${IMG}/2018/10/Parkers-arms-bowland-1.jpg` },
+  { href: '/local-information/', title: 'Local Information', image: `${IMG}/2019/05/Clitheroe-Castle.jpg` },
+  { href: '/things-to-do/places-of-interest/', title: 'Places of Interest', image: `${IMG}/2019/05/The-hub-Gisburn-Forest.jpg` },
+];
+
+const heroImg = `${IMG}/2020/10/Longridge-Fell-sunrise.jpg`;
 ---
 
 <BaseLayout
   title="Explore Bowland"
-  description="A walking and visitor guide to the Forest of Bowland — Lancashire's Area of Outstanding Natural Beauty. Walk guides, photos and local information."
+  description="A walking and visitor guide to the Forest of Bowland — Lancashire's Area of Outstanding Natural Beauty. Walk guides, photography and local information."
   path="/"
 >
-  <section class="landing" style={heroBg ? `--hero-bg: url('${heroBg}')` : undefined}>
-    <div class="container landing-inner">
+  <!-- HERO -->
+  <section class="hero" style={`--hero: url('${heroImg}')`}>
+    <div class="container hero-inner">
       <p class="eyebrow eyebrow--light">Forest of Bowland · Lancashire AONB</p>
-      <h1>Discover the Forest of Bowland</h1>
-      <p class="lead">Walk guides, photography and local know-how for one of
-        England's quietest and most beautiful upland landscapes.</p>
+      <h1>Walk the Forest of Bowland</h1>
+      <p class="lead">Guides, photography and local know-how for one of England's
+        quietest and most beautiful upland landscapes.</p>
       <p class="actions">
         <a href="/forest-of-bowland-walks/" class="btn">Browse the walks</a>
-        <a href="/blog/" class="btn btn--ghost btn--on-dark">Latest posts</a>
+        <a href="/forest-of-bowland/" class="btn btn--ghost btn--on-dark">About the area</a>
       </p>
+      <p class="stat">{posts.length} walk guides · {exploreTiles.length}+ places to explore</p>
     </div>
   </section>
 
+  <!-- RECENT WALKS -->
   <section class="container section">
     <div class="section-head">
-      <h2>Recent walks &amp; posts</h2>
+      <div>
+        <p class="eyebrow">The journal</p>
+        <h2>Recent walks &amp; posts</h2>
+      </div>
       <a href="/blog/" class="more">View all →</a>
     </div>
     <div class="grid">
@@ -39,37 +78,148 @@ const heroBg = featured?.data.hero;
       {recent.map((p) => <PostCard {...toCard(p)} />)}
     </div>
   </section>
+
+  <!-- WHERE TO WALK -->
+  <section class="band">
+    <div class="container section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Choose your route</p>
+          <h2>Where do you want to walk?</h2>
+        </div>
+      </div>
+      <div class="walk-grid">
+        {walkTiles.map((t) => <Tile {...t} tall />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE THE AREA -->
+  <section class="container section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Beyond the trails</p>
+        <h2>Explore the area</h2>
+      </div>
+    </div>
+    <div class="explore-grid">
+      {exploreTiles.map((t) => <Tile {...t} />)}
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container about-inner">
+      <div class="about-text">
+        <p class="eyebrow">Lancashire's hidden upland</p>
+        <h2>An Area of Outstanding Natural Beauty</h2>
+        <p>The Forest of Bowland is a landscape of gritstone fells, deep wooded
+          cloughs and heather moorland straddling Lancashire and North Yorkshire.
+          "Forest" here means a royal hunting ground, not woodland — it's open,
+          wild country criss-crossed with quiet paths and old packhorse routes.</p>
+        <p>Explore Bowland has been documenting walks and days out across the
+          area for over a decade. Every guide comes from boots actually on the
+          ground.</p>
+        <p><a href="/forest-of-bowland/" class="btn btn--ghost">More about Bowland</a></p>
+      </div>
+      <img
+        src={`${IMG}/2020/08/Millers-House-fingerpost-sign-scaled.jpg`}
+        alt="Fingerpost sign on a Forest of Bowland footpath"
+        class="about-img"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner">
+      <h2>Planning a visit?</h2>
+      <p>Questions about a route, access or the area? We're always happy to help.</p>
+      <a href="/get-in-touch/" class="btn">Get in touch</a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  .landing {
-    background:
-      linear-gradient(180deg, rgba(0, 29, 57, 0.6), rgba(0, 29, 57, 0.88)),
-      var(--hero-bg, none) center/cover no-repeat,
-      var(--navy);
+  /* HERO */
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: clamp(460px, 78vh, 720px);
     color: #fff;
+    background:
+      linear-gradient(105deg, rgba(0, 29, 57, 0.82) 0%, rgba(0, 29, 57, 0.45) 55%, rgba(0, 29, 57, 0.25) 100%),
+      var(--hero) center/cover no-repeat,
+      var(--navy);
   }
-  .landing-inner { padding-block: clamp(3rem, 8vw, 6rem); max-width: 46rem; }
+  .hero-inner { padding-block: 4rem; max-width: 44rem; }
+  .hero h1 { color: #fff; font-size: var(--step-4); margin: 0.3rem 0 0.6rem; }
   .eyebrow--light { color: var(--green); }
-  .landing h1 { color: #fff; font-size: var(--step-4); margin-top: 0.4rem; }
-  .lead { font-size: var(--step-1); color: #e2eaf0; max-width: 38ch; }
-  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
-  .btn--on-dark { color: #fff; border-color: rgba(255, 255, 255, 0.35); }
+  .hero .lead { font-size: var(--step-1); color: #e6edf2; max-width: 34ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.6rem 0 1.2rem; }
+  .btn--on-dark { color: #fff; border-color: rgba(255, 255, 255, 0.4); }
   .btn--on-dark:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+  .stat { font-size: 0.9rem; color: #b9c6d3; margin: 0; }
 
-  .section { padding-block: 3rem; }
+  /* SECTION scaffolding */
+  .section { padding-block: 3.5rem; }
   .section-head {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
   }
-  .section-head h2 { margin: 0; }
+  .section-head h2 { margin: 0.15rem 0 0; }
+  .section-head .eyebrow { display: block; }
   .more { font-weight: 600; white-space: nowrap; }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1.5rem;
+  }
+
+  .band { background: var(--paper-2); border-block: 1px solid var(--line); }
+  .walk-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* ABOUT */
+  .about { padding-block: 1rem 0; }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding-block: 3.5rem;
+  }
+  .about-text h2 { margin: 0.2rem 0 0.8rem; }
+  .about-text p { color: var(--ink-soft); }
+  .about-text .btn { margin-top: 0.5rem; }
+  .about-img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4 / 3; object-fit: cover; }
+
+  /* CTA */
+  .cta { background: var(--navy); color: #fff; }
+  .cta-inner { text-align: center; padding-block: 3.5rem; }
+  .cta h2 { color: #fff; }
+  .cta p { color: #cdd6e0; max-width: 44ch; margin-inline: auto; margin-bottom: 1.4rem; }
+
+  @media (max-width: 820px) {
+    .explore-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .about-img { order: -1; }
+  }
+  @media (max-width: 560px) {
+    .walk-grid, .explore-grid { grid-template-columns: 1fr; }
   }
 </style>

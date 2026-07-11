@@ -120,17 +120,16 @@ function excerptFrom(md) {
   return text.slice(0, 155).replace(/\s+\S*$/, '').trim();
 }
 
-const urlMap = [];
-let counts = { post: 0, page: 0 };
-
+// Pass 1: build a record per published post/page.
+const records = [];
 for (const it of items) {
   const type = val(it['wp:post_type']);
   if (type !== 'post' && type !== 'page') continue;
   if (val(it['wp:status']) !== 'publish') continue;
 
   const id = Number(val(it['wp:post_id']));
-  idToLink.set(String(id), pathFromLink(val(it.link)));
   const urlPath = pathFromLink(val(it.link));
+  idToLink.set(String(id), urlPath);
   if (!urlPath) continue;
   if (urlPath === '/') continue; // front page owned by custom index.astro
 
@@ -162,26 +161,64 @@ for (const it of items) {
   const description = rawExcerpt || excerptFrom(body);
   const pubDate = val(it['wp:post_date_gmt']) || val(it.pubDate) || '';
 
+  records.push({
+    id, type, urlPath, title, categories, hero, heroAlt, body, description, pubDate,
+    dateMs: pubDate && pubDate !== '0000-00-00 00:00:00' ? Date.parse(pubDate.replace(' ', 'T') + 'Z') || 0 : 0,
+  });
+}
+
+// Resolve duplicate permalinks (WordPress data can contain two published posts
+// with the same slug — only one can be canonical). The NEWER post keeps the
+// original URL (matching what the live site serves); older ones are preserved
+// at a suffixed URL so no content is lost.
+const byPath = new Map();
+for (const r of records) (byPath.get(r.urlPath) ?? byPath.set(r.urlPath, []).get(r.urlPath)).push(r);
+const collisions = [];
+for (const [p, group] of byPath) {
+  if (group.length < 2) continue;
+  group.sort((a, b) => b.dateMs - a.dateMs); // newest first keeps canonical path
+  group.forEach((r, i) => {
+    if (i === 0) return;
+    const stem = p.replace(/\/$/, '');
+    r.urlPath = `${stem}-${i + 1}/`;
+    collisions.push({ title: r.title, wpId: r.id, keptCanonical: group[0].title, newPath: r.urlPath });
+  });
+}
+
+// Pass 2: write files with guaranteed-unique names.
+const urlMap = [];
+const usedFiles = new Set();
+let counts = { post: 0, page: 0 };
+for (const r of records) {
   const fm = [
     '---',
-    `title: ${yamlStr(title)}`,
-    `description: ${yamlStr(description)}`,
-    `path: ${yamlStr(urlPath)}`,
-    pubDate && pubDate !== '0000-00-00 00:00:00' ? `pubDate: ${yamlStr(pubDate.replace(' ', 'T') + 'Z')}` : '',
-    hero ? `hero: ${yamlStr(hero)}` : '',
-    hero ? `heroAlt: ${yamlStr(heroAlt)}` : '',
-    type === 'post' && categories.length ? `categories:\n${categories.map((c) => `  - ${yamlStr(c)}`).join('\n')}` : '',
-    `wpId: ${id}`,
+    `title: ${yamlStr(r.title)}`,
+    `description: ${yamlStr(r.description)}`,
+    `path: ${yamlStr(r.urlPath)}`,
+    r.dateMs ? `pubDate: ${yamlStr(r.pubDate.replace(' ', 'T') + 'Z')}` : '',
+    r.hero ? `hero: ${yamlStr(r.hero)}` : '',
+    r.hero ? `heroAlt: ${yamlStr(r.heroAlt)}` : '',
+    r.type === 'post' && r.categories.length ? `categories:\n${r.categories.map((c) => `  - ${yamlStr(c)}`).join('\n')}` : '',
+    `wpId: ${r.id}`,
   ]
     .filter((l) => l !== '')
     .join('\n');
   const frontmatter = `${fm}\n---\n\n`;
 
-  const fileSlug = slugify(urlPath.replace(/^\/|\/$/g, '').replace(/\//g, '--')) || `id-${id}`;
-  const dir = type === 'post' ? dirs.post : dirs.page;
-  fs.writeFileSync(path.join(dir, `${fileSlug}.md`), frontmatter + body + '\n');
-  urlMap.push({ type, path: urlPath, title, file: `${fileSlug}.md` });
-  counts[type]++;
+  let fileSlug = slugify(r.urlPath.replace(/^\/|\/$/g, '').replace(/\//g, '--')) || `id-${r.id}`;
+  while (usedFiles.has(fileSlug)) fileSlug = `${fileSlug}-${r.id}`;
+  usedFiles.add(fileSlug);
+
+  const dir = r.type === 'post' ? dirs.post : dirs.page;
+  fs.writeFileSync(path.join(dir, `${fileSlug}.md`), frontmatter + r.body + '\n');
+  urlMap.push({ type: r.type, path: r.urlPath, title: r.title, file: `${fileSlug}.md` });
+  counts[r.type]++;
+}
+
+if (collisions.length) {
+  console.log(`\nResolved ${collisions.length} duplicate permalink(s):`);
+  for (const c of collisions) console.log(`  "${c.title}" (id ${c.wpId}) -> ${c.newPath}  [canonical URL kept by "${c.keptCanonical}"]`);
+  console.log('');
 }
 
 // ---------------------------------------------------------------------------
