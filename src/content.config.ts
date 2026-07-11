@@ -39,7 +39,10 @@ const posts = defineCollection({
       heroAlt: p.imageAlt,
       draft: false, // the portal only serves published posts
       wpId: p.extras.wpId,
-      categories: p.extras.categories ?? [p.categoryLabel],
+      // The portal's category selector is the single source of truth — the
+      // imported extras.categories array is deliberately ignored so selector
+      // changes always render. (Cost: 2 of 116 WP posts lose a cross-listing.)
+      categories: [p.categoryLabel],
       // Section (category) → parent page assignment, editable in the portal.
       // Used to list a section's posts on its parent page. Treated as data.
       sectionLabel: p.categoryLabel,
