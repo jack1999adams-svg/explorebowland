@@ -1,7 +1,7 @@
 ---
-// Route-info sidebar for walk posts. Renders the portal-supplied route custom
-// fields (already filtered to non-empty by buildRoute). Coordinate fields get a
-// "view on map" link.
+// Route-info sidebar for walk posts. Desktop: sticky card in the right column.
+// Mobile: a fixed circular button that opens the route info as a bottom sheet.
+// Renders the portal-supplied route fields (already filtered to non-empty).
 interface RouteItem { key: string; label: string; value: string; coords?: boolean; }
 interface Props { route: RouteItem[]; }
 const { route } = Astro.props;
@@ -12,19 +12,22 @@ const hostOf = (s: string) => { try { return new URL(s).hostname.replace(/^www\.
 ---
 
 <aside class="route" aria-label="Route information">
-  <div class="route-card">
-    <h2 class="route-title">Route info</h2>
+  <div class="route-backdrop" data-route-close></div>
+
+  <div class="route-card" role="region" aria-label="Route info">
+    <div class="route-head">
+      <h2 class="route-title">Route info</h2>
+      <button type="button" class="route-close" data-route-close aria-label="Close route info">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
     <dl class="route-list">
       {route.map((item) => (
         <div class="route-row">
           <dt>{item.label}</dt>
           <dd>
             {(item.coords || isCoords(item.value)) ? (
-              <a
-                href={`https://www.google.com/maps?q=${encodeURIComponent(item.value)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >{item.value}</a>
+              <a href={`https://www.google.com/maps?q=${encodeURIComponent(item.value)}`} target="_blank" rel="noopener noreferrer">{item.value}</a>
             ) : isUrl(item.value) ? (
               <a href={item.value} target="_blank" rel="noopener noreferrer">{hostOf(item.value)}</a>
             ) : (
@@ -35,7 +38,32 @@ const hostOf = (s: string) => { try { return new URL(s).hostname.replace(/^www\.
       ))}
     </dl>
   </div>
+
+  <button type="button" class="route-fab" aria-expanded="false" aria-label="Route info">
+    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M3 20l6-12 4 7 3-5 5 10z" />
+    </svg>
+  </button>
 </aside>
+
+<script>
+  document.querySelectorAll('.route').forEach((root) => {
+    const fab = root.querySelector('.route-fab');
+    if (!fab) return;
+    const open = (on) => {
+      root.classList.toggle('is-open', on);
+      fab.setAttribute('aria-expanded', String(on));
+      if (on) root.querySelector('.route-close')?.focus();
+    };
+    fab.addEventListener('click', () => open(!root.classList.contains('is-open')));
+    root.querySelectorAll('[data-route-close]').forEach((el) =>
+      el.addEventListener('click', () => open(false)),
+    );
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && root.classList.contains('is-open')) open(false);
+    });
+  });
+</script>
 
 <style>
   .route { align-self: start; }
@@ -46,6 +74,7 @@ const hostOf = (s: string) => { try { return new URL(s).hostname.replace(/^www\.
     padding: 1.25rem 1.35rem 0.5rem;
     box-shadow: var(--shadow-sm);
   }
+  .route-head { display: flex; align-items: center; justify-content: space-between; }
   .route-title {
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -63,16 +92,89 @@ const hostOf = (s: string) => { try { return new URL(s).hostname.replace(/^www\.
   }
   .route-row:first-child { border-top: 0; }
   .route-row dt { color: var(--ink-soft); font-size: 0.9rem; }
-  .route-row dd {
-    margin: 0;
-    text-align: right;
-    font-weight: 600;
-    color: var(--navy);
-    font-size: 0.92rem;
-  }
+  .route-row dd { margin: 0; text-align: right; font-weight: 600; color: var(--navy); font-size: 0.92rem; }
   .route-row dd a { color: var(--green-ink); font-weight: 600; }
 
+  /* Elements that only exist for the mobile sheet. */
+  .route-fab, .route-backdrop, .route-close { display: none; }
+
+  /* Desktop: sticky card alongside the article. */
   @media (min-width: 900px) {
     .route { position: sticky; top: 88px; }
+    .route-head { display: block; }
+  }
+
+  /* Mobile: floating circular button + bottom sheet. */
+  @media (max-width: 899px) {
+    .route-fab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 55;
+      width: 56px;
+      height: 56px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--green);
+      color: #05230a;
+      box-shadow: 0 6px 18px rgba(0, 29, 57, 0.28);
+      cursor: pointer;
+    }
+    .route-fab:active { transform: scale(0.95); }
+
+    .route-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 56;
+      background: rgba(0, 29, 57, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .route-card {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 57;
+      max-height: 78vh;
+      overflow-y: auto;
+      border-radius: var(--radius) var(--radius) 0 0;
+      padding: 1.1rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom));
+      transform: translateY(110%);
+      transition: transform 0.28s ease;
+    }
+    .route-head {
+      display: flex;
+      position: sticky;
+      top: 0;
+      background: var(--paper-2);
+      padding-bottom: 0.4rem;
+    }
+    .route-title { margin-bottom: 0; align-self: center; }
+    .route-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--paper-3);
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .route.is-open .route-card { transform: translateY(0); }
+    .route.is-open .route-backdrop { opacity: 1; pointer-events: auto; }
+    .route.is-open .route-fab { opacity: 0; pointer-events: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .route-card, .route-backdrop { transition: none; }
   }
 </style>

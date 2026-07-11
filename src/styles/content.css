@@ -97,3 +97,15 @@
   background: var(--paper-3);
 }
 .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* Bare iframes in content (portal embeds without the .embed wrapper) — keep them
+   inside the column and responsive instead of their hardcoded pixel width. */
+.prose iframe {
+  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  border-radius: var(--radius-sm);
+}
+.prose .embed iframe { aspect-ratio: auto; height: 100%; } /* restore wrapped embeds */

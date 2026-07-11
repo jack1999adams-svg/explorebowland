@@ -116,9 +116,10 @@ const strippedBody = route.length > 0 && rawHtml ? stripRouteTable(rawHtml) : nu
     gap: 2.5rem;
     align-items: start;
   }
-  .walk-prose { max-width: none; margin-inline: 0; }
-  @media (max-width: 900px) {
-    .walk-layout { grid-template-columns: 1fr; gap: 1.75rem; }
+  .walk-prose { max-width: none; margin-inline: 0; min-width: 0; }
+  @media (max-width: 899px) {
+    /* minmax(0, …) prevents wide children (galleries) from blowing out the grid */
+    .walk-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
   }
 
   .section-list { padding-block: 1.5rem 3.5rem; }
