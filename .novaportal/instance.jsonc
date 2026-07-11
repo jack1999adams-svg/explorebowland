@@ -44,13 +44,17 @@
     // are delivered per post in the content API's `extras` keyed by `key`; blank
     // fields are omitted from the panel.
     "ROUTE_SCHEMA": [
-      { "key": "postcode",      "label": "Postcode",      "type": "text" },
-      { "key": "map_reference", "label": "Map reference", "type": "text" },
+      { "key": "distance",      "label": "Distance",      "type": "text" },
+      { "key": "difficulty",    "label": "Difficulty",    "type": "text" },
       { "key": "low_point",     "label": "Low point",     "type": "text" },
       { "key": "high_point",    "label": "High point",    "type": "text" },
-      { "key": "distance",      "label": "Distance",      "type": "text" },
-      { "key": "difficulty",    "label": "Difficulty",    "type": "select", "options": ["Easy", "Medium", "Hard", "Severe"] },
-      { "key": "cows",          "label": "Cows",          "type": "select", "options": ["Yes", "No", "Sometimes", "Unknown"] },
+      { "key": "ascent",        "label": "Total ascent",  "type": "text" },
+      { "key": "steps",         "label": "Steps",         "type": "text" },
+      { "key": "calories",      "label": "Calories",      "type": "text" },
+      { "key": "postcode",      "label": "Postcode",      "type": "text" },
+      { "key": "map_reference", "label": "Map reference", "type": "text" },
+      { "key": "cows",          "label": "Cows",          "type": "text" },
+      { "key": "bogs",          "label": "Bogs",          "type": "text" },
       { "key": "dogs",          "label": "Dogs",          "type": "text" },
       { "key": "nearby_pub",    "label": "Nearby pub",    "type": "text" },
       { "key": "nearby_hotel",  "label": "Nearby hotel",  "type": "text" },

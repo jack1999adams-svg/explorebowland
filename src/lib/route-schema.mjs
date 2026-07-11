@@ -5,13 +5,17 @@
 //
 // `coords: true` renders the value as a "view on map" link.
 export const ROUTE_SCHEMA = [
-  { key: 'postcode', label: 'Postcode' },
-  { key: 'map_reference', label: 'Map reference', coords: true },
-  { key: 'low_point', label: 'Low point' },
-  { key: 'high_point', label: 'High point' },
   { key: 'distance', label: 'Distance' },
   { key: 'difficulty', label: 'Difficulty' },
+  { key: 'low_point', label: 'Low point' },
+  { key: 'high_point', label: 'High point' },
+  { key: 'ascent', label: 'Total ascent' },
+  { key: 'steps', label: 'Steps' },
+  { key: 'calories', label: 'Calories' },
+  { key: 'postcode', label: 'Postcode' },
+  { key: 'map_reference', label: 'Map reference', coords: true },
   { key: 'cows', label: 'Cows' },
+  { key: 'bogs', label: 'Bogs' },
   { key: 'dogs', label: 'Dogs' },
   { key: 'nearby_pub', label: 'Nearby pub' },
   { key: 'nearby_hotel', label: 'Nearby hotel' },
