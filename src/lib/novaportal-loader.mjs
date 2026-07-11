@@ -47,9 +47,12 @@ export function novaPortalLoader({ portal, token, mapData } = {}) {
       // Repoint legacy WordPress image URLs at R2 (images were migrated to the
       // bucket at the same wp-content/uploads/... path). Origin-only swap scoped
       // to the uploads path so internal links are untouched. No-op if unset.
-      const imageBase = (process.env.IMAGE_BASE || '').replace(/\/+$/, '');
+      // Images were migrated to R2, served via the media custom domain. Default
+      // to it so the build is deterministic regardless of build-env vars;
+      // IMAGE_BASE can override (e.g. to a staging bucket).
+      const imageBase = (process.env.IMAGE_BASE || 'https://media.explorebowland.co.uk').replace(/\/+$/, '');
       const toR2 = (s) =>
-        imageBase && typeof s === 'string'
+        typeof s === 'string'
           ? s.replace(/https?:\/\/(?:www\.)?explorebowland\.co\.uk\/wp-content\/uploads\//g, `${imageBase}/wp-content/uploads/`)
           : s;
 
