@@ -2,6 +2,8 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleHero from '../components/ArticleHero.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPosts, toCard } from '../lib/content';
 
 // Reproduce every legacy WordPress URL 1:1. Each entry carries its exact
 // original permalink in `data.path`; we turn that into the catch-all slug so
@@ -26,6 +28,16 @@ export async function getStaticPaths() {
 const { entry, kind } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+
+// If this page is the parent of a section (category), list that section's posts
+// after its content. The assignment lives in the portal (post.sectionParent) and
+// is matched to this page's exact path — so it self-updates when the client
+// reassigns a section. /blog/ is handled by its own index route.
+const sectionPosts =
+  kind === 'page' && d.path !== '/blog/'
+    ? (await getPosts()).filter((p) => p.data.sectionParent === d.path)
+    : [];
+const sectionLabel = sectionPosts[0]?.data.sectionLabel || '';
 ---
 
 <BaseLayout
@@ -52,10 +64,39 @@ const d = entry.data;
       <p class="back"><a href="/blog/">← All walks &amp; posts</a></p>
     )}
   </article>
+
+  {sectionPosts.length > 0 && (
+    <section class="container section-list">
+      <div class="section-head">
+        <p class="eyebrow">In this section</p>
+        <h2>{sectionLabel || 'Latest posts'} <span class="count">{sectionPosts.length}</span></h2>
+      </div>
+      <div class="grid">
+        {sectionPosts.map((p) => <PostCard {...toCard(p)} />)}
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
   .container { padding-block: 2.5rem 1rem; }
   .back { max-width: var(--measure); margin: 2.5rem auto 0; }
   .back a { font-weight: 600; }
+
+  .section-list { padding-block: 1.5rem 3.5rem; }
+  .section-head { margin-bottom: 1.5rem; }
+  .section-head h2 { display: flex; align-items: baseline; gap: 0.6rem; margin: 0.15rem 0 0; }
+  .section-head .count {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #05230a;
+    background: var(--green);
+    padding: 0.1em 0.6em;
+    border-radius: 999px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
 </style>

@@ -39,11 +39,17 @@ const posts = defineCollection({
       draft: false, // the portal only serves published posts
       wpId: p.extras.wpId,
       categories: p.extras.categories ?? [p.categoryLabel],
+      // Section (category) → parent page assignment, editable in the portal.
+      // Used to list a section's posts on its parent page. Treated as data.
+      sectionLabel: p.categoryLabel,
+      sectionParent: p.categoryParent || '',
     }),
   }),
   schema: z.object({
     ...base,
     categories: z.array(z.string()).optional().default([]),
+    sectionLabel: z.string().optional().default(''),
+    sectionParent: z.string().optional().default(''),
   }),
 });
 
