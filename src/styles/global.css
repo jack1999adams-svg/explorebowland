@@ -1,0 +1,161 @@
+/*
+  Explore Bowland — design tokens.
+  Palette is taken directly from the live Enfold theme so the brand reads the
+  same; only the layout/typography is modernised.
+
+    Enfold highlight green   #8bba34   -> --green
+    Earthy brown             #985e23   -> --brown
+    Deep navy                #001d39   -> --navy   (headers / footer)
+    Gold                     #e0b13a   -> --gold   (accents)
+
+  A darker green (--green-ink) is derived for text/links so body copy meets
+  WCAG AA contrast on white — the bright #8bba34 is kept for fills/large UI.
+*/
+:root {
+  --green: #8bba34;
+  --green-ink: #5f8021; /* accessible link/heading green on light bg */
+  --green-dark: #4c6a1a;
+  --brown: #985e23;
+  --navy: #001d39;
+  --navy-800: #05294a;
+  --gold: #e0b13a;
+
+  --ink: #23281d;      /* near-black warm text */
+  --ink-soft: #55605a;
+  --line: #e4e7e0;     /* hairlines */
+  --paper: #ffffff;
+  --paper-2: #f7f8f4;  /* subtle section bg */
+  --paper-3: #eef1e8;
+
+  --bg: var(--paper);
+  --fg: var(--ink);
+
+  /* type scale (fluid) */
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.6rem, 1.4rem + 1vw, 2.1rem);
+  --step-3: clamp(2rem, 1.6rem + 2vw, 3rem);
+  --step-4: clamp(2.5rem, 1.9rem + 3vw, 4rem);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-head: var(--font-sans);
+
+  --container: 72rem;
+  --measure: 44rem; /* readable text column */
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(0, 29, 57, 0.06), 0 2px 8px rgba(0, 29, 57, 0.05);
+  --shadow: 0 6px 24px rgba(0, 29, 57, 0.1);
+  --space: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  line-height: 1.15;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--step-3); }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); }
+p, ul, ol { margin: 0 0 1em; }
+a {
+  color: var(--green-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover { color: var(--green-dark); }
+
+/* layout helpers */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space);
+}
+.stack > * + * { margin-top: var(--space); }
+
+/* buttons */
+.btn {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.7em 1.3em;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:hover { background: var(--green-dark); color: #fff; transform: translateY(-1px); }
+.btn--ghost {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--line);
+}
+.btn--ghost:hover { background: var(--paper-2); color: var(--navy); }
+
+/* eyebrow / tags */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--brown);
+}
+.tag {
+  display: inline-block;
+  font-size: var(--step--1);
+  padding: 0.25em 0.7em;
+  border-radius: 999px;
+  background: var(--paper-3);
+  color: var(--green-dark);
+  text-decoration: none;
+}
+.tag:hover { background: var(--green); color: #fff; }
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip link for a11y */
+.skip {
+  position: absolute;
+  left: -999px;
+}
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  background: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}

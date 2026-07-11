@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPosts, toCard } from '../lib/content';
+
+const posts = await getPosts();
+const [featured, ...rest] = posts;
+const recent = rest.slice(0, 8);
+// Use the newest walk's photo as the hero backdrop (swaps to R2 automatically
+// once IMAGE_CDN_BASE is set at import time). Falls back to solid navy.
+const heroBg = featured?.data.hero;
+---
+
+<BaseLayout
+  title="Explore Bowland"
+  description="A walking and visitor guide to the Forest of Bowland — Lancashire's Area of Outstanding Natural Beauty. Walk guides, photos and local information."
+  path="/"
+>
+  <section class="landing" style={heroBg ? `--hero-bg: url('${heroBg}')` : undefined}>
+    <div class="container landing-inner">
+      <p class="eyebrow eyebrow--light">Forest of Bowland · Lancashire AONB</p>
+      <h1>Discover the Forest of Bowland</h1>
+      <p class="lead">Walk guides, photography and local know-how for one of
+        England's quietest and most beautiful upland landscapes.</p>
+      <p class="actions">
+        <a href="/forest-of-bowland-walks/" class="btn">Browse the walks</a>
+        <a href="/blog/" class="btn btn--ghost btn--on-dark">Latest posts</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="section-head">
+      <h2>Recent walks &amp; posts</h2>
+      <a href="/blog/" class="more">View all →</a>
+    </div>
+    <div class="grid">
+      {featured && <PostCard {...toCard(featured)} featured />}
+      {recent.map((p) => <PostCard {...toCard(p)} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .landing {
+    background:
+      linear-gradient(180deg, rgba(0, 29, 57, 0.6), rgba(0, 29, 57, 0.88)),
+      var(--hero-bg, none) center/cover no-repeat,
+      var(--navy);
+    color: #fff;
+  }
+  .landing-inner { padding-block: clamp(3rem, 8vw, 6rem); max-width: 46rem; }
+  .eyebrow--light { color: var(--green); }
+  .landing h1 { color: #fff; font-size: var(--step-4); margin-top: 0.4rem; }
+  .lead { font-size: var(--step-1); color: #e2eaf0; max-width: 38ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+  .btn--on-dark { color: #fff; border-color: rgba(255, 255, 255, 0.35); }
+  .btn--on-dark:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+
+  .section { padding-block: 3rem; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-head h2 { margin: 0; }
+  .more { font-weight: 600; white-space: nowrap; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+</style>

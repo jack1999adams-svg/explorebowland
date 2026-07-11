@@ -1,0 +1,116 @@
+---
+const nav = [
+  { label: 'Bowland Walks', href: '/forest-of-bowland-walks/' },
+  { label: 'Other Walks', href: '/forest-of-bowland/other-walks/' },
+  { label: 'Things to Do', href: '/things-to-do/' },
+  { label: 'Towns & Villages', href: '/things-to-do/towns-and-villages/' },
+  { label: 'Photos', href: '/forest-of-bowland-photos/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'Contact', href: '/get-in-touch/' },
+];
+const here = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="brand" aria-label="Explore Bowland home">
+      <span class="mark" aria-hidden="true">▲</span>
+      <span class="brand-text">Explore<strong>Bowland</strong></span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+    <label for="nav-toggle" class="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="nav" aria-label="Primary">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class:list={['nav-link', { active: here === item.href }]}
+          aria-current={here === item.href ? 'page' : undefined}
+        >{item.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: color-mix(in srgb, var(--navy) 96%, black);
+    backdrop-filter: saturate(1.2) blur(6px);
+    border-bottom: 3px solid var(--green);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 64px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .brand .mark { color: var(--green); font-size: 1rem; transform: translateY(-1px); }
+  .brand strong { color: var(--green); font-weight: 800; }
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+    align-items: center;
+  }
+  .nav-link {
+    color: #eaf0e6;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 0.5rem 0.7rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .nav-link:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+  .nav-link.active { background: var(--green); color: #05230a; font-weight: 600; }
+
+  .nav-toggle, .burger { display: none; }
+  @media (max-width: 860px) {
+    .burger {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .burger span {
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .nav {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: var(--navy);
+      padding: 0.5rem;
+      border-bottom: 3px solid var(--green);
+    }
+    .nav-toggle:checked ~ .nav { display: flex; }
+    .nav-link { padding: 0.8rem 1rem; border-radius: 8px; }
+  }
+</style>

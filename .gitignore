@@ -1,0 +1,20 @@
+# build output
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# env / secrets (R2 keys live here, never commit)
+.env
+.env.*
+!.env.example
+
+# image working dirs — the 40GB never touches git
+uploads-raw/
+uploads-optimized/
+*.log
+
+# os / editor
+.DS_Store
+Thumbs.db

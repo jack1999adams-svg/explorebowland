@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts, toCard } from '../../lib/content';
+
+const posts = await getPosts();
+const categories = [...new Set(posts.flatMap((p) => p.data.categories))].sort();
+---
+
+<BaseLayout
+  title="Blog"
+  description="Every walk guide and post from Explore Bowland — the Forest of Bowland walking and visitor guide."
+  path="/blog/"
+>
+  <header class="hero plain">
+    <div class="container">
+      <p class="eyebrow">The journal</p>
+      <h1>Walks &amp; posts</h1>
+      <p class="lead">{posts.length} guides across the Forest of Bowland and beyond.</p>
+      <div class="filters" role="list">
+        {categories.map((c) => <span class="tag" role="listitem">{c}</span>)}
+      </div>
+    </div>
+  </header>
+
+  <section class="container section">
+    <div class="grid">
+      {posts.map((p) => <PostCard {...toCard(p)} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero.plain { background: var(--paper-2); border-bottom: 1px solid var(--line); }
+  .hero.plain .container { padding-block: 3rem 2.5rem; }
+  h1 { font-size: var(--step-4); margin: 0.3rem 0 0.3rem; }
+  .lead { color: var(--ink-soft); margin: 0 0 1.25rem; }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .section { padding-block: 3rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+</style>

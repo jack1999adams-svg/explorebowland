@@ -1,0 +1,99 @@
+/* Styles for imported article bodies (rendered from Markdown/HTML).
+   Global (not scoped) so they reach set:html content. */
+
+.prose {
+  max-width: var(--measure);
+  margin-inline: auto;
+  font-size: 1.075rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.prose > * + * { margin-top: 1.15em; }
+.prose h2 {
+  margin-top: 2.2rem;
+  padding-top: 0.4rem;
+  font-size: var(--step-2);
+}
+.prose h3 { margin-top: 1.8rem; }
+.prose a { color: var(--green-ink); }
+.prose a:hover { color: var(--green-dark); }
+.prose img {
+  border-radius: var(--radius-sm);
+  margin-inline: auto;
+  box-shadow: var(--shadow-sm);
+}
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li { margin-bottom: 0.35em; }
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 0.8rem 1.2rem;
+  border-left: 4px solid var(--green);
+  background: var(--paper-2);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--ink-soft);
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2rem 0;
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose th, .prose td {
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.prose thead th, .prose tr:first-child td { background: var(--paper-2); font-weight: 600; }
+.prose code {
+  background: var(--paper-3);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.prose pre {
+  background: var(--navy);
+  color: #e6edf3;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+}
+.prose pre code { background: none; padding: 0; }
+
+/* Galleries emitted by the importer */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.6rem;
+  margin: 1.75rem 0;
+  max-width: none;
+}
+.gallery a { display: block; overflow: hidden; border-radius: var(--radius-sm); }
+.gallery img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: 0;
+  box-shadow: none;
+  transition: transform 0.3s ease;
+}
+.gallery a:hover img { transform: scale(1.05); }
+.gallery[data-count='1'] { grid-template-columns: 1fr; }
+
+/* Responsive video/map embeds */
+.embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin: 1.75rem 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--paper-3);
+}
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

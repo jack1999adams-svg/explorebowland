@@ -1,0 +1,85 @@
+# Explore Bowland — Astro rebuild
+
+A fast, static [Astro](https://astro.build) rebuild of **explorebowland.co.uk**,
+migrated from WordPress (Enfold/Avia). Modernised layout and typography, **same
+brand palette, same content, same URLs**. Images live in Cloudflare R2, never in
+git.
+
+```bash
+npm install
+npm run import      # WordPress WXR export -> src/content/**  (regenerates content)
+npm run dev         # local dev server
+npm run build       # static build -> dist/
+```
+
+## How it fits together
+
+```
+WordPress WXR ─▶ scripts/import-wordpress.mjs ─▶ src/content/{posts,pages}/*.md
+                                                 (exact URLs preserved)
+
+                       ┌── scripts/lib/optimize.mjs (sharp: AVIF/WebP, widths) ──┐
+40GB uploads ──────────┤                                                          ├─▶ Cloudflare R2 ─▶ CDN
+(SFTP → local)         │  scripts/migrate-images.mjs   (one-time batch)           │
+client uploads ────────┤  server/upload-endpoint.mjs   (live portal, on-ingest)  │
+                       └──────────────────────────────────────────────────────────┘
+```
+
+One optimizer, two callers — legacy images and new portal uploads are processed
+identically, so they're indistinguishable in R2.
+
+## URL preservation
+
+- `astro.config.mjs` sets `trailingSlash: 'always'` + `build.format: 'directory'`
+  to match WordPress permalinks (`/caton-moor/`, `/things-to-do/towns-and-villages/abbeystead/`).
+- Every post/page stores its exact original permalink in frontmatter `path`;
+  `src/pages/[...slug].astro` reproduces them 1:1.
+- Attachment (image) pages become **301 redirects** to their parent post —
+  written to `public/_redirects` (Cloudflare Pages / Netlify format) so no legacy
+  URL 404s, without building thousands of junk pages.
+- `<link rel="canonical">` on every page uses the original URL.
+
+## Content
+
+- `npm run import` converts Avia page-builder shortcodes to clean Markdown/HTML
+  (text, headings, images, galleries, buttons, video, callouts) and drops the
+  layout-only shortcodes. Re-runnable; it rewrites `src/content/**`.
+- Posts → `src/content/posts/` (root-level walk guides).
+- Pages → `src/content/pages/` (nested info pages).
+
+## Images (the 40GB)
+
+Nothing image-related is committed. The working dirs `uploads-raw/` and
+`uploads-optimized/` are gitignored.
+
+1. **Audit + migrate legacy images** (one-time):
+   ```bash
+   rsync -avz user@host:/…/wp-content/uploads/ ./uploads-raw/
+   cp .env.example .env   # fill in R2 creds
+   UPLOADS_DIR=./uploads-raw node scripts/migrate-images.mjs           # dry run: reports counts + projected size
+   UPLOADS_DIR=./uploads-raw node scripts/migrate-images.mjs --upload  # push to R2
+   ```
+   By default only images **referenced by the imported content** are processed
+   (`REFERENCED_ONLY=1`) — this is where 40GB collapses to a couple of GB.
+
+2. **Point content at R2**: set `IMAGE_CDN_BASE` in `.env`, then re-run
+   `npm run import` so image URLs resolve to the R2 CDN.
+
+3. **Live portal uploads**: wire your backend's upload route to
+   `handleImageUpload()` in `server/upload-endpoint.mjs`. Try it standalone:
+   ```bash
+   node server/upload-endpoint.mjs   # POST multipart image+slug to /api/images
+   ```
+
+## Palette
+
+Taken from the live Enfold theme (`src/styles/global.css`): brand green
+`#8bba34`, earthy brown `#985e23`, deep navy `#001d39`, gold `#e0b13a`. A darker
+green is derived for body links to meet WCAG AA contrast; everything else is the
+original brand.
+
+## Deploy
+
+Built for **Cloudflare Pages** (static) + **R2** (images). `public/_redirects`
+is picked up automatically. Add the `www` apex redirect and R2 custom domain in
+the Cloudflare dashboard.

@@ -1,0 +1,88 @@
+---
+const year = new Date().getFullYear();
+const cols = [
+  {
+    title: 'Explore',
+    links: [
+      { label: 'Bowland Walks', href: '/forest-of-bowland-walks/' },
+      { label: 'Other Area Walks', href: '/forest-of-bowland/other-walks/' },
+      { label: 'Things to Do', href: '/things-to-do/' },
+      { label: 'Photos', href: '/forest-of-bowland-photos/' },
+    ],
+  },
+  {
+    title: 'Discover',
+    links: [
+      { label: 'Towns & Villages', href: '/things-to-do/towns-and-villages/' },
+      { label: 'Local Information', href: '/local-information/' },
+      { label: 'Eat · Drink · Sleep', href: '/eat-drink-sleep/' },
+      { label: 'Blog', href: '/blog/' },
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="container grid">
+    <div class="about">
+      <a href="/" class="brand">Explore<strong>Bowland</strong></a>
+      <p>A walking &amp; visitor guide to the Forest of Bowland — Lancashire's
+        Area of Outstanding Natural Beauty.</p>
+    </div>
+    {cols.map((c) => (
+      <nav aria-label={c.title}>
+        <h2>{c.title}</h2>
+        <ul>
+          {c.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        </ul>
+      </nav>
+    ))}
+  </div>
+  <div class="container base">
+    <p>© {year} Explore Bowland</p>
+    <p><a href="/get-in-touch/">Get in touch</a></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 4rem;
+    background: var(--navy);
+    color: #cdd6e0;
+    padding: 3rem 0 1.5rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2rem;
+  }
+  .about .brand { color: #fff; text-decoration: none; font-size: 1.2rem; font-weight: 600; }
+  .about .brand strong { color: var(--green); }
+  .about p { margin-top: 0.75rem; max-width: 32ch; color: #aeb9c6; }
+  .site-footer h2 {
+    color: #fff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+  .site-footer ul { list-style: none; margin: 0; padding: 0; }
+  .site-footer li { margin-bottom: 0.5rem; }
+  .site-footer a { color: #cdd6e0; text-decoration: none; }
+  .site-footer a:hover { color: var(--green); }
+  .base {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.85rem;
+    color: #90a0b0;
+  }
+  .base p { margin: 0; }
+  @media (max-width: 700px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .about { grid-column: 1 / -1; }
+    .base { flex-direction: column; gap: 0.5rem; }
+  }
+</style>

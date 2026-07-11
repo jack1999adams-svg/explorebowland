@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleHero from '../components/ArticleHero.astro';
+
+// Reproduce every legacy WordPress URL 1:1. Each entry carries its exact
+// original permalink in `data.path`; we turn that into the catch-all slug so
+// /caton-moor/ and /things-to-do/towns-and-villages/abbeystead/ both resolve.
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', (e) => !e.data.draft);
+  const pages = await getCollection('pages', (e) => !e.data.draft);
+  const owned = new Set(['/', '/blog/']); // rendered by dedicated routes
+
+  const make = (entry, kind) => {
+    const p = entry.data.path;
+    const slug = p.replace(/^\/|\/$/g, '');
+    return { params: { slug }, props: { entry, kind } };
+  };
+
+  return [
+    ...posts.filter((e) => !owned.has(e.data.path)).map((e) => make(e, 'post')),
+    ...pages.filter((e) => !owned.has(e.data.path)).map((e) => make(e, 'page')),
+  ];
+}
+
+const { entry, kind } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+---
+
+<BaseLayout
+  title={d.title}
+  description={d.description}
+  path={d.path}
+  image={d.hero}
+  type={kind === 'post' ? 'article' : 'website'}
+>
+  <ArticleHero
+    title={d.title}
+    hero={d.hero}
+    heroAlt={d.heroAlt}
+    pubDate={kind === 'post' ? d.pubDate : undefined}
+    categories={kind === 'post' ? d.categories : []}
+  />
+
+  <article class="container">
+    <div class="prose">
+      <Content />
+    </div>
+
+    {kind === 'post' && (
+      <p class="back"><a href="/blog/">← All walks &amp; posts</a></p>
+    )}
+  </article>
+</BaseLayout>
+
+<style>
+  .container { padding-block: 2.5rem 1rem; }
+  .back { max-width: var(--measure); margin: 2.5rem auto 0; }
+  .back a { font-weight: 600; }
+</style>

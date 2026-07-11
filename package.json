@@ -1,0 +1,25 @@
+{
+  "name": "explorebowland",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Explore Bowland — Astro rebuild of explorebowland.co.uk",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "import": "node scripts/import-wordpress.mjs",
+    "images:migrate": "node scripts/migrate-images.mjs"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "3.2.1",
+    "astro": "^4.16.18"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.720.0",
+    "fast-xml-parser": "^4.5.1",
+    "playwright-core": "^1.61.1",
+    "sharp": "^0.33.5"
+  }
+}

@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import '../styles/content.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Exact canonical path, e.g. "/caton-moor/" — preserves legacy URLs. */
+  path?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+const { title, description = '', path, image, type = 'website' } = Astro.props;
+const siteName = 'Explore Bowland';
+const fullTitle = title === siteName ? title : `${title} — ${siteName}`;
+const canonical = new URL(path ?? Astro.url.pathname, Astro.site).href;
+const ogImage = image ? new URL(image, Astro.site).href : undefined;
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#001d39" />
+
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+  </head>
+  <body>
+    <a href="#main" class="skip">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,31 @@
+---
+// Renders a responsive <picture> from an optimizer descriptor
+// (see scripts/lib/optimize.mjs -> imageDescriptor / data/image-manifest.json).
+// Use this for portal-authored images and, once the migration has run, for
+// article images too.
+interface Source { type: string; srcset: string; }
+interface Props {
+  src: string;
+  sources?: Source[];
+  alt?: string;
+  widths?: number[];
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  width?: number;
+  height?: number;
+}
+const {
+  src,
+  sources = [],
+  alt = '',
+  sizes = '(max-width: 800px) 100vw, 800px',
+  loading = 'lazy',
+  width,
+  height,
+} = Astro.props;
+---
+
+<picture>
+  {sources.map((s) => <source type={s.type} srcset={s.srcset} sizes={sizes} />)}
+  <img src={src} alt={alt} loading={loading} decoding="async" width={width} height={height} />
+</picture>
