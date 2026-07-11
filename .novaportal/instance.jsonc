@@ -1,0 +1,33 @@
+{
+  // NovaPortal instance config for this site. The NovaPortal CLI materialises
+  // this into a full wrangler config (injecting worker entry + migrations
+  // paths) at build/deploy time — see the novaportal repo's registry.json.
+  "name": "novaportal-explorebowland",
+  "compatibility_date": "2025-05-01",
+  "assets": {
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "novaportal-explorebowland",
+      "database_id": "ba4ace2c-22aa-4104-ac7b-9cc58ed023d4"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "novaportal-explorebowland-media"
+    }
+  ],
+  "vars": {
+    "SITE_NAME": "Explore Bowland",
+    "SITE_URL": "https://www.explorebowland.co.uk",
+    "LEAD_TO_EMAIL": "jack1999adams@gmail.com",
+    "LEAD_FROM_EMAIL": "onboarding@resend.dev"
+  },
+  // Secrets (per instance, set via wrangler): SETUP_TOKEN, READ_TOKEN,
+  // DEPLOY_HOOK_URL (native Pages hook)
+  "observability": { "enabled": true }
+}
