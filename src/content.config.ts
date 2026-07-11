@@ -28,7 +28,10 @@ const posts = defineCollection({
     mapData: (p) => ({
       title: p.title,
       description: p.description,
-      path: p.extras.path,
+      // WordPress imports carry their exact original permalink; posts written
+      // in the portal get a root permalink derived from their slug, matching
+      // the site's WordPress-era URL convention.
+      path: p.extras.path ?? `/${p.slug}/`,
       pubDate: p.extras.pubDate ?? p.date,
       updatedDate: p.extras.updatedDate,
       hero: p.image || undefined,
