@@ -5,7 +5,6 @@ import ArticleHero from '../components/ArticleHero.astro';
 import PostCard from '../components/PostCard.astro';
 import RoutePanel from '../components/RoutePanel.astro';
 import { getPosts, toCard } from '../lib/content';
-import { extractRoute } from '../lib/route-table.mjs';
 
 // Reproduce every legacy WordPress URL 1:1. Each entry carries its exact
 // original permalink in `data.path`; we turn that into the catch-all slug so
@@ -41,15 +40,14 @@ const sectionPosts =
     : [];
 const sectionLabel = sectionPosts[0]?.data.sectionLabel || '';
 
-// Walk posts (Bowland / Other area walks) show their route table as a right-hand
-// panel instead of inline in the body. Sourced from the content table today;
-// swaps to structured portal fields once NovaPortal serves them.
+// Walk posts (Bowland / Other area walks) show a route-info panel in the right
+// column, populated from the portal's route custom fields (ROUTE_SCHEMA). The
+// panel appears once the client fills any field; blank fields are omitted. The
+// post body is never modified.
 const isWalk =
   kind === 'post' &&
   (d.categories?.includes('Bowland Walks') || d.categories?.includes('Other area walks'));
-const parsedRoute = isWalk ? extractRoute(entry.rendered?.html || '') : null;
-const route = parsedRoute?.route ?? null;
-const bodyHtml = parsedRoute?.strippedHtml ?? null;
+const route = isWalk ? d.route ?? [] : [];
 ---
 
 <BaseLayout
@@ -68,9 +66,11 @@ const bodyHtml = parsedRoute?.strippedHtml ?? null;
   />
 
   <article class="container">
-    {route ? (
+    {route.length > 0 ? (
       <div class="walk-layout">
-        <div class="prose walk-prose" set:html={bodyHtml}></div>
+        <div class="prose walk-prose">
+          <Content />
+        </div>
         <RoutePanel route={route} />
       </div>
     ) : (

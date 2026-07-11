@@ -1,6 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { novaPortalLoader } from './lib/novaportal-loader.mjs';
+import { buildRoute } from './lib/route-schema.mjs';
 
 // Shared frontmatter for imported WordPress content. `path` holds the EXACT
 // original permalink (e.g. "/caton-moor/" or
@@ -43,6 +44,10 @@ const posts = defineCollection({
       // Used to list a section's posts on its parent page. Treated as data.
       sectionLabel: p.categoryLabel,
       sectionParent: p.categoryParent || '',
+      // Route-info custom fields (walk posts). Delivered per post in `extras`
+      // keyed by ROUTE_SCHEMA keys; blank fields are dropped. Empty for posts
+      // the client hasn't filled yet.
+      route: buildRoute({ ...(p.extras || {}), ...(p.route || {}), ...(p.fields || {}) }),
     }),
   }),
   schema: z.object({
@@ -50,6 +55,17 @@ const posts = defineCollection({
     categories: z.array(z.string()).optional().default([]),
     sectionLabel: z.string().optional().default(''),
     sectionParent: z.string().optional().default(''),
+    route: z
+      .array(
+        z.object({
+          key: z.string(),
+          label: z.string(),
+          value: z.string(),
+          coords: z.boolean().optional(),
+        }),
+      )
+      .optional()
+      .default([]),
   }),
 });
 

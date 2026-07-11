@@ -1,12 +1,12 @@
 ---
-// Route-info sidebar for walk posts. Renders the parsed route rows as a clean
-// card. Coordinates get a "view on map" link; everything else is shown as-is.
-interface RouteItem { label: string; key: string; valueHtml: string; }
+// Route-info sidebar for walk posts. Renders the portal-supplied route custom
+// fields (already filtered to non-empty by buildRoute). Coordinate fields get a
+// "view on map" link.
+interface RouteItem { key: string; label: string; value: string; coords?: boolean; }
 interface Props { route: RouteItem[]; }
 const { route } = Astro.props;
 
-const coordRe = /^-?\d{1,3}\.\d+\s*,\s*-?\d{1,3}\.\d+$/;
-const plain = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+const isCoords = (s: string) => /^-?\d{1,3}\.\d+\s*,\s*-?\d{1,3}\.\d+$/.test(s.trim());
 ---
 
 <aside class="route" aria-label="Route information">
@@ -17,14 +17,14 @@ const plain = (s: string) => s.replace(/<[^>]+>/g, '').trim();
         <div class="route-row">
           <dt>{item.label}</dt>
           <dd>
-            {coordRe.test(plain(item.valueHtml)) ? (
+            {(item.coords || isCoords(item.value)) ? (
               <a
-                href={`https://www.google.com/maps?q=${encodeURIComponent(plain(item.valueHtml))}`}
+                href={`https://www.google.com/maps?q=${encodeURIComponent(item.value)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-              >{plain(item.valueHtml)}</a>
+              >{item.value}</a>
             ) : (
-              <Fragment set:html={item.valueHtml} />
+              item.value
             )}
           </dd>
         </div>
@@ -68,7 +68,6 @@ const plain = (s: string) => s.replace(/<[^>]+>/g, '').trim();
   }
   .route-row dd a { color: var(--green-ink); font-weight: 600; }
 
-  /* On desktop the panel tracks alongside the article. */
   @media (min-width: 900px) {
     .route { position: sticky; top: 88px; }
   }

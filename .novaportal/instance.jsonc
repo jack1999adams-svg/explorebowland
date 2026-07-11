@@ -38,6 +38,23 @@
       { "key": "paper_2",   "label": "Soft section background", "type": "color", "cssVar": "--paper-2",   "default": "#f7f8f4" },
       { "key": "font_sans", "label": "Body font",               "type": "font",  "cssVar": "--font-sans", "default": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif" },
       { "key": "font_head", "label": "Heading font",            "type": "font",  "cssVar": "--font-head", "default": "var(--font-sans)" }
+    ],
+    // Per-post route-info custom fields for walk posts. The site renders these
+    // as the Route panel (src/lib/route-schema.mjs mirrors this list). Values
+    // are delivered per post in the content API's `extras` keyed by `key`; blank
+    // fields are omitted from the panel.
+    "ROUTE_SCHEMA": [
+      { "key": "postcode",      "label": "Postcode",      "type": "text" },
+      { "key": "map_reference", "label": "Map reference", "type": "text" },
+      { "key": "low_point",     "label": "Low point",     "type": "text" },
+      { "key": "high_point",    "label": "High point",    "type": "text" },
+      { "key": "distance",      "label": "Distance",      "type": "text" },
+      { "key": "difficulty",    "label": "Difficulty",    "type": "select", "options": ["Easy", "Medium", "Hard", "Severe"] },
+      { "key": "cows",          "label": "Cows",          "type": "select", "options": ["Yes", "No", "Sometimes", "Unknown"] },
+      { "key": "dogs",          "label": "Dogs",          "type": "text" },
+      { "key": "nearby_pub",    "label": "Nearby pub",    "type": "text" },
+      { "key": "nearby_hotel",  "label": "Nearby hotel",  "type": "text" },
+      { "key": "links",         "label": "Links",         "type": "text" }
     ]
   },
   // Secrets (per instance, set via wrangler): SETUP_TOKEN, READ_TOKEN,
