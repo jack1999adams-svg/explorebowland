@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPosts, toCard } from '../lib/content';
+import PostCard from '../components/PostCard.astro';
+
+const suggestions = (await getPosts()).slice(0, 3);
+---
+
+<BaseLayout title="Page not found" description="Sorry, we couldn't find that page.">
+  <section class="notfound">
+    <div class="container">
+      <p class="eyebrow">Error 404</p>
+      <h1>We couldn't find that path</h1>
+      <p class="lead">The page may have moved. Try the walks, the blog, or head
+        back to the homepage.</p>
+      <p class="actions">
+        <a href="/" class="btn">Home</a>
+        <a href="/blog/" class="btn btn--ghost">All walks &amp; posts</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2>Recent walks</h2>
+    <div class="grid">
+      {suggestions.map((p) => <PostCard {...toCard(p)} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound { background: var(--paper-2); border-bottom: 1px solid var(--line); }
+  .notfound .container { padding-block: 4rem 3rem; }
+  h1 { font-size: var(--step-3); margin: 0.3rem 0 0.5rem; }
+  .lead { color: var(--ink-soft); max-width: 46ch; }
+  .actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .section { padding-block: 3rem; }
+  .section h2 { margin-bottom: 1.25rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+</style>

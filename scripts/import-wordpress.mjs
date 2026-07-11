@@ -223,22 +223,29 @@ if (collisions.length) {
 
 // ---------------------------------------------------------------------------
 // Redirects: attachment pages -> parent permalink (301)
+//
+// There are ~2,300 of these, which exceeds Cloudflare Pages' _redirects line
+// limit (~2,100). Instead we emit a JSON map consumed by the catch-all Pages
+// Function (functions/[[catchall]].js), which only runs when no static asset
+// matches — so real pages pay zero overhead and every legacy URL is covered.
 
-const redirects = [];
+const redirects = {};
 for (const it of items) {
   if (val(it['wp:post_type']) !== 'attachment') continue;
   const parent = String(val(it['wp:post_parent']) || '0');
   if (parent === '0') continue;
   const from = pathFromLink(val(it.link));
   const to = idToLink.get(parent);
-  if (from && to && from !== to) redirects.push(`${from} ${to} 301`);
+  if (from && to && from !== to) redirects[from] = to;
 }
+// Also 301 the losing side of any resolved duplicate-permalink collision's old
+// path is unnecessary (that URL never resolved on the live site), so skip.
 
-fs.mkdirSync(path.join(ROOT, 'public'), { recursive: true });
-fs.writeFileSync(path.join(ROOT, 'public/_redirects'), [...new Set(redirects)].join('\n') + '\n');
+fs.mkdirSync(path.join(ROOT, 'functions'), { recursive: true });
+fs.writeFileSync(path.join(ROOT, 'functions/redirects.json'), JSON.stringify(redirects));
 fs.mkdirSync(path.join(ROOT, 'data'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'data/url-map.json'), JSON.stringify(urlMap, null, 2));
 
 console.log(`Imported ${counts.post} posts, ${counts.page} pages.`);
-console.log(`Generated ${new Set(redirects).size} attachment redirects -> public/_redirects`);
+console.log(`Generated ${Object.keys(redirects).length} attachment redirects -> functions/redirects.json`);
 console.log(`Image CDN base: ${IMAGE_CDN_BASE || '(none — keeping original wp-content URLs)'}`);
