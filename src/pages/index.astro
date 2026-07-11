@@ -4,7 +4,9 @@ import PostCard from '../components/PostCard.astro';
 import Tile from '../components/Tile.astro';
 import { getPosts, toCard } from '../lib/content';
 
-const IMG = 'https://www.explorebowland.co.uk/wp-content/uploads';
+// Curated landing images. Served from R2 when IMAGE_BASE is set (migrated
+// images keep their wp-content/uploads/... path), else from the live WP site.
+const IMG = `${(import.meta.env.IMAGE_BASE || 'https://www.explorebowland.co.uk').replace(/\/+$/, '')}/wp-content/uploads`;
 
 const posts = await getPosts();
 const [featured, ...rest] = posts;

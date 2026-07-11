@@ -44,6 +44,15 @@ export function novaPortalLoader({ portal, token, mapData } = {}) {
       }
       const { posts } = await res.json();
 
+      // Repoint legacy WordPress image URLs at R2 (images were migrated to the
+      // bucket at the same wp-content/uploads/... path). Origin-only swap scoped
+      // to the uploads path so internal links are untouched. No-op if unset.
+      const imageBase = (process.env.IMAGE_BASE || '').replace(/\/+$/, '');
+      const toR2 = (s) =>
+        imageBase && typeof s === 'string'
+          ? s.replace(/https?:\/\/(?:www\.)?explorebowland\.co\.uk\/wp-content\/uploads\//g, `${imageBase}/wp-content/uploads/`)
+          : s;
+
       const defaultMap = (p) => ({
         title: p.title,
         description: p.description,
@@ -59,6 +68,9 @@ export function novaPortalLoader({ portal, token, mapData } = {}) {
 
       store.clear();
       for (const p of posts) {
+        p.image = toR2(p.image);
+        p.html = toR2(p.html);
+        p.body = toR2(p.body);
         const data = await parseData({ id: p.slug, data: map(p) });
         store.set({
           id: p.slug,
