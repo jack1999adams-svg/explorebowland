@@ -3,7 +3,7 @@ title: "Clitheroe"
 description: "Clitheroe is a market town situated in the Ribble Valley and is situated next to one of England's 46 Areas of Outstanding Natural Beauty, the Forest of"
 path: "/things-to-do/towns-and-villages/clitheroe/"
 pubDate: "2019-05-15T11:57:35Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Clitheroe-1.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Clitheroe-1.jpg"
 heroAlt: "Clitheroe"
 wpId: 1270
 ---
@@ -35,7 +35,7 @@ Clitheroe hosts an annual Food Festival in August with over 100 food and drink e
 <a href="https://en.wikipedia.org/wiki/Clitheroe" target="_blank" rel="noopener noreferrer">Wikipedia</a>
 
 <div class="gallery" data-count="3">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Clitheroe-1.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Clitheroe-1.jpg" alt="Clitheroe" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Clitheroe-Castle-1.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Clitheroe-Castle-1.jpg" alt="Clitheroe-Castle" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Clitheroe-aerial.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Clitheroe-aerial.jpg" alt="Clitheroe-aerial" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Clitheroe-1.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Clitheroe-1.jpg" alt="Clitheroe" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Clitheroe-Castle-1.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Clitheroe-Castle-1.jpg" alt="Clitheroe-Castle" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Clitheroe-aerial.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Clitheroe-aerial.jpg" alt="Clitheroe-aerial" loading="lazy" /></a>
 </div>

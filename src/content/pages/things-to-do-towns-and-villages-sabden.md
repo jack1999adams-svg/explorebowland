@@ -3,7 +3,7 @@ title: "Sabden"
 description: "Sabden is a lovely Ribble Valley village set in a stunning landscape by Pendle Hill, which of course is known for the legendary trials of the Pendle"
 path: "/things-to-do/towns-and-villages/sabden/"
 pubDate: "2019-05-15T12:00:14Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2019/06/pendle-sunset.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/pendle-sunset.jpg"
 heroAlt: "pendle-sunset"
 wpId: 1282
 ---
@@ -33,6 +33,6 @@ wpId: 1282
 <a href="https://en.wikipedia.org/wiki/Sabden" target="_blank" rel="noopener noreferrer">Wikipedia</a>
 
 <div class="gallery" data-count="2">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/pendle-sunset.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/pendle-sunset.jpg" alt="pendle-sunset" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2015/10/The_Wellsprings_Pendle.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2015/10/The_Wellsprings_Pendle.jpg" alt="The Wellsprings" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/pendle-sunset.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/pendle-sunset.jpg" alt="pendle-sunset" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2015/10/The_Wellsprings_Pendle.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2015/10/The_Wellsprings_Pendle.jpg" alt="The Wellsprings" loading="lazy" /></a>
 </div>

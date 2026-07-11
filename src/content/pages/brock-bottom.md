@@ -3,7 +3,7 @@ title: "Brock Bottom"
 description: "Brock Bottom Brock Bottom Picnic Site Nearby walk Brock Bottom &amp; Beacon Fell Links TripAdvisor Address: Brock Mill Ln, Claughton, Preston PR3 0PP Car"
 path: "/brock-bottom/"
 pubDate: "2019-05-15T11:12:13Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Borck-Bottom-scaled.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Borck-Bottom-scaled.jpg"
 heroAlt: "Brock Bottom"
 wpId: 1207
 ---
@@ -15,12 +15,12 @@ wpId: 1207
 Brock Bottom Picnic Site
 
 <div class="gallery" data-count="6">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/brock-bottoms-4.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/brock-bottoms-4.jpg" alt="brock-bottoms-4" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/Brock-Bottom-3.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/Brock-Bottom-3.jpg" alt="Brock Bottom (3)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/Brock-Bottom-1.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/Brock-Bottom-1.jpg" alt="Brock Bottom (1)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/Brock-Bottom-2.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/Brock-Bottom-2.jpg" alt="Brock Bottom (2)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/Brock-Bottom-4.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/Brock-Bottom-4.jpg" alt="Brock Bottom (4)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/brock-bottom-10.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/06/brock-bottom-10.jpg" alt="brock-bottom-10" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/brock-bottoms-4.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/brock-bottoms-4.jpg" alt="brock-bottoms-4" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/Brock-Bottom-3.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/Brock-Bottom-3.jpg" alt="Brock Bottom (3)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/Brock-Bottom-1.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/Brock-Bottom-1.jpg" alt="Brock Bottom (1)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/Brock-Bottom-2.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/Brock-Bottom-2.jpg" alt="Brock Bottom (2)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/Brock-Bottom-4.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/Brock-Bottom-4.jpg" alt="Brock Bottom (4)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/brock-bottom-10.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/06/brock-bottom-10.jpg" alt="brock-bottom-10" loading="lazy" /></a>
 </div>
 
 <iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9407.203459198548!2d-2.6881449!3d53.8819681!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x27a17cdd47c3b06f!2sBrock+Bottoms+Picnic+Site!5e0!3m2!1sen!2suk!4v1561897160088!5m2!1sen!2suk" width="600" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe>

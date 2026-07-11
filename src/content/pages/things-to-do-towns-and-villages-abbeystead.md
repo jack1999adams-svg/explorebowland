@@ -3,7 +3,7 @@ title: "Abbeystead"
 description: "The small hamlet of Abbeystead was once the home of Cistercian monks during the reign of Henry 11. Although their presence was short lived, the naming of"
 path: "/things-to-do/towns-and-villages/abbeystead/"
 pubDate: "2019-05-15T11:31:52Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Abbeystead-aerial-2976x2232.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Abbeystead-aerial-2976x2232.jpg"
 heroAlt: ""
 wpId: 1241
 ---
@@ -27,17 +27,17 @@ wpId: 1241
 <a href="https://en.wikipedia.org/wiki/Abbeystead">Wikipedia</a>
 
 <div class="gallery" data-count="4">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Abbeystead-aerial-2976x2232.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Abbeystead-aerial-2976x2232.jpg" alt="" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/03/Abbeystead-Stoops-Bridge.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/03/Abbeystead-Stoops-Bridge.jpg" alt="Abbeystead Stoops Bridge" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/03/Abbeystead-aerial-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/03/Abbeystead-aerial-scaled.jpg" alt="Abbeystead Reservoir" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/03/Abbeystead-Reservoir-Weir.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/03/Abbeystead-Reservoir-Weir.jpg" alt="Abbeystead Reservoir Weir" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Abbeystead-aerial-2976x2232.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Abbeystead-aerial-2976x2232.jpg" alt="" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/Abbeystead-Stoops-Bridge.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/Abbeystead-Stoops-Bridge.jpg" alt="Abbeystead Stoops Bridge" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/Abbeystead-aerial-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/Abbeystead-aerial-scaled.jpg" alt="Abbeystead Reservoir" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/Abbeystead-Reservoir-Weir.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/Abbeystead-Reservoir-Weir.jpg" alt="Abbeystead Reservoir Weir" loading="lazy" /></a>
 </div>
 
 [Eat & Drink](https://fleeceinn.co.uk/)
 
 ---
 
-!(https://www.explorebowland.co.uk/wp-content/uploads/2020/05/Fleece-Inn-Dolphinholme.jpg)
+!(https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Fleece-Inn-Dolphinholme.jpg)
 
 [Visit website](https://fleeceinn.co.uk/)
 
@@ -45,7 +45,7 @@ wpId: 1241
 
 ---
 
-!(https://www.explorebowland.co.uk/wp-content/uploads/2020/05/Greenbank-Farmhouse.jpg)
+!(https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Greenbank-Farmhouse.jpg)
 
 [Visit website](https://www.greenbankfarmhouse.co.uk/)
 
@@ -53,6 +53,6 @@ wpId: 1241
 
 ---
 
-!(https://www.explorebowland.co.uk/wp-content/uploads/2020/05/trough-of-bowland-scaled.jpg)
+!(https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/trough-of-bowland-scaled.jpg)
 
 [Visit website](https://www.explorebowland.co.uk/things-to-do/places-of-interest/trough-of-bowland/)

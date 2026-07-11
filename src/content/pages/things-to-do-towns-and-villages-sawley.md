@@ -3,7 +3,7 @@ title: "Sawley"
 description: "The tranquil village of Sawley is home to the ruins of an ancient abbey (Salley Abbey), with a wooden structure and land initially provided by William de"
 path: "/things-to-do/towns-and-villages/sawley/"
 pubDate: "2019-05-19T08:48:05Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2018/11/Sawley-Abbey.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/11/Sawley-Abbey.jpg"
 heroAlt: "Sawley Abbey"
 wpId: 1641
 ---
@@ -31,8 +31,8 @@ wpId: 1641
 <a href="https://en.wikipedia.org/wiki/Sawley,_Lancashire">Wikipedia</a>
 
 <div class="gallery" data-count="4">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2018/11/The-Spread-Eagle-Sawley.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2018/11/The-Spread-Eagle-Sawley.jpg" alt="The Spread Eagle, Sawley" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2018/11/Sawley-Abbey.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2018/11/Sawley-Abbey.jpg" alt="Sawley Abbey" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-aerial.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-aerial.jpg" alt="Sawley Abbey aerial" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-1.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-1.jpg" alt="Sawley-Abbey" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/11/The-Spread-Eagle-Sawley.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/11/The-Spread-Eagle-Sawley.jpg" alt="The Spread Eagle, Sawley" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/11/Sawley-Abbey.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/11/Sawley-Abbey.jpg" alt="Sawley Abbey" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-aerial.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-aerial.jpg" alt="Sawley Abbey aerial" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-1.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-1.jpg" alt="Sawley-Abbey" loading="lazy" /></a>
 </div>

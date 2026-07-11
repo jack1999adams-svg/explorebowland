@@ -3,7 +3,7 @@ title: "Barley"
 description: "The village of Barley is located close to Pendle Hill between two reservoirs, Black Moss and Ogden reservoir and is part of the Outstanding Natural Beauty"
 path: "/things-to-do/towns-and-villages/barley/"
 pubDate: "2019-05-15T12:01:00Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Barley-2.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Barley-2.jpg"
 heroAlt: "Barley (2)"
 wpId: 1286
 ---
@@ -29,6 +29,6 @@ wpId: 1286
 <a href="https://en.wikipedia.org/wiki/Barley,_Lancashire" target="_blank" rel="noopener noreferrer">Wikipedia</a>
 
 <div class="gallery" data-count="2">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Barley-1.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Barley-1.jpg" alt="Barley (1)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Barley-2.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Barley-2.jpg" alt="Barley (2)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Barley-1.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Barley-1.jpg" alt="Barley (1)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Barley-2.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Barley-2.jpg" alt="Barley (2)" loading="lazy" /></a>
 </div>

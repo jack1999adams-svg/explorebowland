@@ -3,7 +3,7 @@ title: "Pendle Ski Club"
 description: "Pendle Ski Club Pendle Ski Club Set in a fantastic location on Pendle Hill. Known as 'Nick of Pendle', the road takes you right across the western slopes"
 path: "/pendle-ski-club/"
 pubDate: "2019-05-15T11:28:29Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Pendle-Ski-Club-scaled.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Pendle-Ski-Club-scaled.jpg"
 heroAlt: "default"
 wpId: 1237
 ---
@@ -67,5 +67,5 @@ Sunday 10:00 – 16:00
 </div>
 
 <div class="gallery" data-count="1">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Pendle-Ski-Club-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Pendle-Ski-Club-scaled.jpg" alt="default" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Pendle-Ski-Club-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Pendle-Ski-Club-scaled.jpg" alt="default" loading="lazy" /></a>
 </div>

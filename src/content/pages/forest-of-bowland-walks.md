@@ -3,7 +3,7 @@ title: "Forest of Bowland Walks"
 description: "Forest of Bowland walks Choose your walk from the map or find a walk from the list"
 path: "/forest-of-bowland-walks/"
 pubDate: "2020-10-04T12:50:32Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2020/08/Millers-House-fingerpost-sign-scaled.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/08/Millers-House-fingerpost-sign-scaled.jpg"
 heroAlt: "Millers House fingerpost sign"
 wpId: 6255
 ---

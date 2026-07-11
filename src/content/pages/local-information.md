@@ -3,7 +3,7 @@ title: "Local information"
 description: "Places of interest Andy Goldsworthy Clougha Sculpture Beacon Fell Bowland Wild Boar Park Brock Bottom Clitheroe Castle and Museum Cobble Hey Farm &amp;"
 path: "/local-information/"
 pubDate: "2018-10-31T04:57:45Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Clitheroe-Castle.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Clitheroe-Castle.jpg"
 heroAlt: "Clitheroe-Castle"
 wpId: 233
 ---

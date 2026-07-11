@@ -29,8 +29,8 @@ wpId: 4192
 <a href="https://en.wikipedia.org/wiki/Dolphinholme" target="_blank" rel="noopener noreferrer">Wikipedia</a>
 
 <div class="gallery" data-count="4">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Dolphinholme-1-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Dolphinholme-1-scaled.jpg" alt="Dolphinholme (1)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Dolphinholme-2-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Dolphinholme-2-scaled.jpg" alt="Dolphinholme (2)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Dolphinholme-3-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Dolphinholme-3-scaled.jpg" alt="Dolphinholme (3)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Dolphinholme-4-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/Dolphinholme-4-scaled.jpg" alt="Dolphinholme (4)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dolphinholme-1-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dolphinholme-1-scaled.jpg" alt="Dolphinholme (1)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dolphinholme-2-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dolphinholme-2-scaled.jpg" alt="Dolphinholme (2)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dolphinholme-3-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dolphinholme-3-scaled.jpg" alt="Dolphinholme (3)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dolphinholme-4-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dolphinholme-4-scaled.jpg" alt="Dolphinholme (4)" loading="lazy" /></a>
 </div>

@@ -3,7 +3,7 @@ title: "Ribchester"
 description: "Ribchester is a pretty village situated beside the River Ribble in Lancashire's Ribble Valley and it is also an area of great historical importance. The"
 path: "/things-to-do/towns-and-villages/ribchester/"
 pubDate: "2019-05-18T13:09:26Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Ribchester.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Ribchester.jpg"
 heroAlt: "Ribchester"
 wpId: 1601
 ---
@@ -16,7 +16,7 @@ wpId: 1601
 <div class="yj6qo"></div>
 
 <div class="gallery" data-count="1">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Ribchester.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Ribchester.jpg" alt="Ribchester" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Ribchester.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Ribchester.jpg" alt="Ribchester" loading="lazy" /></a>
 </div>
 
 <iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9422.53328168137!2d-2.5414078556039326!3d53.81380818127333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b766b53172e5b%3A0x9d840bce24829b93!2sRibchester!5e0!3m2!1sen!2suk!4v1558259486146!5m2!1sen!2suk" width="600" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe>

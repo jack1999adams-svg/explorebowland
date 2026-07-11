@@ -3,7 +3,7 @@ title: "Other walks"
 description: "Other walks Many walks close by to the Forest of Bowland, but we also love exploring the Yorkshire Dales, Lake District, Peak District and Snowdonia."
 path: "/forest-of-bowland/other-walks/"
 pubDate: "2018-10-31T03:32:40Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2020/10/moughton-norber-20.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/10/moughton-norber-20.jpg"
 heroAlt: "moughton-norber-20"
 wpId: 193
 ---

@@ -3,7 +3,7 @@ title: "Bolton-by-Bowland"
 description: "Bolton by Bowland is perhaps one of the most attractive villages in the Ribble Valley and is a destination for tourists and local residents alike, both"
 path: "/things-to-do/towns-and-villages/bolton-by-bowland/"
 pubDate: "2019-05-15T12:06:30Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2020/03/IMG_9215-scaled.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/IMG_9215-scaled.jpg"
 heroAlt: "IMG_9215"
 wpId: 1298
 ---

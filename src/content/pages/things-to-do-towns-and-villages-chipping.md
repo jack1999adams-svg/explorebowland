@@ -3,7 +3,7 @@ title: "Chipping"
 description: "Chipping is a civil parish in the county of Lancashire, a quaint village and conservation area located in the Forest of Bowland (Area of Outstanding"
 path: "/things-to-do/towns-and-villages/chipping/"
 pubDate: "2019-05-15T11:51:17Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Chipping.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Chipping.jpg"
 heroAlt: "Chipping"
 wpId: 1250
 ---
@@ -29,12 +29,12 @@ wpId: 1250
 <a href="https://en.wikipedia.org/wiki/Chipping,_Lancashire" target="_blank" rel="noopener noreferrer">Wikipedia</a>
 
 <div class="gallery" data-count="8">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Chipping.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2019/05/Chipping.jpg" alt="Chipping" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping.jpg" alt="chipping" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping-1.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping-1.jpg" alt="chipping-1" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping-2-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping-2-scaled.jpg" alt="chipping-2" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2000/03/Chipping-walk-32-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2000/03/Chipping-walk-32-scaled.jpg" alt="Chipping walk (32)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2000/03/Chipping-walk-12-1-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2000/03/Chipping-walk-12-1-scaled.jpg" alt="Chipping walk (12)" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping-3-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping-3-scaled.jpg" alt="chipping-3" loading="lazy" /></a>
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping-4-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/04/chipping-4-scaled.jpg" alt="chipping-4" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Chipping.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Chipping.jpg" alt="Chipping" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping.jpg" alt="chipping" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping-1.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping-1.jpg" alt="chipping-1" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping-2-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping-2-scaled.jpg" alt="chipping-2" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2000/03/Chipping-walk-32-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2000/03/Chipping-walk-32-scaled.jpg" alt="Chipping walk (32)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2000/03/Chipping-walk-12-1-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2000/03/Chipping-walk-12-1-scaled.jpg" alt="Chipping walk (12)" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping-3-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping-3-scaled.jpg" alt="chipping-3" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping-4-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/chipping-4-scaled.jpg" alt="chipping-4" loading="lazy" /></a>
 </div>

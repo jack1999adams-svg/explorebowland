@@ -3,7 +3,7 @@ title: "Quernmore"
 description: "Quernmore The tiny village of Quernmore is located approximately three miles from Lancaster in the valley of the River Conder, consisting mainly of farm"
 path: "/things-to-do/towns-and-villages/quernmore/"
 pubDate: "2019-05-15T12:11:36Z"
-hero: "https://www.explorebowland.co.uk/wp-content/uploads/2020/03/Quernmore-Aerial-scaled.jpg"
+hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/Quernmore-Aerial-scaled.jpg"
 heroAlt: "Quernmore"
 wpId: 1318
 ---
@@ -37,5 +37,5 @@ wpId: 1318
 <a href="https://en.wikipedia.org/wiki/Quernmore" target="_blank" rel="noopener noreferrer">Wikipedia</a>
 
 <div class="gallery" data-count="1">
-  <a href="https://www.explorebowland.co.uk/wp-content/uploads/2020/03/Quernmore-Aerial-scaled.jpg"><img src="https://www.explorebowland.co.uk/wp-content/uploads/2020/03/Quernmore-Aerial-scaled.jpg" alt="Quernmore" loading="lazy" /></a>
+  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/Quernmore-Aerial-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/03/Quernmore-Aerial-scaled.jpg" alt="Quernmore" loading="lazy" /></a>
 </div>
