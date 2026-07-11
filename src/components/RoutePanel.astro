@@ -1,0 +1,75 @@
+---
+// Route-info sidebar for walk posts. Renders the parsed route rows as a clean
+// card. Coordinates get a "view on map" link; everything else is shown as-is.
+interface RouteItem { label: string; key: string; valueHtml: string; }
+interface Props { route: RouteItem[]; }
+const { route } = Astro.props;
+
+const coordRe = /^-?\d{1,3}\.\d+\s*,\s*-?\d{1,3}\.\d+$/;
+const plain = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+---
+
+<aside class="route" aria-label="Route information">
+  <div class="route-card">
+    <h2 class="route-title">Route info</h2>
+    <dl class="route-list">
+      {route.map((item) => (
+        <div class="route-row">
+          <dt>{item.label}</dt>
+          <dd>
+            {coordRe.test(plain(item.valueHtml)) ? (
+              <a
+                href={`https://www.google.com/maps?q=${encodeURIComponent(plain(item.valueHtml))}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >{plain(item.valueHtml)}</a>
+            ) : (
+              <Fragment set:html={item.valueHtml} />
+            )}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</aside>
+
+<style>
+  .route { align-self: start; }
+  .route-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.35rem 0.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .route-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brown);
+    margin: 0 0 0.75rem;
+  }
+  .route-list { margin: 0; }
+  .route-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .route-row:first-child { border-top: 0; }
+  .route-row dt { color: var(--ink-soft); font-size: 0.9rem; }
+  .route-row dd {
+    margin: 0;
+    text-align: right;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.92rem;
+  }
+  .route-row dd a { color: var(--green-ink); font-weight: 600; }
+
+  /* On desktop the panel tracks alongside the article. */
+  @media (min-width: 900px) {
+    .route { position: sticky; top: 88px; }
+  }
+</style>
