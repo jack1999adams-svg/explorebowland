@@ -25,7 +25,20 @@
     "SITE_NAME": "Explore Bowland",
     "SITE_URL": "https://www.explorebowland.co.uk",
     "LEAD_TO_EMAIL": "jack1999adams@gmail.com",
-    "LEAD_FROM_EMAIL": "onboarding@resend.dev"
+    "LEAD_FROM_EMAIL": "onboarding@resend.dev",
+    // Portal-editable theme tokens. `cssVar` must exist in src/styles/global.css
+    // and `default` must match its current value byte-for-byte (the portal only
+    // emits CSS for values that differ from the default).
+    "THEME_SCHEMA": [
+      { "key": "green",     "label": "Accent green",            "type": "color", "cssVar": "--green",     "default": "#8bba34" },
+      { "key": "green_ink", "label": "Link & heading green",    "type": "color", "cssVar": "--green-ink", "default": "#5f8021" },
+      { "key": "navy",      "label": "Navy (header/footer)",    "type": "color", "cssVar": "--navy",      "default": "#001d39" },
+      { "key": "gold",      "label": "Gold highlight",          "type": "color", "cssVar": "--gold",      "default": "#e0b13a" },
+      { "key": "ink",       "label": "Body text",               "type": "color", "cssVar": "--ink",       "default": "#23281d" },
+      { "key": "paper_2",   "label": "Soft section background", "type": "color", "cssVar": "--paper-2",   "default": "#f7f8f4" },
+      { "key": "font_sans", "label": "Body font",               "type": "font",  "cssVar": "--font-sans", "default": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif" },
+      { "key": "font_head", "label": "Heading font",            "type": "font",  "cssVar": "--font-head", "default": "var(--font-sans)" }
+    ]
   },
   // Secrets (per instance, set via wrangler): SETUP_TOKEN, READ_TOKEN,
   // DEPLOY_HOOK_URL (native Pages hook)
