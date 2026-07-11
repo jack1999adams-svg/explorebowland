@@ -4,7 +4,7 @@ import '../styles/content.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
-import { themeCss } from '../lib/theme.mjs';
+import { themeCss, headHtmlFor } from '../lib/theme.mjs';
 
 // Optional Google Analytics 4. Set PUBLIC_GA_ID (e.g. "G-XXXXXXX") in the build
 // env to enable — it loads gated by Consent Mode (default denied below), so no
@@ -88,6 +88,8 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
 
     {/* Portal-edited theme overrides (empty until the client saves values). */}
     {themeCss && <Fragment set:html={`<style>${themeCss}</style>`} />}
+    {/* Portal-managed head snippets, filtered to this page by their scope. */}
+    {headHtmlFor(Astro.url.pathname) && <Fragment set:html={headHtmlFor(Astro.url.pathname)} />}
   </head>
   <body>
     <a href="#main" class="skip">Skip to content</a>
