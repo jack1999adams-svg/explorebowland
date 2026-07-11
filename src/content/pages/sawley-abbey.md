@@ -3,7 +3,7 @@ title: "Sawley Abbey"
 description: "Sawley Abbey is a Grade I listed building and Scheduled Ancient Monument, built around 1149, and lasting until 1536. It was built for Cistercian monks and"
 path: "/sawley-abbey/"
 pubDate: "2019-05-15T11:32:48Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-aerial-photo.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-aerial-photo.jpg"
 heroAlt: "Sawley-Abbey-aerial-photo"
 wpId: 1245
 ---
@@ -43,9 +43,9 @@ Disabled access is limited.
 <a href="https://www.english-heritage.org.uk/visit/places/sawley-abbey/history/" target="_blank" rel="noopener noreferrer">English heritage</a>
 
 <div class="gallery" data-count="3">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-aerial.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-aerial.jpg" alt="Sawley Abbey aerial" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-1.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-1.jpg" alt="Sawley-Abbey" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-aerial-photo.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Sawley-Abbey-aerial-photo.jpg" alt="Sawley-Abbey-aerial-photo" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-aerial.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-aerial.jpg" alt="Sawley Abbey aerial" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-1.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-1.jpg" alt="Sawley-Abbey" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-aerial-photo.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Sawley-Abbey-aerial-photo.jpg" alt="Sawley-Abbey-aerial-photo" loading="lazy" /></a>
 </div>
 
 <div class="embed"><iframe src="https://www.youtube-nocookie.com/embed/O0cNhaveJzU" loading="lazy" allowfullscreen title="Video"></iframe></div>

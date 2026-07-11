@@ -3,7 +3,7 @@ title: "Hurst Green"
 description: "Hurst Green is a pretty village set in the heart of the Ribble Valley with plenty of folklore and history, ranging from highwaymen, ghosts and the"
 path: "/things-to-do/towns-and-villages/hurst-green/"
 pubDate: "2019-05-15T11:59:19Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Hurst-Green-Aerial.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Hurst-Green-Aerial.jpg"
 heroAlt: "Hurst-Green-Aerial"
 wpId: 1278
 ---
@@ -32,9 +32,9 @@ wpId: 1278
 <a href="http://www.hurst-green.co.uk/" target="_blank" rel="noopener noreferrer">Village website</a>
 
 <div class="gallery" data-count="5">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Hurst-Green-Aerial.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Hurst-Green-Aerial.jpg" alt="Hurst-Green-Aerial" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/07/DSC_0468.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/07/DSC_0468.jpg" alt="Stonyhurst College" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/10/Tolkien-Trail.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/10/Tolkien-Trail.jpg" alt="Tolkien Trail" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/10/Bayley_Arms_Hotel.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/10/Bayley_Arms_Hotel.jpg" alt="Bayley Arms Hotel" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/10/Shireburn-Arms.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/10/Shireburn-Arms.jpg" alt="Shireburn Arms" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Hurst-Green-Aerial.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Hurst-Green-Aerial.jpg" alt="Hurst-Green-Aerial" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2018/07/DSC_0468.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2018/07/DSC_0468.jpg" alt="Stonyhurst College" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Tolkien-Trail.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Tolkien-Trail.jpg" alt="Tolkien Trail" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Bayley_Arms_Hotel.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Bayley_Arms_Hotel.jpg" alt="Bayley Arms Hotel" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Shireburn-Arms.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Shireburn-Arms.jpg" alt="Shireburn Arms" loading="lazy" /></a>
 </div>

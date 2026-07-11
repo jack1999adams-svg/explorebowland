@@ -3,7 +3,7 @@ title: "Calder Vale"
 description: "Situated on the edge of the Forest of Bowland in a deep valley, lies the small village of Calder Vale. The beautiful and tranquil setting of the village,"
 path: "/things-to-do/towns-and-villages/calder-vale/"
 pubDate: "2019-05-15T12:12:30Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-5-scaled.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-5-scaled.jpg"
 heroAlt: "Calder Vale (5)"
 wpId: 1322
 ---
@@ -32,11 +32,11 @@ Nearby walk <a href="https://www.explorebowland.co.uk/calder-vale/">here</a>
 Wikipedia <a href="https://en.wikipedia.org/wiki/Calder_Vale">here</a>
 
 <div class="gallery" data-count="5">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-8-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-8-scaled.jpg" alt="Calder Vale (8)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-3-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-3-scaled.jpg" alt="Calder Vale (3)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-2-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-2-scaled.jpg" alt="Calder Vale (2)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-5-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-5-scaled.jpg" alt="Calder Vale (5)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-7-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2017/05/Calder-Vale-7-scaled.jpg" alt="Calder Vale (7)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-8-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-8-scaled.jpg" alt="Calder Vale (8)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-3-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-3-scaled.jpg" alt="Calder Vale (3)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-2-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-2-scaled.jpg" alt="Calder Vale (2)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-5-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-5-scaled.jpg" alt="Calder Vale (5)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-7-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-7-scaled.jpg" alt="Calder Vale (7)" loading="lazy" /></a>
 </div>
 
 <script src="https://static.kuula.io/embed.js" data-kuula="https://kuula.co/share/N5YKT?fs=1&vr=0&zoom=1&sd=1&autorotate=0.24&thumbs=1&info=1&logo=1" data-width="100%" data-height="640px"></script>

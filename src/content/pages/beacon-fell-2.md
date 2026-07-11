@@ -3,7 +3,7 @@ title: "Beacon Fell"
 description: "Beacon Fell Country Park Beacon Fell has been a country park since 1970. It's highest point reaches 266m and on a clear day it is possible to see as far"
 path: "/beacon-fell-2/"
 pubDate: "2019-05-15T11:13:42Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2015/04/Beacon_Fell-1.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2015/04/Beacon_Fell-1.jpg"
 heroAlt: "Beacon_Fell (1)"
 wpId: 1212
 ---
@@ -37,9 +37,9 @@ The cafe is usually open in the daytime for refreshments; <strong>Address</stron
 <a href="https://en.wikipedia.org/wiki/Beacon_Fell,_Lancashire" target="_blank" rel="noopener noreferrer">Wikipedia</a>
 
 <div class="gallery" data-count="5">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Beacon-Fell-Art.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Beacon-Fell-Art.jpg" alt="Beacon Fell Art" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Beacon-Fell.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Beacon-Fell.jpg" alt="DCIM/100MEDIA/DJI_0079.JPG" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Beacon_Fell-2.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Beacon_Fell-2.jpg" alt="Beacon_Fell (2)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Beacon-Fell-Tarn-1.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Beacon-Fell-Tarn-1.jpg" alt="Beacon-Fell-Tarn" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Bowland-Visitor-Centre.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Bowland-Visitor-Centre.jpg" alt="DCIM/100MEDIA/DJI_0077.JPG" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Beacon-Fell-Art.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Beacon-Fell-Art.jpg" alt="Beacon Fell Art" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Beacon-Fell.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Beacon-Fell.jpg" alt="DCIM/100MEDIA/DJI_0079.JPG" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Beacon_Fell-2.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Beacon_Fell-2.jpg" alt="Beacon_Fell (2)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Beacon-Fell-Tarn-1.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Beacon-Fell-Tarn-1.jpg" alt="Beacon-Fell-Tarn" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Bowland-Visitor-Centre.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Bowland-Visitor-Centre.jpg" alt="DCIM/100MEDIA/DJI_0077.JPG" loading="lazy" /></a>
 </div>

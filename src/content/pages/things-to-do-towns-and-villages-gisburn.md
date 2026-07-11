@@ -3,7 +3,7 @@ title: "Gisburn"
 description: "Gisburn is a small thriving linear village located in Lancashire's Ribble Valley. Once the centre of a large ancient parish the village became a civil"
 path: "/things-to-do/towns-and-villages/gisburn/"
 pubDate: "2019-05-15T12:05:35Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Gisburn-scaled.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Gisburn-scaled.jpg"
 heroAlt: "Gisburn"
 wpId: 1294
 ---
@@ -50,5 +50,5 @@ wpId: 1294
 <a href="http://www.gisburn.org.uk/" target="_blank" rel="noopener noreferrer">Village website</a>
 
 <div class="gallery" data-count="1">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Gisburn-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Gisburn-scaled.jpg" alt="Gisburn" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Gisburn-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Gisburn-scaled.jpg" alt="Gisburn" loading="lazy" /></a>
 </div>

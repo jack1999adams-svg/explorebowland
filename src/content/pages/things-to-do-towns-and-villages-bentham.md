@@ -3,7 +3,7 @@ title: "Bentham"
 description: "The small town of Bentham, or to be more precise, High and Low Bentham, is situated between the Forest of Bowland and the Yorkshire Dales, and near to the"
 path: "/things-to-do/towns-and-villages/bentham/"
 pubDate: "2019-05-15T12:08:41Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/02/Great-Stone-of-Fourstones.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/02/Great-Stone-of-Fourstones.jpg"
 heroAlt: "Great Stone of Fourstones"
 wpId: 1306
 ---
@@ -25,8 +25,8 @@ For those spending time wandering around the town or perhaps staying at the cara
 <a href="https://www.forestofbowland.com/files/uploads/pdfs/leaflets/BenthamLeaflet0314LoRes.pdf" target="_blank" rel="noopener noreferrer">Forest of Bowland leaflet</a>
 
 <div class="gallery" data-count="4">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/02/Great-Stone-of-Fourstones.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/02/Great-Stone-of-Fourstones.jpg" alt="Great Stone of Fourstones" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/high-bentham-1-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/high-bentham-1-scaled.jpg" alt="high-bentham-1" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/low-bentham-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/low-bentham-scaled.jpg" alt="low-bentham" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/high-bentham-2.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/high-bentham-2.jpg" alt="high-bentham-2" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/02/Great-Stone-of-Fourstones.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/02/Great-Stone-of-Fourstones.jpg" alt="Great Stone of Fourstones" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/high-bentham-1-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/high-bentham-1-scaled.jpg" alt="high-bentham-1" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/low-bentham-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/low-bentham-scaled.jpg" alt="low-bentham" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/high-bentham-2.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/high-bentham-2.jpg" alt="high-bentham-2" loading="lazy" /></a>
 </div>

@@ -3,7 +3,7 @@ title: "Newton-in-Bowland"
 description: "Newton in Bowland The sleepy village of Newton in Bowland, formerly known as Newton on Hodder, was first recorded in the Domesday Book as Neutone and is"
 path: "/things-to-do/towns-and-villages/newton-in-bowland/"
 pubDate: "2019-05-15T12:07:32Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/10/Parkers-arms-bowland.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Parkers-arms-bowland.jpg"
 heroAlt: "Parkers-arms-bowland"
 wpId: 1302
 ---
@@ -32,10 +32,10 @@ wpId: 1302
 <a href="https://newtoninbowland.co.uk/" target="_blank" rel="noopener noreferrer">Village website</a>
 
 <div class="gallery" data-count="6">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/10/Parkers-arms-bowland.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/10/Parkers-arms-bowland.jpg" alt="Parkers-arms-bowland" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/newton-in-bowland-1-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/newton-in-bowland-1-scaled.jpg" alt="newton-in-bowland-1" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/newton-in-bowland-3-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/newton-in-bowland-3-scaled.jpg" alt="newton-in-bowland-3" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/newton-in-bowland-5-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/newton-in-bowland-5-scaled.jpg" alt="newton-in-bowland-5" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2015/01/Parkers-Arms-walk-15.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2015/01/Parkers-Arms-walk-15.jpg" alt="Parkers Arms walk (15)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Newton-in-Bowland.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Newton-in-Bowland.jpg" alt="Newton in Bowland" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Parkers-arms-bowland.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Parkers-arms-bowland.jpg" alt="Parkers-arms-bowland" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/newton-in-bowland-1-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/newton-in-bowland-1-scaled.jpg" alt="newton-in-bowland-1" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/newton-in-bowland-3-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/newton-in-bowland-3-scaled.jpg" alt="newton-in-bowland-3" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/newton-in-bowland-5-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/newton-in-bowland-5-scaled.jpg" alt="newton-in-bowland-5" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2015/01/Parkers-Arms-walk-15.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2015/01/Parkers-Arms-walk-15.jpg" alt="Parkers Arms walk (15)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Newton-in-Bowland.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Newton-in-Bowland.jpg" alt="Newton in Bowland" loading="lazy" /></a>
 </div>

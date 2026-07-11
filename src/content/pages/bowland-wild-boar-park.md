@@ -3,7 +3,7 @@ title: "Bowland Wild Boar Park"
 description: "In the very heart of the Forest of Bowland AONB is Bowland Wild Boar Park. A family venture, set in around 65 acres of glorious woodland and surrounded by"
 path: "/bowland-wild-boar-park/"
 pubDate: "2019-05-15T11:17:39Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2021/05/Bowland-Wild-Boar-Park-scaled.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2021/05/Bowland-Wild-Boar-Park-scaled.jpg"
 heroAlt: "default"
 wpId: 1220
 ---

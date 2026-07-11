@@ -3,7 +3,7 @@ title: "Mobile"
 description: "Some sections of the site are being built but you are welcome to browse Walks around the Forest of Bowland Pendle Hill Spherical Image RICOH"
 path: "/mobile/"
 pubDate: "2019-06-10T12:02:13Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2018/07/Longridge.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2018/07/Longridge.jpg"
 heroAlt: "Longridge"
 wpId: 2667
 ---

@@ -3,7 +3,7 @@ title: "Downham"
 description: "Tucked away at the foot of Pendle Hill is the \"most beautiful\" village in Lancashire, as it is regularly quoted as being. The quiet and unspoilt village"
 path: "/things-to-do/towns-and-villages/downham/"
 pubDate: "2019-05-15T12:01:43Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Downham.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Downham.jpg"
 heroAlt: "Downham"
 wpId: 1290
 ---
@@ -26,5 +26,5 @@ wpId: 1290
 <a href="http://www.downhamvillage.org.uk/" target="_blank" rel="noopener noreferrer">Village website</a>
 
 <div class="gallery" data-count="1">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Downham.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Downham.jpg" alt="Downham" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Downham.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Downham.jpg" alt="Downham" loading="lazy" /></a>
 </div>

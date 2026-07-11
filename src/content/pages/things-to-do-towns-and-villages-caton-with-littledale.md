@@ -3,7 +3,7 @@ title: "Caton-with-Littledale"
 description: "The parish of Caton with Littledale is in the Forest of Bowland (Area of Outstanding Beauty) near to the River Lune, and covers an area of 8,000 acres."
 path: "/things-to-do/towns-and-villages/caton-with-littledale/"
 pubDate: "2019-05-15T12:10:40Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Caton-Moor-2.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Caton-Moor-2.jpg"
 heroAlt: "Caton Moor 2"
 wpId: 1314
 ---
@@ -31,9 +31,9 @@ wpId: 1314
 <a href="https://en.wikipedia.org/wiki/Caton-with-Littledale" target="_blank" rel="noopener noreferrer">Wikipedia</a>
 
 <div class="gallery" data-count="5">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2013/05/Caton-moor-8.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2013/05/Caton-moor-8.jpg" alt="Caton-moor (8)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2013/05/Caton-moor-2.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2013/05/Caton-moor-2.jpg" alt="Caton-moor (2)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Caton-Moor-2.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Caton-Moor-2.jpg" alt="Caton Moor 2" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Caton-Moor.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Caton-Moor.jpg" alt="Caton Moor" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Caton-Moor-3.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2019/05/Caton-Moor-3.jpg" alt="Caton Moor 3" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2013/05/Caton-moor-8.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2013/05/Caton-moor-8.jpg" alt="Caton-moor (8)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2013/05/Caton-moor-2.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2013/05/Caton-moor-2.jpg" alt="Caton-moor (2)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Caton-Moor-2.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Caton-Moor-2.jpg" alt="Caton Moor 2" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Caton-Moor.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Caton-Moor.jpg" alt="Caton Moor" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Caton-Moor-3.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Caton-Moor-3.jpg" alt="Caton Moor 3" loading="lazy" /></a>
 </div>

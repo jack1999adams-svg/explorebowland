@@ -3,7 +3,7 @@ title: "Forest of Bowland"
 description: "The Forest of Bowland The Forest of Bowland Area of Outstanding Natural Beauty, sometimes called 'Bowland Fells' and once dubbed the 'Switzerland of"
 path: "/forest-of-bowland/"
 pubDate: "2018-07-16T15:41:38Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/10/Longridge-Fell-sunrise.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2020/10/Longridge-Fell-sunrise.jpg"
 heroAlt: "Longridge Fell sunrise"
 wpId: 16
 ---
@@ -20,7 +20,7 @@ Bowland offers 312 square miles of beautiful rolling hills, deep valleys and pic
 
 Sometimes you can walk for miles without seeing a soul, that's the beauty of The Forest of Bowland.
 
-!(https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/10/Longridge-Fell-sunrise.jpg)
+!(https://media.explorebowland.co.uk/wp-content/uploads/2020/10/Longridge-Fell-sunrise.jpg)
 
 ---
 

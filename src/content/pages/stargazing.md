@@ -3,7 +3,7 @@ title: "Forest of Bowland Stargazing"
 description: "Forest of Bowland Stargazing Our good friend Stephen Cheatley is a local photographer and expert on astronomy, he has given us some hints and tips on"
 path: "/stargazing/"
 pubDate: "2019-05-15T11:25:59Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Forest-of-Bowland-Stargazing.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Forest-of-Bowland-Stargazing.jpg"
 heroAlt: "Forest of Bowland Stargazing"
 wpId: 1233
 ---
@@ -23,12 +23,12 @@ Forest of Bowland stargazing has gained popularity over recent years and Stephen
 <h2></h2>
 
 <div class="gallery" data-count="6">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Forest-of-Bowland-Stars-2.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Forest-of-Bowland-Stars-2.jpg" alt="Forest of Bowland Stars (2)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Forest-of-Bowland-Stars-1.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Forest-of-Bowland-Stars-1.jpg" alt="Forest of Bowland Stars (1)" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Orion-and-the-Winter-Milky-Way.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Orion-and-the-Winter-Milky-Way.jpg" alt="Orion and the Winter Milky Way" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Northern-Lights-over-Bowland.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Northern-Lights-over-Bowland.jpg" alt="Northern Lights over Bowland" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Milky-Way-over-Jubilee-Tower.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Milky-Way-over-Jubilee-Tower.jpg" alt="Milky Way over Jubilee Tower" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Lyrid-meteor-over-Oakenclough.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Lyrid-meteor-over-Oakenclough.jpg" alt="Lyrid meteor over Oakenclough" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Forest-of-Bowland-Stars-2.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Forest-of-Bowland-Stars-2.jpg" alt="Forest of Bowland Stars (2)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Forest-of-Bowland-Stars-1.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Forest-of-Bowland-Stars-1.jpg" alt="Forest of Bowland Stars (1)" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Orion-and-the-Winter-Milky-Way.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Orion-and-the-Winter-Milky-Way.jpg" alt="Orion and the Winter Milky Way" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Northern-Lights-over-Bowland.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Northern-Lights-over-Bowland.jpg" alt="Northern Lights over Bowland" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Milky-Way-over-Jubilee-Tower.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Milky-Way-over-Jubilee-Tower.jpg" alt="Milky Way over Jubilee Tower" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Lyrid-meteor-over-Oakenclough.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Lyrid-meteor-over-Oakenclough.jpg" alt="Lyrid meteor over Oakenclough" loading="lazy" /></a>
 </div>
 
 <h2>Map showing best areas</h2>
@@ -40,9 +40,9 @@ Forest of Bowland stargazing has gained popularity over recent years and Stephen
 ---
 
 <h2></h2>
-<img class="alignnone wp-image-4988" src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/05/Finding-the-North-Star-300x185.jpg" alt="" width="503" height="310" />
+<img class="alignnone wp-image-4988" src="https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Finding-the-North-Star-300x185.jpg" alt="" width="503" height="310" />
 
-<img class="alignnone wp-image-4032" src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Stephen-Cheatley-photography-300x114.png" alt="" width="166" height="63" />
+<img class="alignnone wp-image-4032" src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Stephen-Cheatley-photography-300x114.png" alt="" width="166" height="63" />
 <h2><strong>Stephen's hints and tips on Forest of Bowland stargazing;</strong></h2>
 The Forest of Bowland AONB is an ideal place to visit if you want to escape the light pollution of town to do some stargazing. Getting away from urban lights makes a massive difference in what you can see in a clear night sky. I myself have visited Bowland many times over the past ten years, since taking up astronomy seriously in 2010. In 2015 I witnessed the amazing Aurora Borealis from close to the Grizedale Reservoir (see images). It is also possible to see one of our nearest galactic neighbours, the Andromeda Galaxy from Bowland, as well as see our own galaxy, the Milky Way, which looks like a glowing band across the sky. Late summer is the best time to go Milky Way spotting in Bowland, as the galactic plane of our galaxy stretches across the sky and overhead. Look out for the large group of stars high in the sky called the Summer Triangle. The Milky Way runs right through this, easy to see pattern of stars.
 

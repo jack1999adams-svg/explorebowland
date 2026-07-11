@@ -3,7 +3,7 @@ title: "Dunsop Bridge"
 description: "Dunsop Bridge is small picturesque village, located in the heart of the Forest of Bowland (Area of Outstanding Natural Beauty) and is referred to as the"
 path: "/things-to-do/towns-and-villages/dunsop-bridge/"
 pubDate: "2019-05-15T11:54:41Z"
-hero: "https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dunsop-Bridge-3-scaled.jpg"
+hero: "https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Dunsop-Bridge-3-scaled.jpg"
 heroAlt: "default"
 wpId: 1262
 ---
@@ -30,7 +30,7 @@ wpId: 1262
 <a href="https://en.wikipedia.org/wiki/Dunsop_Bridge" target="_blank" rel="noopener noreferrer">Wikipedia</a>
 
 <div class="gallery" data-count="3">
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dunsop-Bridge-1-1-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dunsop-Bridge-1-1-scaled.jpg" alt="default" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dunsop-Bridge-2-1-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dunsop-Bridge-2-1-scaled.jpg" alt="default" loading="lazy" /></a>
-  <a href="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dunsop-Bridge-3-1-scaled.jpg"><img src="https://pub-9875a2c5cc9242d09206ca6d03efaa3b.r2.dev/wp-content/uploads/2020/04/Dunsop-Bridge-3-1-scaled.jpg" alt="default" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Dunsop-Bridge-1-1-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Dunsop-Bridge-1-1-scaled.jpg" alt="default" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Dunsop-Bridge-2-1-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Dunsop-Bridge-2-1-scaled.jpg" alt="default" loading="lazy" /></a>
+  <a href="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Dunsop-Bridge-3-1-scaled.jpg"><img src="https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Dunsop-Bridge-3-1-scaled.jpg" alt="default" loading="lazy" /></a>
 </div>
