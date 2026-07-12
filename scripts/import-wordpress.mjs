@@ -46,6 +46,12 @@ function pathFromLink(link) {
   }
 }
 
+// Intentional permalink alignments: move a page to a cleaner slug (and 301 the
+// old one) so it matches the portal category's parent path for section listings.
+const PATH_OVERRIDES = {
+  '/forest-of-bowland/other-walks/': '/other-walks/',
+};
+
 const cdnify = (url) => {
   if (!IMAGE_CDN_BASE || !url) return url;
   return url
@@ -128,7 +134,8 @@ for (const it of items) {
   if (val(it['wp:status']) !== 'publish') continue;
 
   const id = Number(val(it['wp:post_id']));
-  const urlPath = pathFromLink(val(it.link));
+  const rawPath = pathFromLink(val(it.link));
+  const urlPath = (rawPath && PATH_OVERRIDES[rawPath]) || rawPath;
   idToLink.set(String(id), urlPath);
   if (!urlPath) continue;
   if (urlPath === '/') continue; // front page owned by custom index.astro
@@ -238,6 +245,8 @@ for (const it of items) {
   const to = idToLink.get(parent);
   if (from && to && from !== to) redirects[from] = to;
 }
+// 301 the old permalink of every intentional path override.
+for (const [from, to] of Object.entries(PATH_OVERRIDES)) redirects[from] = to;
 // Also 301 the losing side of any resolved duplicate-permalink collision's old
 // path is unnecessary (that URL never resolved on the live site), so skip.
 
