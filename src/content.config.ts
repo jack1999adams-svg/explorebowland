@@ -3,9 +3,6 @@ import { glob } from 'astro/loaders';
 import { novaPortalLoader } from './lib/novaportal-loader.mjs';
 import { buildRoute } from './lib/route-schema.mjs';
 import { postPath } from './lib/post-path.mjs';
-// Migrated route values parsed from the old inline tables (bridge until the
-// portal serves them; portal values override these per field).
-import routeFields from '../data/route-fields.json';
 
 // Shared frontmatter for imported WordPress content. `path` holds the EXACT
 // original permalink (e.g. "/caton-moor/" or
@@ -53,12 +50,9 @@ const posts = defineCollection({
       // Route-info custom fields (walk posts). Delivered per post in `extras`
       // keyed by ROUTE_SCHEMA keys; blank fields are dropped. Empty for posts
       // the client hasn't filled yet.
-      route: buildRoute({
-        ...(routeFields[p.slug] || {}),
-        ...(p.extras || {}),
-        ...(p.route || {}),
-        ...(p.fields || {}),
-      }),
+      // Route-info custom fields, delivered per post in `extras` keyed by
+      // ROUTE_SCHEMA keys; blank fields are dropped.
+      route: buildRoute(p.extras || {}),
     }),
   }),
   schema: z.object({
