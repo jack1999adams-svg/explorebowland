@@ -2,9 +2,12 @@
 // Route-info sidebar for walk posts. Desktop: sticky card in the right column.
 // Mobile: a fixed circular button that opens the route info as a bottom sheet.
 // Renders the portal-supplied route fields (already filtered to non-empty).
-interface RouteItem { key: string; label: string; value: string; coords?: boolean; }
-interface Props { route: RouteItem[]; }
-const { route } = Astro.props;
+// `novaIf` (panel + per-row) only appears on the /nova-preview/ template pages:
+// NovaPortal substitutes the placeholder and removes elements whose value
+// resolved empty — mirroring the blank-fields-omitted rule of real builds.
+interface RouteItem { key: string; label: string; value: string; coords?: boolean; novaIf?: string; }
+interface Props { route: RouteItem[]; novaIf?: string; }
+const { route, novaIf } = Astro.props;
 
 const isCoords = (s: string) => /^-?\d{1,3}\.\d+\s*,\s*-?\d{1,3}\.\d+$/.test(s.trim());
 const isUrl = (s: string) => /^https?:\/\//i.test(s.trim());
@@ -14,7 +17,7 @@ const hostOf = (s: string) => { try { return new URL(s).hostname.replace(/^www\.
 const displayLen = (v: string) => (isUrl(v) ? hostOf(v).length : v.trim().length);
 ---
 
-<aside class="route" aria-label="Route information">
+<aside class="route" aria-label="Route information" data-nova-if={novaIf}>
   <div class="route-backdrop" data-route-close></div>
 
   <div class="route-card" role="region" aria-label="Route info">
@@ -26,7 +29,7 @@ const displayLen = (v: string) => (isUrl(v) ? hostOf(v).length : v.trim().length
     </div>
     <dl class="route-list">
       {route.map((item) => (
-        <div class:list={['route-row', { wide: displayLen(item.value) > 20 }]}>
+        <div class:list={['route-row', { wide: displayLen(item.value) > 20 }]} data-nova-if={item.novaIf}>
           <dt>{item.label}</dt>
           <dd>
             {(item.coords || isCoords(item.value)) ? (

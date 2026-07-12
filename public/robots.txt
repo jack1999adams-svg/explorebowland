@@ -2,5 +2,7 @@
 # All crawlers welcome, including AI assistants (see /llms.txt for a curated index).
 User-agent: *
 Allow: /
+# NovaPortal draft-preview template pages (noindexed placeholders).
+Disallow: /nova-preview/
 
 Sitemap: https://www.explorebowland.co.uk/sitemap-index.xml

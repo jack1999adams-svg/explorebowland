@@ -57,6 +57,8 @@ export default defineConfig({
   integrations: [
     postRedirects(),
     sitemap({
+      // The /nova-preview/ placeholder templates are noindexed build artefacts.
+      filter: (page) => !page.includes('/nova-preview/'),
       // Attach a real lastmod to posts (map filled during postRedirects' fetch).
       serialize(item) {
         const lastmod = lastmodByUrl.get(item.url);

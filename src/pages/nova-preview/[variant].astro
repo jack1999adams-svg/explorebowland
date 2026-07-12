@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleHero from '../../components/ArticleHero.astro';
+import RoutePanel from '../../components/RoutePanel.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { ROUTE_SCHEMA } from '../../lib/route-schema.mjs';
+
+// Baked placeholder pages for NovaPortal's instant draft preview. Each variant
+// renders the REAL post layout with {{NOVA_*}} sentinels as the data; the
+// portal fetches the matching variant (c-<category> → t-<template> → default),
+// substitutes the draft's content and serves it behind the client's login.
+// These pages are noindexed and excluded from the sitemap; they carry no
+// content of their own, so they cost nothing to keep in every build.
+export function getStaticPaths() {
+  return [
+    { params: { variant: 'c-bowland-walks' }, props: { walk: true } },
+    { params: { variant: 'c-other-area-walks' }, props: { walk: true } },
+    { params: { variant: 'default' }, props: { walk: false } },
+  ];
+}
+const { walk } = Astro.props;
+
+const field = (key) => `{{NOVA_FIELD:${key}}}`;
+// Every schema row is emitted with a data-nova-if placeholder; the portal
+// removes rows whose value is blank, matching buildRoute() on real pages.
+const route = walk
+  ? ROUTE_SCHEMA.map((s) => ({ ...s, value: field(s.key), novaIf: field(s.key) }))
+  : [];
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: '{{NOVA_SECTION_LABEL}}', url: '{{NOVA_SECTION_URL}}' },
+  { name: '{{NOVA_TITLE}}', url: '' },
+];
+---
+
+<BaseLayout
+  title={'{{NOVA_TITLE}}'}
+  description={'{{NOVA_DESCRIPTION}}'}
+  path={`/nova-preview/${Astro.params.variant}/`}
+  noindex
+>
+  <ArticleHero
+    title={'{{NOVA_TITLE}}'}
+    hero={'{{NOVA_IMAGE}}'}
+    heroAlt={'{{NOVA_IMAGE_ALT}}'}
+    dateDisplay={'{{NOVA_DATE}}'}
+    categories={['{{NOVA_CATEGORY}}']}
+  />
+
+  <article class="container">
+    <Breadcrumbs crumbs={crumbs} />
+
+    {walk ? (
+      <div class="walk-layout">
+        <div class="prose walk-prose"><Fragment set:html={'{{NOVA_BODY}}'} /></div>
+        <RoutePanel route={route} novaIf={route.map((r) => r.value).join('')} />
+      </div>
+    ) : (
+      <div class="prose">
+        <Fragment set:html={'{{NOVA_BODY}}'} />
+      </div>
+    )}
+
+    <p class="back">
+      <a href={'{{NOVA_SECTION_URL}}'}>← Back to {'{{NOVA_SECTION_LABEL}}'}</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  /* Mirrors the post styles in [...slug].astro so previews match real pages. */
+  .container { padding-block: 2.5rem 1rem; }
+  .back { max-width: var(--measure); margin: 2.5rem auto 0; }
+  .back a { font-weight: 600; }
+
+  .walk-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .walk-prose { max-width: none; margin-inline: 0; min-width: 0; }
+  @media (max-width: 899px) {
+    .walk-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  }
+</style>

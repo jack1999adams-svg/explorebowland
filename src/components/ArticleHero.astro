@@ -5,11 +5,15 @@ interface Props {
   heroAlt?: string;
   pubDate?: Date;
   categories?: string[];
+  /** Pre-formatted date text (the /nova-preview/ templates pass a placeholder). */
+  dateDisplay?: string;
 }
-const { title, hero, heroAlt = '', pubDate, categories = [] } = Astro.props;
-const dateStr = pubDate
-  ? new Date(pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
-  : null;
+const { title, hero, heroAlt = '', pubDate, categories = [], dateDisplay } = Astro.props;
+const dateStr =
+  dateDisplay ??
+  (pubDate
+    ? new Date(pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+    : null);
 ---
 
 {hero ? (
