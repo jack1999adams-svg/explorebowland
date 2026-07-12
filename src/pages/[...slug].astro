@@ -87,7 +87,9 @@ const strippedBody = route.length > 0 && rawHtml ? stripRouteTable(rawHtml) : nu
     )}
 
     {kind === 'post' && (
-      <p class="back"><a href="/blog/">← All walks &amp; posts</a></p>
+      <p class="back">
+        <a href={d.sectionParent || '/'}>← Back to {d.sectionLabel || 'home'}</a>
+      </p>
     )}
   </article>
 
