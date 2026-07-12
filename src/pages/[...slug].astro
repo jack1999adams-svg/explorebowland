@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleHero from '../components/ArticleHero.astro';
 import PostCard from '../components/PostCard.astro';
 import RoutePanel from '../components/RoutePanel.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getPosts, toCard } from '../lib/content';
 import {
   abs,
@@ -123,6 +124,8 @@ if (kind === 'post') {
   />
 
   <article class="container">
+    <Breadcrumbs crumbs={crumbs} />
+
     {route.length > 0 ? (
       <div class="walk-layout">
         <div class="prose walk-prose"><Content /></div>

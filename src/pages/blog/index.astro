@@ -1,20 +1,21 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getPosts, toCard } from '../../lib/content';
 import { abs, breadcrumbs } from '../../lib/schema.mjs';
+
+const crumbs = [
+  { name: 'Home', url: abs('/') },
+  { name: 'Journal', url: abs('/blog/') },
+];
 
 // The Journal: non-walk posts (trips, days out, the odd recipe). Walk guides now
 // live in the Bowland Walks / Other Walks sections. Matches posts whose category
 // parent is this page (/blog/), like every other section page.
 const posts = (await getPosts()).filter((p) => p.data.sectionParent === '/blog/');
 
-const jsonLd = [
-  breadcrumbs([
-    { name: 'Home', url: abs('/') },
-    { name: 'Journal', url: abs('/blog/') },
-  ]),
-];
+const jsonLd = [breadcrumbs(crumbs)];
 ---
 
 <BaseLayout
@@ -33,6 +34,7 @@ const jsonLd = [
   </header>
 
   <section class="container section">
+    <Breadcrumbs crumbs={crumbs} />
     <div class="grid">
       {posts.map((p) => <PostCard {...toCard(p)} />)}
     </div>
