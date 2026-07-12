@@ -3,15 +3,14 @@ import '../styles/global.css';
 import '../styles/content.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import CookieConsent from '../components/CookieConsent.astro';
 import Schema from '../components/Schema.astro';
 import { organization, website } from '../lib/schema.mjs';
 import { themeCss, headHtmlFor } from '../lib/theme.mjs';
 
-// Optional Google Analytics 4. Set PUBLIC_GA_ID (e.g. "G-XXXXXXX") in the build
-// env to enable — it loads gated by Consent Mode (default denied below), so no
-// analytics cookies are set until the visitor consents. Empty = nothing loads.
-const GA_ID = import.meta.env.PUBLIC_GA_ID || '';
+// Consent + Google Consent Mode v2 are handled by CookieYes (a Google-certified
+// CMP), injected via the portal head snippet (see headHtmlFor below). Load the
+// CookieYes tag first in that snippet so its consent defaults are set before any
+// analytics/ads (GA, AdSense) tags fire.
 
 interface Props {
   title: string;
@@ -57,44 +56,6 @@ const schema = [organization(), website(), ...jsonLd];
     <link rel="preconnect" href="https://media.explorebowland.co.uk" crossorigin />
     <link rel="dns-prefetch" href="https://media.explorebowland.co.uk" />
 
-    {/* Google Consent Mode v2 — set BEFORE any tags. Default everything denied
-        (essentials granted), then re-apply the visitor's saved choice so the
-        first pageview already reflects consent. */}
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: 'denied',
-        personalization_storage: 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted',
-        wait_for_update: 500,
-      });
-      try {
-        var _m = document.cookie.match(/(?:^|; )eb_consent=([^;]+)/);
-        if (_m) {
-          var _c = JSON.parse(decodeURIComponent(_m[1]));
-          gtag('consent', 'update', {
-            analytics_storage: _c.analytics ? 'granted' : 'denied',
-            ad_storage: _c.marketing ? 'granted' : 'denied',
-            ad_user_data: _c.marketing ? 'granted' : 'denied',
-            ad_personalization: _c.marketing ? 'granted' : 'denied',
-            personalization_storage: _c.marketing ? 'granted' : 'denied',
-          });
-        }
-      } catch (e) {}
-    </script>
-    {GA_ID && (
-      <Fragment>
-        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
-        <script is:inline set:html={`gtag('config', ${JSON.stringify(GA_ID)});`}></script>
-      </Fragment>
-    )}
-
     <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
@@ -138,6 +99,5 @@ const schema = [organization(), website(), ...jsonLd];
       <slot />
     </main>
     <Footer />
-    <CookieConsent />
   </body>
 </html>

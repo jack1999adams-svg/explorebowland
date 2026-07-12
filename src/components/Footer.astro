@@ -41,7 +41,6 @@ const cols = [
   <div class="container base">
     <p>© {year} Explore Bowland</p>
     <p class="base-links">
-      <button type="button" class="linkish" data-cookie-settings>Cookie settings</button>
       <a href="/get-in-touch/">Get in touch</a>
     </p>
   </div>
@@ -84,15 +83,6 @@ const cols = [
   }
   .base p { margin: 0; }
   .base-links { display: flex; gap: 1.25rem; align-items: center; }
-  .linkish {
-    background: none;
-    border: 0;
-    padding: 0;
-    font: inherit;
-    color: #cdd6e0;
-    cursor: pointer;
-  }
-  .linkish:hover { color: var(--green); }
   @media (max-width: 700px) {
     .grid { grid-template-columns: 1fr 1fr; }
     .about { grid-column: 1 / -1; }
