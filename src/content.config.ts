@@ -2,6 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { novaPortalLoader } from './lib/novaportal-loader.mjs';
 import { buildRoute } from './lib/route-schema.mjs';
+import { postPath } from './lib/post-path.mjs';
 // Migrated route values parsed from the old inline tables (bridge until the
 // portal serves them; portal values override these per field).
 import routeFields from '../data/route-fields.json';
@@ -32,10 +33,9 @@ const posts = defineCollection({
     mapData: (p) => ({
       title: p.title,
       description: p.description,
-      // WordPress imports carry their exact original permalink; posts written
-      // in the portal get a root permalink derived from their slug, matching
-      // the site's WordPress-era URL convention.
-      path: p.extras.path ?? `/${p.slug}/`,
+      // Posts nest under their section: <category parent>/<slug>/. Old flat
+      // permalinks 301 to these (see the post-redirects build integration).
+      path: postPath(p),
       pubDate: p.extras.pubDate ?? p.date,
       updatedDate: p.extras.updatedDate,
       hero: p.image || undefined,

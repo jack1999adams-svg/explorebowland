@@ -5,6 +5,7 @@
 // old attachment image-pages to their parent post, then falls through to the
 // static 404 for anything else. Zero overhead on real pages.
 import redirects from './redirects.json';
+import postRedirects from './post-redirects.json';
 
 export async function onRequest(context) {
   const { request, next } = context;
@@ -12,7 +13,12 @@ export async function onRequest(context) {
   let pathname = url.pathname;
   if (!pathname.endsWith('/')) pathname += '/';
 
-  const target = redirects[pathname];
+  // Attachment-page redirect (-> old post URL) or a legacy flat post URL.
+  let target = redirects[pathname] ?? postRedirects[pathname];
+  // Collapse chains: an attachment points at an old flat post URL that itself
+  // now redirects to the nested URL — send straight to the final destination.
+  if (target && postRedirects[target]) target = postRedirects[target];
+
   if (target) {
     return new Response(null, {
       status: 301,
