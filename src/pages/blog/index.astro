@@ -2,17 +2,26 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
 import { getPosts, toCard } from '../../lib/content';
+import { abs, breadcrumbs } from '../../lib/schema.mjs';
 
 // The Journal: non-walk posts (trips, days out, the odd recipe). Walk guides now
 // live in the Bowland Walks / Other Walks sections. Matches posts whose category
 // parent is this page (/blog/), like every other section page.
 const posts = (await getPosts()).filter((p) => p.data.sectionParent === '/blog/');
+
+const jsonLd = [
+  breadcrumbs([
+    { name: 'Home', url: abs('/') },
+    { name: 'Journal', url: abs('/blog/') },
+  ]),
+];
 ---
 
 <BaseLayout
   title="Journal"
   description="Trips, days out and the occasional recipe from around the Forest of Bowland and beyond."
   path="/blog/"
+  jsonLd={jsonLd}
 >
   <header class="hero plain">
     <div class="container">

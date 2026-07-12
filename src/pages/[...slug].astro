@@ -5,6 +5,14 @@ import ArticleHero from '../components/ArticleHero.astro';
 import PostCard from '../components/PostCard.astro';
 import RoutePanel from '../components/RoutePanel.astro';
 import { getPosts, toCard } from '../lib/content';
+import {
+  abs,
+  humanize,
+  breadcrumbs,
+  article,
+  recipe,
+  walkPlace,
+} from '../lib/schema.mjs';
 
 // Reproduce every legacy WordPress URL 1:1. Each entry carries its exact
 // original permalink in `data.path`; we turn that into the catch-all slug so
@@ -48,6 +56,51 @@ const isWalk =
   kind === 'post' &&
   (d.categories?.includes('Bowland Walks') || d.categories?.includes('Other area walks'));
 const route = isWalk ? d.route ?? [] : [];
+
+// ---- Structured data (JSON-LD) ----------------------------------------------
+const canonical = abs(d.path);
+const heroAbs = d.hero ? abs(d.hero) : undefined;
+const isRecipe = kind === 'post' && d.categories?.includes('Recipes');
+
+// Breadcrumb trail. Posts: Home → section → post (section comes straight from
+// the portal). Pages: walk the path segments, labelling each with its own page
+// title where we have one, else a humanised slug.
+const pageTitleByPath = new Map(
+  (await getCollection('pages')).map((e) => [e.data.path, e.data.title]),
+);
+let crumbs = [{ name: 'Home', url: abs('/') }];
+if (kind === 'post') {
+  if (d.sectionParent && d.sectionLabel) {
+    crumbs.push({ name: d.sectionLabel, url: abs(d.sectionParent) });
+  }
+  crumbs.push({ name: d.title, url: canonical });
+} else {
+  const segs = d.path.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
+  let acc = '';
+  segs.forEach((seg, i) => {
+    acc += `/${seg}`;
+    const p = `${acc}/`;
+    const last = i === segs.length - 1;
+    crumbs.push({
+      name: last ? d.title : pageTitleByPath.get(p) || humanize(seg),
+      url: abs(p),
+    });
+  });
+}
+
+const published = d.pubDate ? new Date(d.pubDate).toISOString() : undefined;
+const modified = d.updatedDate ? new Date(d.updatedDate).toISOString() : undefined;
+const meta = { title: d.title, description: d.description, canonical, image: heroAbs };
+
+const jsonLd = [breadcrumbs(crumbs)];
+if (kind === 'post') {
+  jsonLd.push(
+    isRecipe
+      ? recipe({ ...meta, published })
+      : article({ ...meta, published, modified }),
+  );
+  if (isWalk) jsonLd.push(walkPlace({ ...meta, route }));
+}
 ---
 
 <BaseLayout
@@ -55,7 +108,11 @@ const route = isWalk ? d.route ?? [] : [];
   description={d.description}
   path={d.path}
   image={d.hero}
+  imageAlt={d.heroAlt}
   type={kind === 'post' ? 'article' : 'website'}
+  publishedTime={kind === 'post' ? published : undefined}
+  modifiedTime={kind === 'post' ? modified : undefined}
+  jsonLd={jsonLd}
 >
   <ArticleHero
     title={d.title}

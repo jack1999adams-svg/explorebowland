@@ -4,6 +4,8 @@ import '../styles/content.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import Schema from '../components/Schema.astro';
+import { organization, website } from '../lib/schema.mjs';
 import { themeCss, headHtmlFor } from '../lib/theme.mjs';
 
 // Optional Google Analytics 4. Set PUBLIC_GA_ID (e.g. "G-XXXXXXX") in the build
@@ -17,13 +19,32 @@ interface Props {
   /** Exact canonical path, e.g. "/caton-moor/" — preserves legacy URLs. */
   path?: string;
   image?: string;
+  imageAlt?: string;
   type?: 'website' | 'article';
+  /** ISO dates for articles — emitted as article:published_time / modified_time. */
+  publishedTime?: string;
+  modifiedTime?: string;
+  /** Page-specific JSON-LD nodes (breadcrumbs, article, recipe, place…). */
+  jsonLd?: any[];
 }
-const { title, description = '', path, image, type = 'website' } = Astro.props;
+const {
+  title,
+  description = '',
+  path,
+  image,
+  imageAlt = '',
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  jsonLd = [],
+} = Astro.props;
 const siteName = 'Explore Bowland';
 const fullTitle = title === siteName ? title : `${title} — ${siteName}`;
 const canonical = new URL(path ?? Astro.url.pathname, Astro.site).href;
 const ogImage = image ? new URL(image, Astro.site).href : undefined;
+
+// Organization + WebSite are emitted on every page; pages add their own nodes.
+const schema = [organization(), website(), ...jsonLd];
 ---
 
 <!doctype html>
@@ -31,6 +52,10 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {/* Hero and content images are served from R2 — warm the connection early. */}
+    <link rel="preconnect" href="https://media.explorebowland.co.uk" crossorigin />
+    <link rel="dns-prefetch" href="https://media.explorebowland.co.uk" />
 
     {/* Google Consent Mode v2 — set BEFORE any tags. Default everything denied
         (essentials granted), then re-apply the visitor's saved choice so the
@@ -73,18 +98,33 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
     <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="theme-color" content="#001d39" />
 
     <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:type" content={type} />
     <meta property="og:title" content={fullTitle} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:url" content={canonical} />
     {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+    {type === 'article' && publishedTime && (
+      <meta property="article:published_time" content={publishedTime} />
+    )}
+    {type === 'article' && (modifiedTime || publishedTime) && (
+      <meta property="article:modified_time" content={modifiedTime || publishedTime} />
+    )}
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={fullTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    {ogImage && imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+
+    <Schema items={schema} />
 
     {/* Portal-edited theme overrides (empty until the client saves values). */}
     {themeCss && <Fragment set:html={`<style>${themeCss}</style>`} />}

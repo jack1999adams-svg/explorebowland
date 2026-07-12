@@ -1,0 +1,6 @@
+# Explore Bowland — https://www.explorebowland.co.uk
+# All crawlers welcome, including AI assistants (see /llms.txt for a curated index).
+User-agent: *
+Allow: /
+
+Sitemap: https://www.explorebowland.co.uk/sitemap-index.xml

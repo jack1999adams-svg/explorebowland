@@ -1,0 +1,14 @@
+---
+// Renders JSON-LD structured data. Pass an array of schema.org node objects;
+// null/false entries are skipped. `<` is escaped so a stray "</script>" in any
+// value can't break out of the tag.
+interface Props {
+  items?: any[];
+}
+const { items = [] } = Astro.props;
+const nodes = items.filter(Boolean);
+const encode = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c');
+---
+{nodes.map((node) => (
+  <script type="application/ld+json" is:inline set:html={encode(node)} />
+))}
