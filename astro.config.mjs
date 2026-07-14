@@ -69,5 +69,10 @@ export default defineConfig({
   ],
   image: {
     remotePatterns: [{ protocol: 'https' }],
+    // In-content (markdown) images render responsively and never generate wider
+    // than 800px, so heavy originals (some 2048px / ~1MB) download small on
+    // mobile. Display is also capped at 800px in content.css.
+    layout: 'constrained',
+    breakpoints: [320, 480, 640, 800],
   },
 });

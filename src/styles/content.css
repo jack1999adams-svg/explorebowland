@@ -19,7 +19,10 @@
 .prose a:hover { color: var(--green-dark); }
 .prose img {
   border-radius: var(--radius-sm);
+  display: block;
   margin-inline: auto;
+  max-width: min(100%, 800px);
+  height: auto;
   box-shadow: var(--shadow-sm);
 }
 .prose ul, .prose ol { padding-left: 1.4em; }
