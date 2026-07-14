@@ -7,6 +7,7 @@ import RoutePanel from '../components/RoutePanel.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getPosts, toCard } from '../lib/content';
 import PageRender from '../components/PageRender.astro';
+import Tile from '../components/Tile.astro';
 import { loadPages } from '../lib/pages.mjs';
 import {
   abs,
@@ -48,6 +49,10 @@ export async function getStaticPaths() {
 }
 
 const { entry, kind, portalPage } = Astro.props;
+
+// Neutral Bowland image for child cards that have no featured image of their own.
+const CHILD_FALLBACK =
+  'https://media.explorebowland.co.uk/wp-content/uploads/2020/10/Longridge-Fell-sunrise.jpg';
 
 // Vars the template reads; filled per kind. Portal-managed pages carry
 // pre-rendered HTML + a template and skip the post/page machinery below.
@@ -138,6 +143,13 @@ if (kind === 'portalpage') {
 {kind === 'portalpage' ? (
   <BaseLayout title={d.title} description={d.description} path={d.path} image={d.hero} imageAlt={d.heroAlt} jsonLd={jsonLd}>
     <PageRender template={portalPage.template} title={portalPage.title} html={portalPage.html} image={portalPage.image} imageAlt={portalPage.imageAlt} extras={portalPage.extras} crumbs={crumbs} />
+    {(portalPage.children ?? []).length > 0 && (
+      <section class="container section-list">
+        <div class="grid">
+          {portalPage.children.map((ch) => <Tile href={ch.path} title={ch.title} image={ch.image || CHILD_FALLBACK} />)}
+        </div>
+      </section>
+    )}
     {sectionPosts.length > 0 && (
       <section class="container section-list">
         <div class="section-head">
