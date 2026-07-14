@@ -1,7 +1,7 @@
 ---
 title: "Abbeystead"
 description: "The small hamlet of Abbeystead was once the home of Cistercian monks during the reign of Henry 11. Although their presence was short lived, the naming of"
-path: "/things-to-do/towns-and-villages/abbeystead/"
+path: "/towns-and-villages/abbeystead/"
 pubDate: "2019-05-15T11:31:52Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Abbeystead-aerial-2976x2232.jpg"
 heroAlt: ""

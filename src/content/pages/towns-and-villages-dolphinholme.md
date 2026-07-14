@@ -1,7 +1,7 @@
 ---
 title: "Dolphinholme"
 description: "Dolphinholme The small village of Dolphinholme is situated on the River Wyre, on the edge of the Forest of Bowland AONB (Area of Outstanding Natural"
-path: "/things-to-do/towns-and-villages/dolphinholme/"
+path: "/towns-and-villages/dolphinholme/"
 pubDate: "2020-04-20T07:36:26Z"
 wpId: 4192
 ---

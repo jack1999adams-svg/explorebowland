@@ -1,7 +1,7 @@
 ---
 title: "Hornby"
 description: "Hornby is located in the beautiful Lune Valley on the A683 with the River Wenning running through the village and is overlooked by the medieval Hornby"
-path: "/things-to-do/towns-and-villages/hornby/"
+path: "/towns-and-villages/hornby/"
 pubDate: "2019-05-15T12:09:51Z"
 wpId: 1310
 ---

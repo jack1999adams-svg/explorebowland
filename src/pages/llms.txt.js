@@ -8,7 +8,7 @@ const absUrl = (p) => new URL(p, SITE + '/').href;
 // Curated hub pages (mirrors the site's primary navigation).
 const HUBS = [
   ['Things to Do', '/things-to-do/'],
-  ['Towns & Villages', '/things-to-do/towns-and-villages/'],
+  ['Towns & Villages', '/towns-and-villages/'],
   ['Places of Interest', '/things-to-do/places-of-interest/'],
   ['Photo Galleries', '/forest-of-bowland-photos/'],
   ['Eat · Drink · Sleep', '/eat-drink-sleep/'],

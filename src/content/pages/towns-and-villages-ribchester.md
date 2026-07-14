@@ -1,7 +1,7 @@
 ---
 title: "Ribchester"
 description: "Ribchester is a pretty village situated beside the River Ribble in Lancashire's Ribble Valley and it is also an area of great historical importance. The"
-path: "/things-to-do/towns-and-villages/ribchester/"
+path: "/towns-and-villages/ribchester/"
 pubDate: "2019-05-18T13:09:26Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Ribchester.jpg"
 heroAlt: "Ribchester"

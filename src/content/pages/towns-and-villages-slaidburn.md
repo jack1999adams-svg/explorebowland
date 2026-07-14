@@ -1,7 +1,7 @@
 ---
 title: "Slaidburn"
 description: "Slaidburn is a small village with a population of around 290. Up until 1974 it was in the area of West Riding of Yorkshire, and belonged to one of the 12"
-path: "/things-to-do/towns-and-villages/slaidburn/"
+path: "/towns-and-villages/slaidburn/"
 pubDate: "2019-05-15T11:56:47Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Slaidburn.jpg"
 heroAlt: "Slaidburn"

@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleHero from '../components/ArticleHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Tile from '../components/Tile.astro';
+import { abs, breadcrumbs } from '../lib/schema.mjs';
+
+const path = '/towns-and-villages/';
+const title = 'Towns & Villages';
+const description =
+  'Explore the towns and villages of the Forest of Bowland and its surrounding area — from Clitheroe and Longridge to Slaidburn, Chipping, Downham and more.';
+
+// A neutral Bowland image for the few towns without their own featured image.
+const FALLBACK =
+  'https://media.explorebowland.co.uk/wp-content/uploads/2020/10/Longridge-Fell-sunrise.jpg';
+
+// Every town page lives directly under /towns-and-villages/. List them as cards.
+const towns = (await getCollection('pages'))
+  .filter((e) => e.data.path.startsWith('/towns-and-villages/') && e.data.path !== path)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const crumbs = [
+  { name: 'Home', url: abs('/') },
+  { name: title, url: abs(path) },
+];
+const jsonLd = [breadcrumbs(crumbs)];
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+  <ArticleHero title={title} />
+
+  <section class="container intro">
+    <Breadcrumbs crumbs={crumbs} />
+    <p class="lead">
+      From historic market towns to tiny hamlets tucked into the fells, the
+      Forest of Bowland and its fringes are dotted with characterful places to
+      explore. Pick a town or village to discover what makes it worth a visit.
+    </p>
+  </section>
+
+  <section class="container grid-wrap">
+    <div class="towns-grid">
+      {towns.map((t) => (
+        <Tile href={t.data.path} title={t.data.title} image={t.data.hero || FALLBACK} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro { padding-block: 2.5rem 0.5rem; }
+  .intro .lead {
+    max-width: var(--measure);
+    color: var(--ink-soft);
+    font-size: var(--step-1);
+    margin: 0.5rem 0 0;
+  }
+  .grid-wrap { padding-block: 1.5rem 3.5rem; }
+  .towns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+</style>

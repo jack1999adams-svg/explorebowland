@@ -1,7 +1,7 @@
 ---
 title: "Longridge"
 description: "Longridge is an interesting market town set in the glorious Lancashire countryside which has changed little from when it was first built of local"
-path: "/things-to-do/towns-and-villages/longridge/"
+path: "/towns-and-villages/longridge/"
 pubDate: "2019-05-15T11:53:42Z"
 wpId: 1258
 ---
@@ -18,7 +18,7 @@ wpId: 1258
 
 <span style="font-family: Calibri;"><span style="font-size: medium;"><span style="color: #000000;">In August 1648, Oliver Cromwell marched his troops across the Lancashire countryside towards Preston where a bloody battle was fought against the Royalist Army on a bridge over the River Ribble (Battle of Preston 1648).  On their journey to Preston, Cromwell and his army marched along the lower slopes of <a href="https://www.explorebowland.co.uk/longridge-fell/">Longridge Fell</a> and legend has it that Cromwell gave the town its name 'long ridge'.  The Chapel was the site of the first skirmishes between the Roundheads and Royalists during the English Civil War with the major battle at Preston following later that day. </span></span></span>
 
-<span style="color: #000000; font-family: Calibri; font-size: medium;">The size of the town and its location make for a great stopover with many places to stay including hotels, B&amp;Bs, self catering cottages, camping sites and caravan parks such as Beacon Fell View Holiday Park.  The town has some of the best views of the Lancashire countryside and from the top of Longridge Fell you are able to see the Loud Valley and Ingleborough, and  as far away as the Welsh Mountains and the Isle of Man, weather permitting!  There is a network of pathways and five Heritage Trails to explore at your leisure, taking in the rolling countryside and three miles away is the historic Roman village of <a href="https://www.explorebowland.co.uk/things-to-do/towns-and-villages/ribchester/">Ribchester</a>.</span>
+<span style="color: #000000; font-family: Calibri; font-size: medium;">The size of the town and its location make for a great stopover with many places to stay including hotels, B&amp;Bs, self catering cottages, camping sites and caravan parks such as Beacon Fell View Holiday Park.  The town has some of the best views of the Lancashire countryside and from the top of Longridge Fell you are able to see the Loud Valley and Ingleborough, and  as far away as the Welsh Mountains and the Isle of Man, weather permitting!  There is a network of pathways and five Heritage Trails to explore at your leisure, taking in the rolling countryside and three miles away is the historic Roman village of <a href="https://www.explorebowland.co.uk/towns-and-villages/ribchester/">Ribchester</a>.</span>
 <div class="yj6qo"></div>
 
 <iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18838.442805780513!2d-2.620518061800954!3d53.82853857529338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b76d0243c5b8f%3A0x8fddbb5b3ae8b656!2sLongridge%2C+Preston!5e0!3m2!1sen!2suk!4v1558258757660!5m2!1sen!2suk" width="600" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe>

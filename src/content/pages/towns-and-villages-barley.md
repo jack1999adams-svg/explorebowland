@@ -1,7 +1,7 @@
 ---
 title: "Barley"
 description: "The village of Barley is located close to Pendle Hill between two reservoirs, Black Moss and Ogden reservoir and is part of the Outstanding Natural Beauty"
-path: "/things-to-do/towns-and-villages/barley/"
+path: "/towns-and-villages/barley/"
 pubDate: "2019-05-15T12:01:00Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Barley-2.jpg"
 heroAlt: "Barley (2)"

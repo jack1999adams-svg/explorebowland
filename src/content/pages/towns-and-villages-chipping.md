@@ -1,7 +1,7 @@
 ---
 title: "Chipping"
 description: "Chipping is a civil parish in the county of Lancashire, a quaint village and conservation area located in the Forest of Bowland (Area of Outstanding"
-path: "/things-to-do/towns-and-villages/chipping/"
+path: "/towns-and-villages/chipping/"
 pubDate: "2019-05-15T11:51:17Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Chipping.jpg"
 heroAlt: "Chipping"

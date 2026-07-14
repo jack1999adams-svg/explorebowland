@@ -1,7 +1,7 @@
 ---
 title: "Clitheroe"
 description: "Clitheroe is a market town situated in the Ribble Valley and is situated next to one of England's 46 Areas of Outstanding Natural Beauty, the Forest of"
-path: "/things-to-do/towns-and-villages/clitheroe/"
+path: "/towns-and-villages/clitheroe/"
 pubDate: "2019-05-15T11:57:35Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Clitheroe-1.jpg"
 heroAlt: "Clitheroe"

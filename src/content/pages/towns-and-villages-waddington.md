@@ -1,7 +1,7 @@
 ---
 title: "Waddington"
 description: "Originally in the West Riding of Yorkshire, the village Waddington was called so because of the Saxon leader Wada, who was the leader in the Battle of"
-path: "/things-to-do/towns-and-villages/waddington/"
+path: "/towns-and-villages/waddington/"
 pubDate: "2019-05-15T11:52:12Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Waddington-scaled.jpg"
 heroAlt: "Waddington"

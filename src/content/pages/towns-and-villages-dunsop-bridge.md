@@ -1,7 +1,7 @@
 ---
 title: "Dunsop Bridge"
 description: "Dunsop Bridge is small picturesque village, located in the heart of the Forest of Bowland (Area of Outstanding Natural Beauty) and is referred to as the"
-path: "/things-to-do/towns-and-villages/dunsop-bridge/"
+path: "/towns-and-villages/dunsop-bridge/"
 pubDate: "2019-05-15T11:54:41Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Dunsop-Bridge-3-scaled.jpg"
 heroAlt: "default"

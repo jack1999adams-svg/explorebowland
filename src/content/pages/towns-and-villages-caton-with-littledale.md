@@ -1,7 +1,7 @@
 ---
 title: "Caton-with-Littledale"
 description: "The parish of Caton with Littledale is in the Forest of Bowland (Area of Outstanding Beauty) near to the River Lune, and covers an area of 8,000 acres."
-path: "/things-to-do/towns-and-villages/caton-with-littledale/"
+path: "/towns-and-villages/caton-with-littledale/"
 pubDate: "2019-05-15T12:10:40Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Caton-Moor-2.jpg"
 heroAlt: "Caton Moor 2"

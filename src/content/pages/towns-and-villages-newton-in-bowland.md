@@ -1,7 +1,7 @@
 ---
 title: "Newton-in-Bowland"
 description: "Newton in Bowland The sleepy village of Newton in Bowland, formerly known as Newton on Hodder, was first recorded in the Domesday Book as Neutone and is"
-path: "/things-to-do/towns-and-villages/newton-in-bowland/"
+path: "/towns-and-villages/newton-in-bowland/"
 pubDate: "2019-05-15T12:07:32Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2018/10/Parkers-arms-bowland.jpg"
 heroAlt: "Parkers-arms-bowland"

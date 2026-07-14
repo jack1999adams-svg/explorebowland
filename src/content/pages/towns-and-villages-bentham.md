@@ -1,7 +1,7 @@
 ---
 title: "Bentham"
 description: "The small town of Bentham, or to be more precise, High and Low Bentham, is situated between the Forest of Bowland and the Yorkshire Dales, and near to the"
-path: "/things-to-do/towns-and-villages/bentham/"
+path: "/towns-and-villages/bentham/"
 pubDate: "2019-05-15T12:08:41Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/02/Great-Stone-of-Fourstones.jpg"
 heroAlt: "Great Stone of Fourstones"

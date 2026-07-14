@@ -1,7 +1,7 @@
 ---
 title: "Calder Vale"
 description: "Situated on the edge of the Forest of Bowland in a deep valley, lies the small village of Calder Vale. The beautiful and tranquil setting of the village,"
-path: "/things-to-do/towns-and-villages/calder-vale/"
+path: "/towns-and-villages/calder-vale/"
 pubDate: "2019-05-15T12:12:30Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2017/05/Calder-Vale-5-scaled.jpg"
 heroAlt: "Calder Vale (5)"

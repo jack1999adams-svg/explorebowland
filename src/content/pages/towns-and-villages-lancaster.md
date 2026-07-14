@@ -1,7 +1,7 @@
 ---
 title: "Lancaster"
 description: "Lancaster Lancaster is the county town of Lancashire and the most northerly city in Lancashire. It was first recorded in the Domesday Book in 1086 as"
-path: "/things-to-do/towns-and-villages/lancaster/"
+path: "/towns-and-villages/lancaster/"
 pubDate: "2019-05-15T11:58:36Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2020/04/Lancaster.jpg"
 heroAlt: "Lancaster"

@@ -1,7 +1,7 @@
 ---
 title: "Sawley"
 description: "The tranquil village of Sawley is home to the ruins of an ancient abbey (Salley Abbey), with a wooden structure and land initially provided by William de"
-path: "/things-to-do/towns-and-villages/sawley/"
+path: "/towns-and-villages/sawley/"
 pubDate: "2019-05-19T08:48:05Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2018/11/Sawley-Abbey.jpg"
 heroAlt: "Sawley Abbey"

@@ -1,7 +1,7 @@
 ---
 title: "Quernmore"
 description: "Quernmore The tiny village of Quernmore is located approximately three miles from Lancaster in the valley of the River Conder, consisting mainly of farm"
-path: "/things-to-do/towns-and-villages/quernmore/"
+path: "/towns-and-villages/quernmore/"
 pubDate: "2019-05-15T12:11:36Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2020/03/Quernmore-Aerial-scaled.jpg"
 heroAlt: "Quernmore"
@@ -16,7 +16,7 @@ wpId: 1318
 
 <span style="font-family: Calibri;"><span style="font-size: medium;"><span style="color: #000000;">The history of the area dates back to the Romans, when in 1970 the first Roman pottery kiln was discovered with several more being unearthed at a later date.  The eastern side of the valley was once mined for millstone grit which was used to form stone tools for grinding purposes as well as also being mined for coal and for charcoal production.  Whilst walking in the valley you will have the opportunity to discover two surviving watermills, one located at Condor Mill and the other one heading towards Littledale. </span></span></span>
 
-<span style="color: #000000; font-family: Calibri; font-size: medium;">The river Conder flows around Quernmore in a south westerly direction through the wide valley which was created by glacial action.  The source of the river can be found at Conder Head on Black Fell near to <a href="https://www.explorebowland.co.uk/things-to-do/towns-and-villages/caton-with-littledale/">Littledale</a>, it is a spring running through Cragg Wood then eventually flowing into the Lune Estuary.</span>
+<span style="color: #000000; font-family: Calibri; font-size: medium;">The river Conder flows around Quernmore in a south westerly direction through the wide valley which was created by glacial action.  The source of the river can be found at Conder Head on Black Fell near to <a href="https://www.explorebowland.co.uk/towns-and-villages/caton-with-littledale/">Littledale</a>, it is a spring running through Cragg Wood then eventually flowing into the Lune Estuary.</span>
 
 <span style="color: #000000; font-family: Calibri; font-size: medium;">Quernmore has an Anglican parish church (St. Peter's) which is recorded as a designated Grade 11 listed building, situated around a mile to the north of the village.  The church dates to 1860 and was designed in the architectural style of the thirteenth century and built on the site of a chapel, it has a tower and an octagonal stair turret rising higher than the church's tower.  There is also a Methodist chapel serving the community which is a much smaller structure than St. Peter's church and also worth taking a look at.</span>
 

@@ -1,7 +1,7 @@
 ---
 title: "Scorton"
 description: "Scorton is a small picturesque village on the banks of the River Wyre, located on the edge of the Forest of Bowland (AONB) in the Lancashire countryside"
-path: "/things-to-do/towns-and-villages/scorton/"
+path: "/towns-and-villages/scorton/"
 pubDate: "2019-05-18T13:05:35Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Scorton-Aerial.jpg"
 heroAlt: ""

@@ -1,7 +1,7 @@
 ---
 title: "Sabden"
 description: "Sabden is a lovely Ribble Valley village set in a stunning landscape by Pendle Hill, which of course is known for the legendary trials of the Pendle"
-path: "/things-to-do/towns-and-villages/sabden/"
+path: "/towns-and-villages/sabden/"
 pubDate: "2019-05-15T12:00:14Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/06/pendle-sunset.jpg"
 heroAlt: "pendle-sunset"

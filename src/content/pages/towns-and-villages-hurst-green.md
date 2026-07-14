@@ -1,7 +1,7 @@
 ---
 title: "Hurst Green"
 description: "Hurst Green is a pretty village set in the heart of the Ribble Valley with plenty of folklore and history, ranging from highwaymen, ghosts and the"
-path: "/things-to-do/towns-and-villages/hurst-green/"
+path: "/towns-and-villages/hurst-green/"
 pubDate: "2019-05-15T11:59:19Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2019/05/Hurst-Green-Aerial.jpg"
 heroAlt: "Hurst-Green-Aerial"
