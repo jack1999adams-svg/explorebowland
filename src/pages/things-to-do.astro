@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleHero from '../components/ArticleHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Tile from '../components/Tile.astro';
+import { getPosts } from '../lib/content';
+import { abs, breadcrumbs } from '../lib/schema.mjs';
+
+const path = '/things-to-do/';
+const title = 'Things to Do';
+const description =
+  'Things to do in the Forest of Bowland — walks, towns and villages, places of interest, photography and places to eat, drink and stay.';
+
+const IMG = `${(import.meta.env.IMAGE_BASE || 'https://media.explorebowland.co.uk').replace(/\/+$/, '')}/wp-content/uploads`;
+const heroImg = `${IMG}/2020/10/Longridge-Fell-sunrise.jpg`;
+
+const posts = await getPosts();
+const bowland = posts.filter((p) => p.data.categories.includes('Bowland Walks')).length;
+const other = posts.filter((p) => p.data.categories.includes('Other area walks')).length;
+
+const cards = [
+  {
+    href: '/forest-of-bowland-walks/',
+    title: 'Bowland Walks',
+    desc: `${bowland} walk guides through the heart of the AONB.`,
+    image: `${IMG}/2021/08/Bleasdale-walk-7-scaled.jpg`,
+  },
+  {
+    href: '/other-walks/',
+    title: 'Other Area Walks',
+    desc: `${other} walks in the Dales, Lakes and hills nearby.`,
+    image: `${IMG}/2019/04/Bolton-Abbey-walk-4.jpg`,
+  },
+  {
+    href: '/towns-and-villages/',
+    title: 'Towns & Villages',
+    desc: 'Historic market towns and hidden hamlets to explore.',
+    image: `${IMG}/2019/05/Abbeystead-aerial-2976x2232.jpg`,
+  },
+  {
+    href: '/local-information/',
+    title: 'Places of Interest',
+    desc: 'Castles, sculpture, farm parks, forests and stargazing.',
+    image: `${IMG}/2019/05/Clitheroe-Castle.jpg`,
+  },
+  {
+    href: '/forest-of-bowland-photos/',
+    title: 'Photo Galleries',
+    desc: 'The Bowland landscape in pictures.',
+    image: `${IMG}/2020/04/Forest-of-Bowland-Stargazing.jpg`,
+  },
+  {
+    href: '/eat-drink-sleep/',
+    title: 'Eat · Drink · Sleep',
+    desc: 'Where to eat and stay across the area.',
+    image: `${IMG}/2018/10/Parkers-arms-bowland-1.jpg`,
+  },
+];
+
+const crumbs = [
+  { name: 'Home', url: abs('/') },
+  { name: title, url: abs(path) },
+];
+const jsonLd = [breadcrumbs(crumbs)];
+---
+
+<BaseLayout title={title} description={description} path={path} image={heroImg} jsonLd={jsonLd}>
+  <ArticleHero title={title} hero={heroImg} heroAlt="Sunrise over Longridge Fell" />
+
+  <section class="container intro">
+    <Breadcrumbs crumbs={crumbs} />
+    <p class="lead">
+      Whether you're here to walk the fells, wander a historic village, spot
+      wildlife or simply find a good pub, there's plenty to do in the Forest of
+      Bowland. Pick a way to explore.
+    </p>
+  </section>
+
+  <section class="container grid-wrap">
+    <div class="ttd-grid">
+      {cards.map((c) => <Tile href={c.href} title={c.title} desc={c.desc} image={c.image} tall />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro { padding-block: 2.5rem 0.5rem; }
+  .intro .lead {
+    max-width: var(--measure);
+    color: var(--ink-soft);
+    font-size: var(--step-1);
+    margin: 0.5rem 0 0;
+  }
+  .grid-wrap { padding-block: 1.5rem 3.5rem; }
+  .ttd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+</style>
