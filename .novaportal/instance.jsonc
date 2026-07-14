@@ -3,6 +3,7 @@
   // this into a full wrangler config (injecting worker entry + migrations
   // paths) at build/deploy time — see the novaportal repo's registry.json.
   "name": "novaportal-explorebowland",
+  "apps": ["redirects"],
   // CI shape for `novaportal wire`: how builds get the read token + rebuilds.
   "ci": { "kind": "pages", "pagesProject": "explorebowland", "branch": "claude/astro-blog-migration-strategy-rzq6pq" },
   "compatibility_date": "2025-05-01",

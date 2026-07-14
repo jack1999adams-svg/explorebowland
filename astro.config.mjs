@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { writeFileSync } from 'node:fs';
 import { postPath, legacyPaths } from './src/lib/post-path.mjs';
+import { novaPortalRedirects } from './src/lib/redirects-integration.mjs';
 
 const PORTAL = 'https://novaportal-explorebowland.collectiq.workers.dev';
 const SITE_URL = 'https://www.explorebowland.co.uk';
@@ -56,6 +57,7 @@ export default defineConfig({
   build: { format: 'directory' },
   integrations: [
     postRedirects(),
+    novaPortalRedirects({ portal: PORTAL }),
     sitemap({
       // The /nova-preview/ placeholder templates are noindexed build artefacts.
       filter: (page) => !page.includes('/nova-preview/'),
