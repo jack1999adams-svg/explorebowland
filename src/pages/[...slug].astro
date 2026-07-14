@@ -31,16 +31,18 @@ export async function getStaticPaths() {
     return { params: { slug }, props: { entry, kind } };
   };
 
-  // Portal-managed pages are additive: skip any path already served by a post,
-  // a file-based page, or a dedicated route, so nothing collides.
+  // Portal-managed pages win; the file-based `pages` collection is the fallback
+  // for anything not yet in the portal (mirrors how posts already work).
   const portalPages = await loadPages();
-  const taken = new Set([...owned, ...posts.map((e) => e.data.path), ...pages.map((e) => e.data.path)]);
+  const portalPaths = new Set(portalPages.map((p) => p.path));
 
   return [
     ...posts.filter((e) => !owned.has(e.data.path)).map((e) => make(e, 'post')),
-    ...pages.filter((e) => !owned.has(e.data.path)).map((e) => make(e, 'page')),
+    ...pages
+      .filter((e) => !owned.has(e.data.path) && !portalPaths.has(e.data.path))
+      .map((e) => make(e, 'page')),
     ...portalPages
-      .filter((p) => p.path && !taken.has(p.path))
+      .filter((p) => p.path && !owned.has(p.path) && !posts.some((e) => e.data.path === p.path))
       .map((p) => ({ params: { slug: p.path.replace(/^\/|\/$/g, '') }, props: { portalPage: p, kind: 'portalpage' } })),
   ];
 }
@@ -59,6 +61,10 @@ if (kind === 'portalpage') {
     { name: portalPage.title, url: abs(portalPage.path) },
   ];
   jsonLd = [breadcrumbs(crumbs)];
+  // Section parents (e.g. /forest-of-bowland-walks/) list the posts assigned to
+  // them — same as file-based section pages, so nothing regresses on import.
+  sectionPosts = (await getPosts()).filter((p) => p.data.sectionParent === portalPage.path);
+  sectionLabel = sectionPosts[0]?.data.sectionLabel || '';
 } else {
   ({ Content } = await render(entry));
   d = entry.data;
@@ -132,6 +138,17 @@ if (kind === 'portalpage') {
 {kind === 'portalpage' ? (
   <BaseLayout title={d.title} description={d.description} path={d.path} image={d.hero} imageAlt={d.heroAlt} jsonLd={jsonLd}>
     <PageRender template={portalPage.template} title={portalPage.title} html={portalPage.html} image={portalPage.image} imageAlt={portalPage.imageAlt} extras={portalPage.extras} crumbs={crumbs} />
+    {sectionPosts.length > 0 && (
+      <section class="container section-list">
+        <div class="section-head">
+          <p class="eyebrow">In this section</p>
+          <h2>{sectionLabel || 'Latest posts'} <span class="count">{sectionPosts.length}</span></h2>
+        </div>
+        <div class="grid">
+          {sectionPosts.map((p) => <PostCard {...toCard(p)} />)}
+        </div>
+      </section>
+    )}
   </BaseLayout>
 ) : (
 <BaseLayout
