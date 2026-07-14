@@ -16,7 +16,7 @@ At the edge of Gisburn Forest is Stocks Reservoir, created in 1932 by the floodi
 
 As for walking around Gisburn Forest, there are many routes you can take.  One walk we took a while ago went to seek out a hidden waterfall on <a href="https://www.explorebowland.co.uk/gisburn-forest-waterfall/">Bottoms Beck</a>.  Another day we went to explore the highest point of the area, which is small hill with a trig point, known as <a href="https://www.explorebowland.co.uk/whelp-stone-crag/">Whelpstone Crag</a>.
 
-Also, if you are fascinated by the night sky, maybe consider visiting at dusk? The area is a recognised Dark Sky Discovery Site, which means there is so little light pollution you can witness a brilliant view of the stars.  More information on Forest of Bowland Stargazing can be found <a href="https://www.explorebowland.co.uk/things-to-do/places-of-interest/stargazing/">here</a>.
+Also, if you are fascinated by the night sky, maybe consider visiting at dusk? The area is a recognised Dark Sky Discovery Site, which means there is so little light pollution you can witness a brilliant view of the stars.  More information on Forest of Bowland Stargazing can be found <a href="https://www.explorebowland.co.uk/stargazing/">here</a>.
 
 Gisburn Forest is perhaps most famous for the Mountain Bike Trails.  There are many tracks ranging from beginner to intermediary and we have a page dedicated to Gisburn Forest bike trails <a href="https://www.explorebowland.co.uk/things-to-do/cycling/gisburn-forest-bike-trails/">here</a>.
 

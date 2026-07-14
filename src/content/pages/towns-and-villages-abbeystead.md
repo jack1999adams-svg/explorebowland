@@ -49,10 +49,10 @@ wpId: 1241
 
 [Visit website](https://www.greenbankfarmhouse.co.uk/)
 
-[Things to do](https://www.explorebowland.co.uk/things-to-do/places-of-interest/trough-of-bowland/)
+[Things to do](https://www.explorebowland.co.uk/blog/trough-of-bowland/)
 
 ---
 
 ![Trough of Bowland](https://media.explorebowland.co.uk/wp-content/uploads/2020/05/trough-of-bowland-scaled.jpg)
 
-[Visit website](https://www.explorebowland.co.uk/things-to-do/places-of-interest/trough-of-bowland/)
+[Visit website](https://www.explorebowland.co.uk/blog/trough-of-bowland/)

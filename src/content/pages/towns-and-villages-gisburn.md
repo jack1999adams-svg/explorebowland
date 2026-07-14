@@ -42,7 +42,7 @@ wpId: 1294
 
 ### Nearby walk
 
-<a href="https://www.explorebowland.co.uk/things-to-do/places-of-interest/gisburn-forest/">Gisburn Forest</a>
+<a href="https://www.explorebowland.co.uk/gisburn-forest/">Gisburn Forest</a>
 
 ### Links
 

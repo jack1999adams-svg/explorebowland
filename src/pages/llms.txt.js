@@ -9,7 +9,6 @@ const absUrl = (p) => new URL(p, SITE + '/').href;
 const HUBS = [
   ['Things to Do', '/things-to-do/'],
   ['Towns & Villages', '/towns-and-villages/'],
-  ['Places of Interest', '/things-to-do/places-of-interest/'],
   ['Photo Galleries', '/forest-of-bowland-photos/'],
   ['Eat · Drink · Sleep', '/eat-drink-sleep/'],
   ['Local Information', '/local-information/'],
