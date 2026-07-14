@@ -1,15 +1,14 @@
 // POST /api/contact — contact-form handler.
 //
-// Receives the form submission same-origin, validates it, and forwards the lead
-// to NovaPortal server-side so the submit token never reaches the browser and
-// there's no cross-origin request. Returns JSON { ok } / { error }.
+// Receives the submission same-origin, validates it, and forwards the lead to
+// the NovaPortal form-capture endpoint (/api/f/lead) server-side — so there's
+// no cross-origin request from the browser. The portal stores it under the
+// "lead" form (Submissions inbox). Returns JSON { ok } / { error }.
 //
-// Runtime config (Cloudflare Pages → Settings → Environment variables, so it's
-// available to Functions):
-//   NOVAPORTAL_SUBMIT_TOKEN   (secret)  token that authorises lead submission
-//   NOVAPORTAL_LEADS_ENDPOINT (var, optional) defaults to the portal /api/v1/leads
+// Optional override: NOVAPORTAL_LEADS_ENDPOINT (Pages env var) if the portal's
+// URL ever changes.
 const DEFAULT_ENDPOINT =
-  'https://novaportal-explorebowland.collectiq.workers.dev/api/v1/leads';
+  'https://novaportal-explorebowland.collectiq.workers.dev/api/f/lead';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -47,15 +46,6 @@ export async function onRequestPost(context) {
     return json({ error: 'That message is too long.' }, 400);
   }
 
-  const token = env.NOVAPORTAL_SUBMIT_TOKEN;
-  if (!token) {
-    // Not wired up yet — fail clearly rather than silently dropping the lead.
-    return json(
-      { error: 'The contact form isn’t available right now. Please try again later.' },
-      503,
-    );
-  }
-
   const endpoint = env.NOVAPORTAL_LEADS_ENDPOINT || DEFAULT_ENDPOINT;
   const payload = {
     name,
@@ -69,10 +59,7 @@ export async function onRequestPost(context) {
   try {
     const res = await fetch(endpoint, {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
     if (!res.ok) {
