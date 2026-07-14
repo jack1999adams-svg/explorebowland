@@ -53,7 +53,11 @@ let Content, d, sectionPosts = [], sectionLabel = '', route = [], crumbs, jsonLd
 
 if (kind === 'portalpage') {
   d = { title: portalPage.title, description: portalPage.description, path: portalPage.path, hero: portalPage.image, heroAlt: portalPage.imageAlt };
-  crumbs = [{ name: 'Home', url: abs('/') }, { name: portalPage.title, url: abs(portalPage.path) }];
+  crumbs = [
+    { name: 'Home', url: abs('/') },
+    ...(portalPage.ancestors ?? []).map((a) => ({ name: a.title, url: abs(a.path) })),
+    { name: portalPage.title, url: abs(portalPage.path) },
+  ];
   jsonLd = [breadcrumbs(crumbs)];
 } else {
   ({ Content } = await render(entry));
@@ -127,7 +131,7 @@ if (kind === 'portalpage') {
 
 {kind === 'portalpage' ? (
   <BaseLayout title={d.title} description={d.description} path={d.path} image={d.hero} imageAlt={d.heroAlt} jsonLd={jsonLd}>
-    <PageRender template={portalPage.template} title={portalPage.title} html={portalPage.html} image={portalPage.image} imageAlt={portalPage.imageAlt} extras={portalPage.extras} />
+    <PageRender template={portalPage.template} title={portalPage.title} html={portalPage.html} image={portalPage.image} imageAlt={portalPage.imageAlt} extras={portalPage.extras} crumbs={crumbs} />
   </BaseLayout>
 ) : (
 <BaseLayout

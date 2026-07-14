@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from './Breadcrumbs.astro';
 // Renders a portal-managed page by its template. Keys here must exist in
 // .novaportal/instance.jsonc → PAGE_TEMPLATES. Field values come from `extras`.
 interface Props {
@@ -8,8 +9,9 @@ interface Props {
   image?: string;
   imageAlt?: string;
   extras?: Record<string, any>;
+  crumbs?: Array<{ name: string; url: string }>;
 }
-const { template, title, html, image, imageAlt = '', extras = {} } = Astro.props;
+const { template, title, html, image, imageAlt = '', extras = {}, crumbs = [] } = Astro.props;
 ---
 
 {template === 'landing' ? (
@@ -29,6 +31,7 @@ const { template, title, html, image, imageAlt = '', extras = {} } = Astro.props
 )}
 
 <article class="container np-page">
+  {crumbs.length > 1 && <Breadcrumbs crumbs={crumbs} />}
   <div class="prose" set:html={html} />
 </article>
 
