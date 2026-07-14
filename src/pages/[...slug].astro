@@ -21,7 +21,7 @@ import {
 export async function getStaticPaths() {
   const posts = await getCollection('posts', (e) => !e.data.draft);
   const pages = await getCollection('pages', (e) => !e.data.draft);
-  const owned = new Set(['/', '/blog/']); // rendered by dedicated routes
+  const owned = new Set(['/', '/blog/', '/get-in-touch/']); // rendered by dedicated routes
 
   const make = (entry, kind) => {
     const p = entry.data.path;

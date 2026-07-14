@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleHero from '../components/ArticleHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { abs, breadcrumbs } from '../lib/schema.mjs';
+
+const path = '/get-in-touch/';
+const title = 'Get in touch';
+const description =
+  'Questions about a walk, route, access or the Forest of Bowland? Send us a message and we’ll get back to you.';
+
+const crumbs = [
+  { name: 'Home', url: abs('/') },
+  { name: title, url: abs(path) },
+];
+const jsonLd = [breadcrumbs(crumbs)];
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+  <ArticleHero title={title} />
+
+  <article class="container">
+    <Breadcrumbs crumbs={crumbs} />
+    <div class="prose">
+      <p>
+        If we’re not out and about we’ll try to reply straight away. Send us a
+        message using the form below — whether it’s a question about a route,
+        access, the area, or anything else about Explore Bowland.
+      </p>
+      <ContactForm />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .container { padding-block: 2.5rem 3.5rem; }
+</style>

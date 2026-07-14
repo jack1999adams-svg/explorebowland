@@ -1,0 +1,124 @@
+---
+// Contact form. Posts to the same-origin /api/contact Pages Function, which
+// forwards the lead to NovaPortal server-side (keeps any token out of the
+// browser, no CORS). Progressive: the button/labels work without JS styling,
+// and submission is handled by the inline script below.
+---
+<form id="contact-form" class="cform" novalidate>
+  <div class="cform-row">
+    <label for="cf-name">Your name <span aria-hidden="true">*</span></label>
+    <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="120" />
+  </div>
+
+  <div class="cform-row">
+    <label for="cf-email">Email <span aria-hidden="true">*</span></label>
+    <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="200" />
+  </div>
+
+  <div class="cform-row">
+    <label for="cf-subject">Subject</label>
+    <input id="cf-subject" name="subject" type="text" maxlength="160" />
+  </div>
+
+  <div class="cform-row">
+    <label for="cf-message">Message <span aria-hidden="true">*</span></label>
+    <textarea id="cf-message" name="message" rows="6" required maxlength="4000"></textarea>
+  </div>
+
+  {/* Honeypot — hidden from people, tempting to bots. Real users leave it empty. */}
+  <div class="cform-hp" aria-hidden="true">
+    <label>Company<input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
+  </div>
+
+  <div class="cform-actions">
+    <button type="submit" class="btn cform-submit">Send message</button>
+    <p class="cform-status" role="status" aria-live="polite"></p>
+  </div>
+</form>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    var btn = form.querySelector('.cform-submit');
+    var status = form.querySelector('.cform-status');
+
+    function setStatus(msg, kind) {
+      status.textContent = msg;
+      status.className = 'cform-status' + (kind ? ' is-' + kind : '');
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      var data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        subject: form.subject.value.trim(),
+        message: form.message.value.trim(),
+        company: form.company.value, // honeypot
+      };
+
+      btn.disabled = true;
+      setStatus('Sending…', '');
+
+      try {
+        var res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          form.reset();
+          setStatus('Thanks — your message has been sent. We’ll get back to you soon.', 'ok');
+        } else {
+          var body = {};
+          try { body = await res.json(); } catch (_) {}
+          setStatus(body.error || 'Sorry, something went wrong. Please try again later.', 'error');
+          btn.disabled = false;
+        }
+      } catch (_) {
+        setStatus('Sorry, we couldn’t send your message. Please check your connection and try again.', 'error');
+        btn.disabled = false;
+      }
+    });
+  })();
+</script>
+
+<style>
+  .cform { max-width: 34rem; margin-top: 1.5rem; }
+  .cform-row { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.1rem; }
+  .cform label { font-weight: 600; color: var(--navy); font-size: 0.95rem; }
+  .cform input,
+  .cform textarea {
+    font: inherit;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.65rem 0.8rem;
+    width: 100%;
+  }
+  .cform textarea { resize: vertical; }
+  .cform input:focus,
+  .cform textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 25%, transparent);
+  }
+  /* Honeypot: kept in the DOM (so bots fill it) but out of sight & tab order. */
+  .cform-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .cform-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+  .cform-submit { cursor: pointer; border: 0; }
+  .cform-submit:disabled { opacity: 0.6; cursor: default; }
+  .cform-status { margin: 0; font-size: 0.9rem; }
+  .cform-status.is-ok { color: var(--green-ink); font-weight: 600; }
+  .cform-status.is-error { color: #b00020; font-weight: 600; }
+</style>
