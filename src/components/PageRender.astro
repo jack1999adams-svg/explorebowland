@@ -1,0 +1,51 @@
+---
+// Renders a portal-managed page by its template. Keys here must exist in
+// .novaportal/instance.jsonc → PAGE_TEMPLATES. Field values come from `extras`.
+interface Props {
+  template: string;
+  title: string;
+  html: string;
+  image?: string;
+  imageAlt?: string;
+  extras?: Record<string, any>;
+}
+const { template, title, html, image, imageAlt = '', extras = {} } = Astro.props;
+---
+
+{template === 'landing' ? (
+  <section class="np-hero">
+    <div class="container">
+      <h1>{extras.hero_heading || title}</h1>
+      {extras.hero_subheading && <p class="np-hero-sub">{extras.hero_subheading}</p>}
+      {extras.cta_label && <a class="np-cta" href={extras.cta_href || '#'}>{extras.cta_label}</a>}
+    </div>
+  </section>
+) : (
+  <header class={image ? 'np-head has-image' : 'np-head'}>
+    {image && <img class="np-hero-img" src={image} alt={imageAlt} width="1600" height="720" loading="eager" />}
+    {image && <div class="np-scrim"></div>}
+    <div class="container"><h1>{title}</h1></div>
+  </header>
+)}
+
+<article class="container np-page">
+  <div class="prose" set:html={html} />
+</article>
+
+<style>
+  .np-head { padding-block: 3rem 1.5rem; background: var(--paper-2, #f7f8f4); border-bottom: 1px solid var(--line, #e6e8e0); }
+  .np-head.has-image { position: relative; min-height: clamp(280px, 40vh, 460px); display: flex; align-items: flex-end; overflow: hidden; border: 0; }
+  .np-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .np-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,29,57,.82), rgba(0,29,57,.15) 60%, rgba(0,29,57,.05)); }
+  .np-head h1 { font-size: var(--step-4, 2.4rem); margin: 0; color: var(--navy, #001d39); }
+  .np-head.has-image .container { position: relative; padding-block: 2rem; }
+  .np-head.has-image h1 { color: #fff; max-width: 22ch; }
+
+  .np-hero { background: var(--navy, #001d39); color: #fff; text-align: center; padding-block: 4rem; }
+  .np-hero h1 { color: #fff; font-size: var(--step-5, 2.8rem); margin: 0; }
+  .np-hero-sub { max-width: 42rem; margin: 1rem auto 0; color: #d6e2ec; font-size: 1.1rem; }
+  .np-cta { display: inline-block; margin-top: 1.75rem; background: var(--green, #8bba34); color: #05230a; padding: 0.7rem 1.7rem; border-radius: 999px; font-weight: 700; text-decoration: none; }
+  .np-cta:hover { background: var(--green-ink, #5f8021); color: #fff; }
+
+  .np-page { padding-block: 2.5rem 3.5rem; }
+</style>

@@ -6,6 +6,8 @@ import PostCard from '../components/PostCard.astro';
 import RoutePanel from '../components/RoutePanel.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getPosts, toCard } from '../lib/content';
+import PageRender from '../components/PageRender.astro';
+import { loadPages } from '../lib/pages.mjs';
 import {
   abs,
   humanize,
@@ -29,81 +31,105 @@ export async function getStaticPaths() {
     return { params: { slug }, props: { entry, kind } };
   };
 
+  // Portal-managed pages are additive: skip any path already served by a post,
+  // a file-based page, or a dedicated route, so nothing collides.
+  const portalPages = await loadPages();
+  const taken = new Set([...owned, ...posts.map((e) => e.data.path), ...pages.map((e) => e.data.path)]);
+
   return [
     ...posts.filter((e) => !owned.has(e.data.path)).map((e) => make(e, 'post')),
     ...pages.filter((e) => !owned.has(e.data.path)).map((e) => make(e, 'page')),
+    ...portalPages
+      .filter((p) => p.path && !taken.has(p.path))
+      .map((p) => ({ params: { slug: p.path.replace(/^\/|\/$/g, '') }, props: { portalPage: p, kind: 'portalpage' } })),
   ];
 }
 
-const { entry, kind } = Astro.props;
-const { Content } = await render(entry);
-const d = entry.data;
+const { entry, kind, portalPage } = Astro.props;
 
-// If this page is the parent of a section (category), list that section's posts
-// after its content. The assignment lives in the portal (post.sectionParent) and
-// is matched to this page's exact path — so it self-updates when the client
-// reassigns a section. /blog/ is handled by its own index route.
-const sectionPosts =
-  kind === 'page' && d.path !== '/blog/'
-    ? (await getPosts()).filter((p) => p.data.sectionParent === d.path)
-    : [];
-const sectionLabel = sectionPosts[0]?.data.sectionLabel || '';
+// Vars the template reads; filled per kind. Portal-managed pages carry
+// pre-rendered HTML + a template and skip the post/page machinery below.
+let Content, d, sectionPosts = [], sectionLabel = '', route = [], crumbs, jsonLd, published, modified;
 
-// Walk posts (Bowland / Other area walks) show a route-info panel in the right
-// column, populated from the portal's route custom fields (ROUTE_SCHEMA). The
-// panel appears once the client fills any field; blank fields are omitted. The
-// post body is never modified.
-const isWalk =
-  kind === 'post' &&
-  (d.categories?.includes('Bowland Walks') || d.categories?.includes('Other area walks'));
-const route = isWalk ? d.route ?? [] : [];
-
-// ---- Structured data (JSON-LD) ----------------------------------------------
-const canonical = abs(d.path);
-const heroAbs = d.hero ? abs(d.hero) : undefined;
-const isRecipe = kind === 'post' && d.categories?.includes('Recipes');
-
-// Breadcrumb trail. Posts: Home → section → post (section comes straight from
-// the portal). Pages: walk the path segments, labelling each with its own page
-// title where we have one, else a humanised slug.
-const pageTitleByPath = new Map(
-  (await getCollection('pages')).map((e) => [e.data.path, e.data.title]),
-);
-let crumbs = [{ name: 'Home', url: abs('/') }];
-if (kind === 'post') {
-  if (d.sectionParent && d.sectionLabel) {
-    crumbs.push({ name: d.sectionLabel, url: abs(d.sectionParent) });
-  }
-  crumbs.push({ name: d.title, url: canonical });
+if (kind === 'portalpage') {
+  d = { title: portalPage.title, description: portalPage.description, path: portalPage.path, hero: portalPage.image, heroAlt: portalPage.imageAlt };
+  crumbs = [{ name: 'Home', url: abs('/') }, { name: portalPage.title, url: abs(portalPage.path) }];
+  jsonLd = [breadcrumbs(crumbs)];
 } else {
-  const segs = d.path.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
-  let acc = '';
-  segs.forEach((seg, i) => {
-    acc += `/${seg}`;
-    const p = `${acc}/`;
-    const last = i === segs.length - 1;
-    crumbs.push({
-      name: last ? d.title : pageTitleByPath.get(p) || humanize(seg),
-      url: abs(p),
-    });
-  });
-}
+  ({ Content } = await render(entry));
+  d = entry.data;
 
-const published = d.pubDate ? new Date(d.pubDate).toISOString() : undefined;
-const modified = d.updatedDate ? new Date(d.updatedDate).toISOString() : undefined;
-const meta = { title: d.title, description: d.description, canonical, image: heroAbs };
+  // If this page is the parent of a section (category), list that section's posts
+  // after its content. The assignment lives in the portal (post.sectionParent) and
+  // is matched to this page's exact path — so it self-updates when the client
+  // reassigns a section. /blog/ is handled by its own index route.
+  sectionPosts =
+    kind === 'page' && d.path !== '/blog/'
+      ? (await getPosts()).filter((p) => p.data.sectionParent === d.path)
+      : [];
+  sectionLabel = sectionPosts[0]?.data.sectionLabel || '';
 
-const jsonLd = [breadcrumbs(crumbs)];
-if (kind === 'post') {
-  jsonLd.push(
-    isRecipe
-      ? recipe({ ...meta, published })
-      : article({ ...meta, published, modified }),
+  // Walk posts (Bowland / Other area walks) show a route-info panel in the right
+  // column, populated from the portal's route custom fields (ROUTE_SCHEMA). The
+  // panel appears once the client fills any field; blank fields are omitted. The
+  // post body is never modified.
+  const isWalk =
+    kind === 'post' &&
+    (d.categories?.includes('Bowland Walks') || d.categories?.includes('Other area walks'));
+  route = isWalk ? d.route ?? [] : [];
+
+  // ---- Structured data (JSON-LD) ----------------------------------------------
+  const canonical = abs(d.path);
+  const heroAbs = d.hero ? abs(d.hero) : undefined;
+  const isRecipe = kind === 'post' && d.categories?.includes('Recipes');
+
+  // Breadcrumb trail. Posts: Home → section → post (section comes straight from
+  // the portal). Pages: walk the path segments, labelling each with its own page
+  // title where we have one, else a humanised slug.
+  const pageTitleByPath = new Map(
+    (await getCollection('pages')).map((e) => [e.data.path, e.data.title]),
   );
-  if (isWalk) jsonLd.push(walkPlace({ ...meta, route }));
+  crumbs = [{ name: 'Home', url: abs('/') }];
+  if (kind === 'post') {
+    if (d.sectionParent && d.sectionLabel) {
+      crumbs.push({ name: d.sectionLabel, url: abs(d.sectionParent) });
+    }
+    crumbs.push({ name: d.title, url: canonical });
+  } else {
+    const segs = d.path.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
+    let acc = '';
+    segs.forEach((seg, i) => {
+      acc += `/${seg}`;
+      const p = `${acc}/`;
+      const last = i === segs.length - 1;
+      crumbs.push({
+        name: last ? d.title : pageTitleByPath.get(p) || humanize(seg),
+        url: abs(p),
+      });
+    });
+  }
+
+  published = d.pubDate ? new Date(d.pubDate).toISOString() : undefined;
+  modified = d.updatedDate ? new Date(d.updatedDate).toISOString() : undefined;
+  const meta = { title: d.title, description: d.description, canonical, image: heroAbs };
+
+  jsonLd = [breadcrumbs(crumbs)];
+  if (kind === 'post') {
+    jsonLd.push(
+      isRecipe
+        ? recipe({ ...meta, published })
+        : article({ ...meta, published, modified }),
+    );
+    if (isWalk) jsonLd.push(walkPlace({ ...meta, route }));
+  }
 }
 ---
 
+{kind === 'portalpage' ? (
+  <BaseLayout title={d.title} description={d.description} path={d.path} image={d.hero} imageAlt={d.heroAlt} jsonLd={jsonLd}>
+    <PageRender template={portalPage.template} title={portalPage.title} html={portalPage.html} image={portalPage.image} imageAlt={portalPage.imageAlt} extras={portalPage.extras} />
+  </BaseLayout>
+) : (
 <BaseLayout
   title={d.title}
   description={d.description}
@@ -156,6 +182,7 @@ if (kind === 'post') {
     </section>
   )}
 </BaseLayout>
+)}
 
 <style>
   .container { padding-block: 2.5rem 1rem; }

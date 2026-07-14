@@ -61,6 +61,21 @@
       { "key": "nearby_pub",    "label": "Nearby pub",    "type": "text" },
       { "key": "nearby_hotel",  "label": "Nearby hotel",  "type": "text" },
       { "key": "links",         "label": "Links",         "type": "text" }
+    ],
+    // Page templates this site implements (portal Pages picker + fields).
+    // Rendered by src/components/PageRender.astro via the [...slug] catch-all.
+    "PAGE_TEMPLATES": [
+      { "key": "standard", "label": "Standard page", "description": "Hero heading, optional image, and rich text — for info and about pages.", "fields": [] },
+      {
+        "key": "landing", "label": "Landing page",
+        "description": "Hero band with heading, intro and a call-to-action button, then rich content.",
+        "fields": [
+          { "key": "hero_heading", "label": "Hero heading", "type": "text" },
+          { "key": "hero_subheading", "label": "Hero intro", "type": "textarea" },
+          { "key": "cta_label", "label": "Button label", "type": "text" },
+          { "key": "cta_href", "label": "Button link", "type": "text" }
+        ]
+      }
     ]
   },
   // Secrets (per instance, set via wrangler): SETUP_TOKEN, READ_TOKEN,
