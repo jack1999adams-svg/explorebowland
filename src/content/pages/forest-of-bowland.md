@@ -20,7 +20,7 @@ Bowland offers 312 square miles of beautiful rolling hills, deep valleys and pic
 
 Sometimes you can walk for miles without seeing a soul, that's the beauty of The Forest of Bowland.
 
-!(https://media.explorebowland.co.uk/wp-content/uploads/2020/10/Longridge-Fell-sunrise.jpg)
+![Longridge Fell at sunrise](https://media.explorebowland.co.uk/wp-content/uploads/2020/10/Longridge-Fell-sunrise.jpg)
 
 ---
 

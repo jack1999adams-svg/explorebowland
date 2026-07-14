@@ -37,7 +37,7 @@ wpId: 1241
 
 ---
 
-!(https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Fleece-Inn-Dolphinholme.jpg)
+![Fleece Inn, Dolphinholme](https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Fleece-Inn-Dolphinholme.jpg)
 
 [Visit website](https://fleeceinn.co.uk/)
 
@@ -45,7 +45,7 @@ wpId: 1241
 
 ---
 
-!(https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Greenbank-Farmhouse.jpg)
+![Greenbank Farmhouse](https://media.explorebowland.co.uk/wp-content/uploads/2020/05/Greenbank-Farmhouse.jpg)
 
 [Visit website](https://www.greenbankfarmhouse.co.uk/)
 
@@ -53,6 +53,6 @@ wpId: 1241
 
 ---
 
-!(https://media.explorebowland.co.uk/wp-content/uploads/2020/05/trough-of-bowland-scaled.jpg)
+![Trough of Bowland](https://media.explorebowland.co.uk/wp-content/uploads/2020/05/trough-of-bowland-scaled.jpg)
 
 [Visit website](https://www.explorebowland.co.uk/things-to-do/places-of-interest/trough-of-bowland/)
