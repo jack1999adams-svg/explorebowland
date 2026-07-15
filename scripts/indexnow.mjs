@@ -1,11 +1,10 @@
 // IndexNow submitter — instantly notifies Bing, Yandex & other IndexNow engines
 // that URLs have changed. Run after a meaningful content/structure change:
 //
-//   node scripts/indexnow.mjs                       # submit all live sitemap URLs + redirected old URLs
+//   node scripts/indexnow.mjs                       # submit all live sitemap URLs
 //   node scripts/indexnow.mjs https://…/a/ https://…/b/   # submit only the URLs you pass
 //
 // The key is public (it's served at /<key>.txt) — not a secret.
-import { readFileSync } from 'node:fs';
 
 const HOST = 'www.explorebowland.co.uk';
 const KEY = '2bd1317f54aedee9e29549288be0f0bd';
@@ -20,17 +19,6 @@ async function sitemapUrls() {
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 }
 
-// Old URLs that now 301 — submitting them prompts a recrawl so engines process
-// the redirect and drop the stale entries.
-function redirectedUrls() {
-  try {
-    const map = JSON.parse(readFileSync(new URL('../functions/page-redirects.json', import.meta.url)));
-    return Object.keys(map).map((p) => `https://${HOST}${p}`);
-  } catch {
-    return [];
-  }
-}
-
 async function submit(urlList) {
   const res = await fetch(ENDPOINT, {
     method: 'POST',
@@ -41,12 +29,7 @@ async function submit(urlList) {
 }
 
 const args = process.argv.slice(2);
-let urls;
-if (args.length) {
-  urls = args;
-} else {
-  urls = [...new Set([...(await sitemapUrls()), ...redirectedUrls()])];
-}
+const urls = args.length ? args : [...new Set(await sitemapUrls())];
 
 // IndexNow accepts up to 10,000 URLs per request; batch to be safe.
 const BATCH = 5000;
