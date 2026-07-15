@@ -60,10 +60,13 @@ const schema = [organization(), website(), ...jsonLd];
     <link rel="dns-prefetch" href="https://media.explorebowland.co.uk" />
 
     <title>{fullTitle}</title>
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    )}
     <meta name="theme-color" content="#001d39" />
 
     <meta property="og:site_name" content={siteName} />
