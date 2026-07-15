@@ -1,7 +1,7 @@
 ---
 title: "Beacon Fell"
 description: "Beacon Fell Country Park Beacon Fell has been a country park since 1970. It's highest point reaches 266m and on a clear day it is possible to see as far"
-path: "/beacon-fell-2/"
+path: "/beacon-fell/"
 pubDate: "2019-05-15T11:13:42Z"
 hero: "https://media.explorebowland.co.uk/wp-content/uploads/2015/04/Beacon_Fell-1.jpg"
 heroAlt: "Beacon_Fell (1)"
