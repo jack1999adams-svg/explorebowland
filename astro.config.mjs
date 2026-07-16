@@ -7,10 +7,22 @@ import { novaPortalRedirects } from './src/lib/redirects-integration.mjs';
 const PORTAL = 'https://novaportal-explorebowland.collectiq.workers.dev';
 const SITE_URL = 'https://www.explorebowland.co.uk';
 
+// WP images live on the R2 media host, not www — mirror the loader's rewrite so
+// sitemap <image:loc> URLs resolve (www/wp-content 404s; media 200s).
+const IMAGE_BASE = (process.env.IMAGE_BASE || 'https://media.explorebowland.co.uk').replace(/\/+$/, '');
+const toMedia = (u) =>
+  typeof u === 'string'
+    ? u.replace(/https?:\/\/(?:www\.)?explorebowland\.co\.uk\/wp-content\/uploads\//g, `${IMAGE_BASE}/wp-content/uploads/`)
+    : u;
+
 // Absolute-URL -> ISO lastmod for posts, filled during the build:start fetch
 // below and consumed by the sitemap `serialize` hook so each post carries a
 // real last-modified date. Empty (no lastmod emitted) when the fetch is skipped.
 const lastmodByUrl = new Map();
+
+// Absolute-URL -> hero image URL, for <image:image> entries in the sitemap so
+// this photo-heavy site surfaces in Google Image search. Filled below.
+const imageByUrl = new Map();
 
 // Posts now live at <section>/<slug>/. This integration fetches the portal
 // posts at build and writes functions/post-redirects.json mapping every old flat
@@ -38,6 +50,18 @@ function postRedirects() {
                 const d = p.extras?.updatedDate || p.extras?.pubDate || p.date;
                 const t = d ? Date.parse(d) : NaN;
                 if (!Number.isNaN(t)) lastmodByUrl.set(`${SITE_URL}${to}`, new Date(t).toISOString());
+                if (p.image) imageByUrl.set(`${SITE_URL}${to}`, toMedia(p.image));
+              }
+            }
+            // Portal-managed pages (towns, places…) also carry a hero image.
+            const pagesRes = await fetch(`${PORTAL}/api/v1/content/pages`, {
+              headers: { Authorization: `Bearer ${token}` },
+            });
+            if (pagesRes.ok) {
+              const data = await pagesRes.json();
+              const pages = Array.isArray(data) ? data : data.pages || [];
+              for (const pg of pages) {
+                if (pg.path && pg.image) imageByUrl.set(`${SITE_URL}${pg.path}`, toMedia(pg.image));
               }
             }
           } catch (e) {
@@ -61,10 +85,13 @@ export default defineConfig({
     sitemap({
       // The /nova-preview/ placeholder templates are noindexed build artefacts.
       filter: (page) => !page.includes('/nova-preview/'),
-      // Attach a real lastmod to posts (map filled during postRedirects' fetch).
+      // Attach a real lastmod + hero image to each URL (maps filled during the
+      // postRedirects fetch) so the sitemap carries lastmod and <image:image>.
       serialize(item) {
         const lastmod = lastmodByUrl.get(item.url);
         if (lastmod) item.lastmod = lastmod;
+        const img = imageByUrl.get(item.url);
+        if (img) item.img = [{ url: img }];
         return item;
       },
     }),
