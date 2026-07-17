@@ -1,0 +1,61 @@
+---
+// "Recent Bowland walks" feature — a featured card plus the next few most
+// recent posts under /forest-of-bowland-walks/. Used on the homepage and the
+// Forest of Bowland page. Renders nothing if there are no walks.
+import PostCard from './PostCard.astro';
+import { getPosts, toCard } from '../lib/content';
+
+interface Props {
+  title?: string;
+  /** Total cards including the featured one. */
+  count?: number;
+  eyebrow?: string;
+  moreHref?: string;
+  moreLabel?: string;
+}
+const {
+  title = 'Recent Bowland walks',
+  count = 4,
+  eyebrow = 'Latest',
+  moreHref = '/forest-of-bowland-walks/',
+  moreLabel = 'All walks →',
+} = Astro.props;
+
+const walks = (await getPosts()).filter((p) => p.data.path.startsWith('/forest-of-bowland-walks/'));
+const [featured, ...rest] = walks;
+const recent = rest.slice(0, Math.max(0, count - 1));
+---
+{featured && (
+  <section class="container section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">{eyebrow}</p>
+        <h2>{title}</h2>
+      </div>
+      <a href={moreHref} class="more">{moreLabel}</a>
+    </div>
+    <div class="grid">
+      <PostCard {...toCard(featured)} featured />
+      {recent.map((p) => <PostCard {...toCard(p)} />)}
+    </div>
+  </section>
+)}
+
+<style>
+  .section { padding-block: 3.5rem; }
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .section-head h2 { margin: 0.15rem 0 0; }
+  .section-head .eyebrow { display: block; }
+  .more { font-weight: 600; white-space: nowrap; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+</style>
