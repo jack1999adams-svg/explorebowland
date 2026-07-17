@@ -6,12 +6,14 @@ interface Props {
   template: string;
   title: string;
   html: string;
+  /** Optional second HTML chunk; a <slot> (e.g. a feature) renders between the two. */
+  htmlAfter?: string | null;
   image?: string;
   imageAlt?: string;
   extras?: Record<string, any>;
   crumbs?: Array<{ name: string; url: string }>;
 }
-const { template, title, html, image, imageAlt = '', extras = {}, crumbs = [] } = Astro.props;
+const { template, title, html, htmlAfter = null, image, imageAlt = '', extras = {}, crumbs = [] } = Astro.props;
 ---
 
 {template === 'landing' ? (
@@ -34,6 +36,12 @@ const { template, title, html, image, imageAlt = '', extras = {}, crumbs = [] } 
   {crumbs.length > 1 && <Breadcrumbs crumbs={crumbs} />}
   <div class="prose" set:html={html} />
 </article>
+<slot />
+{htmlAfter && (
+  <article class="container np-page np-page--after">
+    <div class="prose" set:html={htmlAfter} />
+  </article>
+)}
 
 <style>
   .np-head { padding-block: 3rem 1.5rem; background: var(--paper-2, #f7f8f4); border-bottom: 1px solid var(--line, #e6e8e0); }
@@ -51,4 +59,6 @@ const { template, title, html, image, imageAlt = '', extras = {}, crumbs = [] } 
   .np-cta:hover { background: var(--green-ink, #5f8021); color: #fff; }
 
   .np-page { padding-block: 2.5rem 3.5rem; }
+  /* When a feature is injected mid-page, tighten the seam between the halves. */
+  .np-page--after { padding-block: 0.5rem 3.5rem; }
 </style>

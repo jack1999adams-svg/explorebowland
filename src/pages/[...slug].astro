@@ -10,6 +10,7 @@ import PageRender from '../components/PageRender.astro';
 import RecentWalks from '../components/RecentWalks.astro';
 import Tile from '../components/Tile.astro';
 import { loadPages } from '../lib/pages.mjs';
+import { splitAfterImage } from '../lib/split-html.mjs';
 import {
   abs,
   humanize,
@@ -18,6 +19,7 @@ import {
   recipe,
   walkPlace,
 } from '../lib/schema.mjs';
+
 
 // Reproduce every legacy WordPress URL 1:1. Each entry carries its exact
 // original permalink in `data.path`; we turn that into the catch-all slug so
@@ -66,6 +68,9 @@ const CHILD_FALLBACK =
 // Vars the template reads; filled per kind. Portal-managed pages carry
 // pre-rendered HTML + a template and skip the post/page machinery below.
 let Content, d, sectionPosts = [], sectionLabel = '', route = [], crumbs, jsonLd, published, modified;
+// Recent Bowland walks feature (portal pages): whether to show it, and the
+// page body split into the parts before/after the injection point.
+let showRecentWalks = false, pageHtmlBefore = null, pageHtmlAfter = null;
 
 if (kind === 'portalpage') {
   d = { title: portalPage.title, description: portalPage.description, path: portalPage.path, hero: portalPage.image, heroAlt: portalPage.imageAlt };
@@ -79,6 +84,21 @@ if (kind === 'portalpage') {
   // them — same as file-based section pages, so nothing regresses on import.
   sectionPosts = (await getPosts()).filter((p) => p.data.sectionParent === portalPage.path);
   sectionLabel = sectionPosts[0]?.data.sectionLabel || '';
+
+  // Show the Recent Bowland walks feature on the Forest of Bowland page (or any
+  // portal page flagged extras.feature === 'recent-walks'), rendered in place of
+  // the imported empty heading stubs by splitting the body HTML there.
+  showRecentWalks =
+    portalPage.path === '/forest-of-bowland/' || portalPage.extras?.feature === 'recent-walks';
+  if (showRecentWalks) {
+    // Inject the feature directly under the inline image (where the old
+    // WordPress heading stubs used to be).
+    const { before, after } = splitAfterImage(portalPage.html);
+    pageHtmlBefore = before;
+    pageHtmlAfter = after;
+  } else {
+    pageHtmlBefore = portalPage.html;
+  }
 } else {
   ({ Content } = await render(entry));
   d = entry.data;
@@ -151,12 +171,9 @@ if (kind === 'portalpage') {
 
 {kind === 'portalpage' ? (
   <BaseLayout title={d.title} description={d.description} path={d.path} image={d.hero} imageAlt={d.heroAlt} jsonLd={jsonLd}>
-    <PageRender template={portalPage.template} title={portalPage.title} html={portalPage.html} image={portalPage.image} imageAlt={portalPage.imageAlt} extras={portalPage.extras} crumbs={crumbs} />
-    {/* Recent Bowland walks feature — on the Forest of Bowland page (or any
-        portal page flagged extras.feature === 'recent-walks'). */}
-    {(portalPage.path === '/forest-of-bowland/' || portalPage.extras?.feature === 'recent-walks') && (
-      <RecentWalks title="Recent Forest of Bowland walks" count={4} />
-    )}
+    <PageRender template={portalPage.template} title={portalPage.title} html={pageHtmlBefore} htmlAfter={pageHtmlAfter} image={portalPage.image} imageAlt={portalPage.imageAlt} extras={portalPage.extras} crumbs={crumbs}>
+      {showRecentWalks && <RecentWalks title="Recent Forest of Bowland walks" count={4} />}
+    </PageRender>
     {(portalPage.children ?? []).length > 0 && (
       <section class="container section-list">
         <div class="grid">
