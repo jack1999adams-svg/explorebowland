@@ -9,7 +9,9 @@ import { getPosts, toCard } from '../lib/content';
 const IMG = `${(import.meta.env.IMAGE_BASE || 'https://media.explorebowland.co.uk').replace(/\/+$/, '')}/wp-content/uploads`;
 
 const posts = await getPosts();
-const [featured, ...rest] = posts;
+// "Recent Bowland walks" — only posts that sit under /forest-of-bowland-walks/.
+const bowlandWalks = posts.filter((p) => p.data.path.startsWith('/forest-of-bowland-walks/'));
+const [featured, ...rest] = bowlandWalks;
 const recent = rest.slice(0, 6);
 
 const bowlandCount = posts.filter((p) => p.data.categories.includes('Bowland Walks')).length;
@@ -70,7 +72,7 @@ const heroImg = `${IMG}/2020/10/Longridge-Fell-sunrise.jpg`;
     <div class="section-head">
       <div>
         <p class="eyebrow">Latest</p>
-        <h2>Recent walks &amp; posts</h2>
+        <h2>Recent Bowland walks</h2>
       </div>
       <a href="/forest-of-bowland-walks/" class="more">All walks →</a>
     </div>
