@@ -106,5 +106,12 @@ const schema = [organization(), website(), ...jsonLd];
       <slot />
     </main>
     <Footer />
+
+    {/*
+      Portal-managed chat assistant. Served from the portal, so widget fixes
+      never need a site rebuild. Renders nothing until the chat is switched on
+      with an API key in the portal — until then it's one cached request.
+    */}
+    <script src="https://novaportal-explorebowland.collectiq.workers.dev/api/c/chat/widget.js" defer></script>
   </body>
 </html>
