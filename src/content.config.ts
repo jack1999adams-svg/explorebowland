@@ -67,6 +67,9 @@ const posts = defineCollection({
           label: z.string(),
           value: z.string(),
           coords: z.boolean().optional(),
+          // `file` rows (e.g. the GPX) render as a download arrow in RoutePanel;
+          // without this in the schema Zod strips it and the type is lost.
+          type: z.string().optional(),
         }),
       )
       .optional()

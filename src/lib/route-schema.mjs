@@ -20,6 +20,9 @@ export const ROUTE_SCHEMA = [
   { key: 'nearby_pub', label: 'Nearby pub' },
   { key: 'nearby_hotel', label: 'Nearby hotel' },
   { key: 'links', label: 'Links' },
+  // Uploaded in the portal (a `file` custom field). Its value is the GPX URL;
+  // the RoutePanel renders it as a download arrow. Omitted when no GPX is set.
+  { key: 'gpx', label: 'Download GPX', type: 'file' },
 ];
 
 /**

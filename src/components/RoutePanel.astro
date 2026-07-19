@@ -5,7 +5,7 @@
 // `novaIf` (panel + per-row) only appears on the /nova-preview/ template pages:
 // NovaPortal substitutes the placeholder and removes elements whose value
 // resolved empty — mirroring the blank-fields-omitted rule of real builds.
-interface RouteItem { key: string; label: string; value: string; coords?: boolean; novaIf?: string; }
+interface RouteItem { key: string; label: string; value: string; coords?: boolean; type?: string; novaIf?: string; }
 interface Props { route: RouteItem[]; novaIf?: string; }
 const { route, novaIf } = Astro.props;
 
@@ -29,10 +29,16 @@ const displayLen = (v: string) => (isUrl(v) ? hostOf(v).length : v.trim().length
     </div>
     <dl class="route-list">
       {route.map((item) => (
-        <div class:list={['route-row', { wide: displayLen(item.value) > 20 }]} data-nova-if={item.novaIf}>
+        <div class:list={['route-row', { wide: item.type !== 'file' && displayLen(item.value) > 20 }]} data-nova-if={item.novaIf}>
           <dt>{item.label}</dt>
           <dd>
-            {(item.coords || isCoords(item.value)) ? (
+            {item.type === 'file' ? (
+              <a class="route-download" href={item.value} download aria-label={`Download ${item.label}`}>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3v11M7.5 9.5 12 14l4.5-4.5M5 20h14" />
+                </svg>
+              </a>
+            ) : (item.coords || isCoords(item.value)) ? (
               <a href={`https://www.google.com/maps?q=${encodeURIComponent(item.value)}`} target="_blank" rel="noopener noreferrer">{item.value}</a>
             ) : isUrl(item.value) ? (
               <a href={item.value} target="_blank" rel="noopener noreferrer">{hostOf(item.value)}</a>
@@ -100,6 +106,24 @@ const displayLen = (v: string) => (isUrl(v) ? hostOf(v).length : v.trim().length
   .route-row dt { color: var(--ink-soft); font-size: 0.9rem; }
   .route-row dd { margin: 0; text-align: right; font-weight: 600; color: var(--navy); font-size: 0.92rem; }
   .route-row dd a { color: var(--green-ink); font-weight: 600; }
+
+  /* Download arrow for `file` route rows (e.g. the GPX). */
+  .route-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #05230a;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .route-download:hover {
+    transform: translateY(1px);
+    box-shadow: 0 4px 12px rgba(0, 29, 57, 0.24);
+  }
+  .route-download:active { transform: translateY(2px) scale(0.96); }
 
   /* Elements that only exist for the mobile sheet. */
   .route-fab, .route-backdrop, .route-close { display: none; }

@@ -61,7 +61,8 @@
       { "key": "dogs",          "label": "Dogs",          "type": "text" },
       { "key": "nearby_pub",    "label": "Nearby pub",    "type": "text" },
       { "key": "nearby_hotel",  "label": "Nearby hotel",  "type": "text" },
-      { "key": "links",         "label": "Links",         "type": "text" }
+      { "key": "links",         "label": "Links",         "type": "text" },
+      { "key": "gpx",           "label": "Download GPX",  "type": "file", "accept": ".gpx" }
     ],
     // Page templates this site implements (portal Pages picker + fields).
     // Rendered by src/components/PageRender.astro via the [...slug] catch-all.
