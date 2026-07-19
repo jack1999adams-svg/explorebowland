@@ -64,6 +64,9 @@ const displayLen = (v: string) => (isUrl(v) ? hostOf(v).length : v.trim().length
     if (!fab) return;
     const open = (on) => {
       root.classList.toggle('is-open', on);
+      // Marks the page so the chat launcher can be tucked away while the route
+      // sheet covers the bottom of the screen (see the global style below).
+      document.body.classList.toggle('route-open', on);
       fab.setAttribute('aria-expanded', String(on));
       if (on) root.querySelector('.route-close')?.focus();
     };
@@ -226,5 +229,20 @@ const displayLen = (v: string) => (isUrl(v) ? hostOf(v).length : v.trim().length
 
   @media (prefers-reduced-motion: reduce) {
     .route-card, .route-backdrop { transition: none; }
+  }
+</style>
+
+<style is:global>
+  /*
+   * While the mobile route sheet is open, hide the NovaChat launcher so its
+   * bubble doesn't float over the sheet (covering the Download GPX row). The
+   * chat widget lives in a shadow host in the light DOM, so a global rule
+   * reaches it where this component's scoped styles can't. Desktop shows the
+   * route as a sticky sidebar (no overlap), so this is mobile-only.
+   */
+  @media (max-width: 899px) {
+    body.route-open [data-nova-chat] {
+      display: none !important;
+    }
   }
 </style>
