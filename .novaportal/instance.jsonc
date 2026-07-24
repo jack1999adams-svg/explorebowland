@@ -29,6 +29,10 @@
     "SITE_URL": "https://www.explorebowland.co.uk",
     "LEAD_TO_EMAIL": "jack1999adams@gmail.com",
     "LEAD_FROM_EMAIL": "onboarding@resend.dev",
+    // Sender for SYSTEM email (password resets) when the client has not
+    // configured their own. Must be a domain verified in the SAME Resend
+    // account as the AUTH_RESEND_KEY secret — they are checked together.
+    "AUTH_FROM_EMAIL": "noreply@novawebsites.co.uk",
     // Portal-editable theme tokens. `cssVar` must exist in src/styles/global.css
     // and `default` must match its current value byte-for-byte (the portal only
     // emits CSS for values that differ from the default).
