@@ -59,6 +59,13 @@ const schema = [organization(), website(), ...jsonLd];
     <link rel="preconnect" href="https://media.explorebowland.co.uk" crossorigin />
     <link rel="dns-prefetch" href="https://media.explorebowland.co.uk" />
 
+    {/* Favicons — the hen harrier from the logo. */}
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
