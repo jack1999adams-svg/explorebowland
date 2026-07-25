@@ -101,6 +101,25 @@ export function recipe({ title, description, canonical, image, published }) {
   };
 }
 
+/**
+ * FAQPage from { q, a } pairs. Needs at least two Q&A to be a meaningful FAQ.
+ * The same pairs are rendered visibly on the page (Google requires the marked-up
+ * answers to be present in the page content).
+ */
+export function faqPage(faqs) {
+  const list = (faqs || []).filter((f) => f && f.q && f.a);
+  if (list.length < 2) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: list.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+}
+
 /** Parse a decimal "lat,lng" (or a maps URL containing @lat,lng) into coords. */
 function parseLatLng(value) {
   if (!value) return null;

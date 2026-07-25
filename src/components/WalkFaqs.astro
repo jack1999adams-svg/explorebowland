@@ -1,0 +1,42 @@
+---
+// Visible "Good to know" Q&A block for a walk. Renders the same { q, a } pairs
+// that feed the FAQPage JSON-LD, so the marked-up answers are present on the
+// page (Google's requirement for FAQ structured data). Only shows when there
+// are at least two facts to list.
+interface Props {
+  faqs: Array<{ q: string; a: string }>;
+}
+const { faqs = [] } = Astro.props;
+---
+{faqs.length >= 2 && (
+  <section class="container faqs">
+    <div class="section-head">
+      <p class="eyebrow">Good to know</p>
+      <h2>Walk questions, answered</h2>
+    </div>
+    <dl>
+      {faqs.map((f) => (
+        <div class="faq">
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+)}
+
+<style>
+  .faqs { padding-block: 1.5rem 3.5rem; }
+  .section-head { margin-bottom: 1.25rem; }
+  .section-head h2 { margin: 0.15rem 0 0; }
+  .section-head .eyebrow { display: block; }
+  dl { max-width: var(--measure); margin: 0; display: grid; gap: 0.9rem; }
+  .faq {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    background: var(--paper-2);
+  }
+  dt { font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+  dd { margin: 0; color: var(--ink-soft); }
+</style>

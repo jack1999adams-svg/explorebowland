@@ -9,9 +9,11 @@ import { getPosts, toCard } from '../lib/content';
 import PageRender from '../components/PageRender.astro';
 import RecentWalks from '../components/RecentWalks.astro';
 import RelatedWalks from '../components/RelatedWalks.astro';
+import WalkFaqs from '../components/WalkFaqs.astro';
 import Tile from '../components/Tile.astro';
 import { loadPages } from '../lib/pages.mjs';
 import { splitAfterImage } from '../lib/split-html.mjs';
+import { buildWalkFaqs } from '../lib/walk-faqs.mjs';
 import {
   abs,
   humanize,
@@ -19,6 +21,7 @@ import {
   article,
   recipe,
   walkPlace,
+  faqPage,
 } from '../lib/schema.mjs';
 
 
@@ -69,6 +72,8 @@ const CHILD_FALLBACK =
 // Vars the template reads; filled per kind. Portal-managed pages carry
 // pre-rendered HTML + a template and skip the post/page machinery below.
 let Content, d, sectionPosts = [], sectionLabel = '', route = [], crumbs, jsonLd, published, modified;
+// Walk FAQs: visible "Good to know" block + matching FAQPage JSON-LD.
+let faqs = [];
 // Recent Bowland walks feature (portal pages): whether to show it, and the
 // page body split into the parts before/after the injection point.
 let showRecentWalks = false, pageHtmlBefore = null, pageHtmlAfter = null;
@@ -166,6 +171,11 @@ if (kind === 'portalpage') {
         : article({ ...meta, published, modified }),
     );
     if (isWalk) jsonLd.push(walkPlace({ ...meta, route }));
+    if (isWalk) {
+      faqs = buildWalkFaqs(route);
+      const fp = faqPage(faqs);
+      if (fp) jsonLd.push(fp);
+    }
   }
 }
 ---
@@ -234,6 +244,8 @@ if (kind === 'portalpage') {
       </p>
     )}
   </article>
+
+  {kind === 'post' && faqs.length >= 2 && <WalkFaqs faqs={faqs} />}
 
   {kind === 'post' && <RelatedWalks current={entry} />}
 
