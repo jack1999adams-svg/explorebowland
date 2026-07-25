@@ -105,8 +105,10 @@ a:hover { color: var(--green-dark); }
 .btn {
   display: inline-block;
   background: var(--green);
-  color: #fff;
-  font-weight: 600;
+  /* Dark green ink on the bright green — ~7.9:1, well past AA (white text
+     failed at ~2.3:1). Matches the portal CTA (.np-cta) so all buttons agree. */
+  color: #05230a;
+  font-weight: 700;
   padding: 0.7em 1.3em;
   border-radius: 999px;
   text-decoration: none;
