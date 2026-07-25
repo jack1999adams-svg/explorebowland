@@ -8,7 +8,9 @@ interface Props {
   /** Pre-formatted date text (the /nova-preview/ templates pass a placeholder). */
   dateDisplay?: string;
 }
+import { heroImage } from '../lib/hero-image.mjs';
 const { title, hero, heroAlt = '', pubDate, categories = [], dateDisplay } = Astro.props;
+const h = await heroImage(hero);
 const dateStr =
   dateDisplay ??
   (pubDate
@@ -18,7 +20,18 @@ const dateStr =
 
 {hero ? (
   <header class="hero has-image">
-    <img src={hero} alt={heroAlt} class="hero-bg" loading="eager" fetchpriority="high" width="1600" height="900" />
+    <img
+      src={h.src}
+      srcset={h.srcset}
+      sizes="100vw"
+      alt={heroAlt}
+      class="hero-bg"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      width={h.width}
+      height={h.height}
+    />
     <div class="scrim"></div>
     <div class="container hero-inner">
       {categories.length > 0 && (
