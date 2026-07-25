@@ -1,0 +1,58 @@
+---
+// "More walks" block for a walk post — links to other walks in the same section,
+// prioritising those that share the current walk's postcode area (nearby). Only
+// renders for walk sections; nothing for journal/other posts.
+import PostCard from './PostCard.astro';
+import { getPosts, toCard } from '../lib/content';
+
+const WALK_SECTIONS = new Set(['/forest-of-bowland-walks/', '/other-walks/']);
+interface Props {
+  current: any;
+  count?: number;
+}
+const { current, count = 4 } = Astro.props;
+
+const section = current?.data?.sectionParent;
+const outcode = (p) =>
+  (p?.data?.route?.find((r) => r.key === 'postcode')?.value || '').trim().split(/\s+/)[0].toUpperCase();
+
+let related = [];
+if (section && WALK_SECTIONS.has(section)) {
+  const oc = outcode(current);
+  const pool = (await getPosts()).filter(
+    (p) => p.data.path !== current.data.path && p.data.sectionParent === section,
+  );
+  related = pool
+    .sort(
+      (a, b) =>
+        (oc && outcode(b) === oc ? 1 : 0) - (oc && outcode(a) === oc ? 1 : 0) ||
+        +new Date(b.data.pubDate || 0) - +new Date(a.data.pubDate || 0),
+    )
+    .slice(0, count);
+}
+
+const heading = section === '/forest-of-bowland-walks/' ? 'More Bowland walks' : 'More walks to explore';
+---
+{related.length > 0 && (
+  <section class="container related">
+    <div class="section-head">
+      <p class="eyebrow">Keep exploring</p>
+      <h2>{heading}</h2>
+    </div>
+    <div class="grid">
+      {related.map((p) => <PostCard {...toCard(p)} />)}
+    </div>
+  </section>
+)}
+
+<style>
+  .related { padding-block: 1.5rem 3.5rem; }
+  .section-head { margin-bottom: 1.5rem; }
+  .section-head h2 { margin: 0.15rem 0 0; }
+  .section-head .eyebrow { display: block; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+</style>
